@@ -4,10 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pocket/app/src/main/res/drawable/plantext.xml" value="0.1" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pocket/app/src/main/res/drawable/signin.xml" value="0.1" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pocket/app/src/main/res/font/font.xml" value="0.1" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pocket/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pocket/app/src/main/res/layout/activity_main.xml" value="0.14537037037037037" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pocket/app/src/main/res/layout/activity_sign_in.xml" value="0.9" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pocket/app/src/main/res/layout/activity_sign_in.xml" value="0.5" />
       </map>
     </option>
   </component>

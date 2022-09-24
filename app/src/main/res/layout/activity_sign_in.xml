@@ -8,24 +8,27 @@
 
     <EditText
         android:id="@+id/editTextTextPersonName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="210dp"
+        android:layout_height="25dp"
         android:layout_marginTop="100dp"
+        android:background="@drawable/signin"
         android:ems="10"
-        android:hint="이름"
+        android:hint="아이디"
         android:inputType="textPersonName"
         android:textAlignment="center"
+        android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextTextPersonName2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="210dp"
+        android:layout_height="25dp"
         android:layout_marginTop="15dp"
+        android:background="@drawable/signin"
         android:ems="10"
-        android:hint="아이디"
+        android:hint="비밀번호"
         android:inputType="textPersonName"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
@@ -34,11 +37,12 @@
 
     <EditText
         android:id="@+id/editTextTextPersonName3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="210dp"
+        android:layout_height="25dp"
         android:layout_marginTop="15dp"
+        android:background="@drawable/signin"
         android:ems="10"
-        android:hint="비밀번호"
+        android:hint="비밀번호 재입력"
         android:inputType="textPersonName"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName2"
@@ -47,11 +51,12 @@
 
     <EditText
         android:id="@+id/editTextTextPersonName4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="210dp"
+        android:layout_height="25dp"
         android:layout_marginTop="15dp"
+        android:background="@drawable/signin"
         android:ems="10"
-        android:hint="비밀번호 재입력"
+        android:hint="이름"
         android:inputType="textPersonName"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName3"
@@ -60,9 +65,10 @@
 
     <EditText
         android:id="@+id/editTextTextPersonName5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="210dp"
+        android:layout_height="25dp"
         android:layout_marginTop="15dp"
+        android:background="@drawable/signin"
         android:ems="10"
         android:hint="학교"
         android:inputType="textPersonName"
@@ -73,9 +79,10 @@
 
     <EditText
         android:id="@+id/editTextTextPersonName6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="210dp"
+        android:layout_height="25dp"
         android:layout_marginTop="15dp"
+        android:background="@drawable/signin"
         android:ems="10"
         android:hint="핸드폰 번호"
         android:inputType="textPersonName"
@@ -87,9 +94,10 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="210dp"
+        android:layout_height="25dp"
         android:layout_marginTop="15dp"
+        android:backgroundTint="#8A8FA8"
         android:text="회원가입"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName6"
         app:layout_constraintHorizontal_bias="0.0"
@@ -129,6 +137,14 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ID"
+        tools:layout_editor_absoluteX="101dp"
+        tools:layout_editor_absoluteY="73dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
