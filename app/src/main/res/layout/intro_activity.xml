@@ -7,8 +7,8 @@
 
     <ImageView
         android:id="@+id/dw_logo"
-        android:layout_width="204dp"
-        android:layout_height="210dp"
+        android:layout_width="271dp"
+        android:layout_height="269dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
