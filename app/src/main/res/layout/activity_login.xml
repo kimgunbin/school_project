@@ -72,8 +72,8 @@
 
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="184dp"
-        android:layout_height="40dp"
+        android:layout_width="173dp"
+        android:layout_height="39dp"
         android:layout_marginTop="12dp"
         android:backgroundTint="#8A8FA8"
         android:insetTop="0dp"
@@ -86,7 +86,6 @@
         app:cornerRadius="20dp"
         app:iconPadding="8dp"
         app:layout_constraintEnd_toEndOf="@+id/edtPw"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/edtPw"
         app:layout_constraintTop_toBottomOf="@+id/edtPw" />
 
