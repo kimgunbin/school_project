@@ -18,10 +18,11 @@ import com.example.pocket.class_.database.DbHelper;
 public class SignInActivity extends AppCompatActivity {
 
     EditText etId,  etPw1, etPw2, etName, etSchool, etTel;
-    RadioButton rbTeacher, rbStudent,rdoButton;
-    RadioGroup radio_group;
+    RadioButton rbTeacher, rbStudent;
+    String result = "";
     Button btnSign;
     String type = "";
+    String postText = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +42,7 @@ public class SignInActivity extends AppCompatActivity {
 
 
         btnSign.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 if(etPw1.getText().toString().equals(etPw2.getText().toString())) {
@@ -49,18 +51,23 @@ public class SignInActivity extends AppCompatActivity {
                     }else if(rbStudent.isChecked()){
                         type = "1";
                     }
-
-
-                    String postText = etId.getText().toString()+"/"+etPw1.getText().toString()+"/"
+                    postText = etId.getText().toString()+"/"+etPw1.getText().toString()+"/"
                             +etName.getText().toString()+"/"+etSchool.getText().toString()
                             +"/"+etTel.getText().toString()+"/"+type;
-
-                    String result = dbHelper.connectServer("http://210.183.87.95:5000/SignUp",postText);
+                    while(true) {
+                        result = dbHelper.connectServer("http://210.183.87.95:5000/SignUp", postText);
+                        if(result!=null){
+                            break;
+                        }
+                    }
                     Log.v("타이머", result);
-
+                    if(result.equals("회원가입 성공")) {
                         Toast.makeText(getApplicationContext(), "회원가입 성공", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(SignInActivity.this, LoginActivity.class);
                         startActivity(intent);
+                    }else{
+                        Toast.makeText(getApplicationContext(), "회원가입 실패", Toast.LENGTH_SHORT).show();
+                    }
                 }else{
                     Toast.makeText(getApplicationContext(), "비밀번호가 다릅니다", Toast.LENGTH_SHORT).show();
 

@@ -81,7 +81,8 @@ public class DbHelper {
                             e.printStackTrace();
                         }
                     }
-                });
+
+                }).start();
             }
         });
 
@@ -113,17 +114,21 @@ public class DbHelper {
             public void onResponse(Call call, final Response response) throws IOException {
                 // In order to access the TextView inside the UI thread, the code is executed inside runOnUiThread()
 
+
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                try {
-                    result2 = response.body().bytes();
+                        try {
+                            result2 = response.body().bytes();
 
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
-                });
+
+                }).start();
+
+
             }
         });
 
