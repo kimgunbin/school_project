@@ -36,27 +36,28 @@ public class SignInActivity extends AppCompatActivity {
 
         rbTeacher = findViewById(R.id.rbTeacher);
         rbStudent = findViewById(R.id.rbStudent);
-        radio_group = findViewById(R.id.radio_group);
         btnSign = findViewById(R.id.btnSign);
-        rdoButton = findViewById(radio_group.getCheckedRadioButtonId() );
+
 
 
         btnSign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(etPw1.getText().toString().equals(etPw2.getText().toString())) {
-                    if(radio_group.toString().equals("교직원")){
-                        type="0";
-                    }else{
-                        type="1";
+                    if(rbTeacher.isChecked()){
+                        type = "0";
+                    }else if(rbStudent.isChecked()){
+                        type = "1";
                     }
-                    Log.v("타이머", type);
+
+
                     String postText = etId.getText().toString()+"/"+etPw1.getText().toString()+"/"
                             +etName.getText().toString()+"/"+etSchool.getText().toString()
                             +"/"+etTel.getText().toString()+"/"+type;
-                    Log.v("타이머", postText);
+
                     String result = dbHelper.connectServer("http://210.183.87.95:5000/SignUp",postText);
                     Log.v("타이머", result);
+
                         Toast.makeText(getApplicationContext(), "회원가입 성공", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(SignInActivity.this, LoginActivity.class);
                         startActivity(intent);

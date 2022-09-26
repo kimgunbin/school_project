@@ -70,22 +70,23 @@ public class DbHelper {
 
             @Override
             public void onResponse(Call call, final Response response) throws IOException {
-                 Thread(new Runnable() {
+
+                new Thread(new Runnable() {
                     @Override
                     public void run() {
                         try {
                             result = response.body().string();
+
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-
                     }
+                });
             }
         });
-                 return result;
-        }
 
-
+        return result;
+    }
 
     byte[] postRequest2(String postUrl, RequestBody postBody) {
 
@@ -112,14 +113,17 @@ public class DbHelper {
             public void onResponse(Call call, final Response response) throws IOException {
                 // In order to access the TextView inside the UI thread, the code is executed inside runOnUiThread()
 
-
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
                 try {
                     result2 = response.body().bytes();
 
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
+                    }
+                });
             }
         });
 
