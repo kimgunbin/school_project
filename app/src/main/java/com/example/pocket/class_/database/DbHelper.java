@@ -70,20 +70,22 @@ public class DbHelper {
 
             @Override
             public void onResponse(Call call, final Response response) throws IOException {
+                 Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            result = response.body().string();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
 
-
-                try {
-                    result = response.body().string();
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
+                    }
             }
         });
+                 return result;
+        }
 
-        return result;
-    }
+
 
     byte[] postRequest2(String postUrl, RequestBody postBody) {
 
