@@ -7,7 +7,7 @@
     tools:context=".activity.SignInActivity">
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/etId"
         android:layout_width="210dp"
         android:layout_height="30dp"
         android:layout_marginTop="120dp"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/etPw1"
         android:layout_width="210dp"
         android:layout_height="30dp"
         android:layout_marginTop="30dp"
@@ -32,12 +32,12 @@
         android:inputType="textPersonName"
         android:textAlignment="center"
         android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintEnd_toEndOf="@+id/etId"
+        app:layout_constraintStart_toStartOf="@+id/etId"
+        app:layout_constraintTop_toBottomOf="@+id/etId" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/etPw2"
         android:layout_width="210dp"
         android:layout_height="30dp"
         android:layout_marginTop="30dp"
@@ -47,12 +47,12 @@
         android:inputType="textPersonName"
         android:textAlignment="center"
         android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName2"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintEnd_toEndOf="@+id/etPw1"
+        app:layout_constraintStart_toStartOf="@+id/etPw1"
+        app:layout_constraintTop_toBottomOf="@+id/etPw1" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName4"
+        android:id="@+id/etName"
         android:layout_width="210dp"
         android:layout_height="30dp"
         android:layout_marginTop="30dp"
@@ -62,12 +62,12 @@
         android:inputType="textPersonName"
         android:textAlignment="center"
         android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName3"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName3"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+        app:layout_constraintEnd_toEndOf="@+id/etPw2"
+        app:layout_constraintStart_toStartOf="@+id/etPw2"
+        app:layout_constraintTop_toBottomOf="@+id/etPw2" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName5"
+        android:id="@+id/etSchool"
         android:layout_width="210dp"
         android:layout_height="30dp"
         android:layout_marginTop="30dp"
@@ -77,12 +77,12 @@
         android:inputType="textPersonName"
         android:textAlignment="center"
         android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName4"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName4"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4" />
+        app:layout_constraintEnd_toEndOf="@+id/etName"
+        app:layout_constraintStart_toStartOf="@+id/etName"
+        app:layout_constraintTop_toBottomOf="@+id/etName" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName6"
+        android:id="@+id/etTel"
         android:layout_width="210dp"
         android:layout_height="30dp"
         android:layout_marginTop="30dp"
@@ -92,13 +92,13 @@
         android:inputType="textPersonName"
         android:textAlignment="center"
         android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName5"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName5"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5" />
+        app:layout_constraintEnd_toEndOf="@+id/etSchool"
+        app:layout_constraintStart_toStartOf="@+id/etSchool"
+        app:layout_constraintTop_toBottomOf="@+id/etSchool" />
 
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnSign"
         android:layout_width="210dp"
         android:layout_height="30dp"
         android:layout_marginTop="20dp"
@@ -106,9 +106,9 @@
         android:insetTop="0dp"
         android:insetBottom="0dp"
         android:text="회원가입"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName6"
+        app:layout_constraintEnd_toEndOf="@+id/etTel"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName6"
+        app:layout_constraintStart_toStartOf="@+id/etTel"
         app:layout_constraintTop_toBottomOf="@+id/radio_group" />
 
     <RadioGroup
@@ -117,21 +117,21 @@
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName6"
+        app:layout_constraintEnd_toEndOf="@+id/etTel"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName6"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName6"
+        app:layout_constraintStart_toStartOf="@+id/etTel"
+        app:layout_constraintTop_toBottomOf="@+id/etTel"
         tools:ignore="MissingConstraints">
 
         <RadioButton
-            android:id="@+id/radio_button_teacher"
+            android:id="@+id/rbTeacher"
             android:layout_width="114dp"
             android:layout_height="match_parent"
             android:text="교직원"
             android:textSize="12sp" />
 
         <RadioButton
-            android:id="@+id/radio_button_student"
+            android:id="@+id/rbStudent"
             android:layout_width="105dp"
             android:layout_height="match_parent"
             android:layout_marginEnd="8dp"
@@ -154,8 +154,8 @@
         android:text="아이디"
         android:textSize="12sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName" />
+        app:layout_constraintBottom_toTopOf="@+id/etId"
+        app:layout_constraintStart_toStartOf="@+id/etId" />
 
     <TextView
         android:id="@+id/textView5"
@@ -164,8 +164,8 @@
         android:text="비밀번호"
         android:textSize="12sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName2"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintBottom_toTopOf="@+id/etPw1"
+        app:layout_constraintStart_toStartOf="@+id/etPw1" />
 
     <TextView
         android:id="@+id/textView6"
@@ -174,8 +174,8 @@
         android:text="비밀번호 재입력"
         android:textSize="12sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName3"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName3" />
+        app:layout_constraintBottom_toTopOf="@+id/etPw2"
+        app:layout_constraintStart_toStartOf="@+id/etPw2" />
 
     <TextView
         android:id="@+id/textView7"
@@ -184,8 +184,8 @@
         android:text="이름"
         android:textSize="12sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName4"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName4" />
+        app:layout_constraintBottom_toTopOf="@+id/etName"
+        app:layout_constraintStart_toStartOf="@+id/etName" />
 
     <TextView
         android:id="@+id/textView8"
@@ -194,8 +194,8 @@
         android:text="학교"
         android:textSize="12sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName5"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName5" />
+        app:layout_constraintBottom_toTopOf="@+id/etSchool"
+        app:layout_constraintStart_toStartOf="@+id/etSchool" />
 
     <TextView
         android:id="@+id/textView9"
@@ -204,8 +204,8 @@
         android:text="핸드폰번호"
         android:textSize="12sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName6"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName6" />
+        app:layout_constraintBottom_toTopOf="@+id/etTel"
+        app:layout_constraintStart_toStartOf="@+id/etTel" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
