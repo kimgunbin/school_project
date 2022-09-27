@@ -57,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 }
                 Log.v("r",result);
-                if (result.equals("로그인 실패")) {
+                if (result.equals("로그인실패")) {
                     Toast.makeText(getApplicationContext(), "로그인 실패", Toast.LENGTH_SHORT).show();
                 }else if(result.equals("0")) {
                     Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT).show();

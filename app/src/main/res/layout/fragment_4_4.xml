@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#8BC34A"
-    tools:context=".fragment.Fragment4" >
+    tools:context=".fragment.Fragment44" >
 
     <EditText
         android:id="@+id/eturl"

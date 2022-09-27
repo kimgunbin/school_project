@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
         fl = findViewById(R.id.fl);
 
         // 어플을 처음 실행시켜줄때 첫화면이 Fragment1이 되게하기위해
-       /* getSupportFragmentManager().beginTransaction().replace(
-                R.id.fl, new Fragment1()).commit();;*/
+        getSupportFragmentManager().beginTransaction().replace(
+                R.id.fl, new Fragment1()).commit();;
 
         bnv.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
