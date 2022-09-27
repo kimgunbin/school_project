@@ -25,7 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText edtId, edtPw;
     TextView tvJoin;
     String result = "";
-    int cnt = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,7 +82,7 @@ public class LoginActivity extends AppCompatActivity {
                         }
 
 
-cnt+=1;
+
                 }
 
             }
