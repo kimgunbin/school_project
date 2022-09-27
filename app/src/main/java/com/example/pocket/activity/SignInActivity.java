@@ -19,7 +19,7 @@ public class SignInActivity extends AppCompatActivity {
 
     EditText etId,  etPw1, etPw2, etName, etSchool, etTel;
     RadioButton rbTeacher, rbStudent;
-    String result = "";
+    String result = "check";
     Button btnSign;
     String type = "";
     String postText = "";

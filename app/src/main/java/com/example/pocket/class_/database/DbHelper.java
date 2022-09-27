@@ -72,17 +72,19 @@ public class DbHelper {
             public void onResponse(Call call, final Response response) throws IOException {
 
                 new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            result = response.body().string();
+                        @Override
+                        public void run() {
+                            try {
 
-                        } catch (IOException e) {
-                            e.printStackTrace();
+                                result = response.body().string();
+
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                         }
-                    }
 
-                }).start();
+                    }).start();
+
             }
         });
 
