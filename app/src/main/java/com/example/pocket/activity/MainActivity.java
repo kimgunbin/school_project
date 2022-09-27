@@ -1,5 +1,6 @@
 package com.example.pocket.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -8,7 +9,6 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.example.pocket.R;
-import com.example.pocket.class_.database.DbHelper;
 import com.example.pocket.fragment.Fragment1;
 import com.example.pocket.fragment.Fragment2;
 import com.example.pocket.fragment.Fragment3;
@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
         fl = findViewById(R.id.fl);
 
         // 어플을 처음 실행시켜줄때 첫화면이 Fragment1이 되게하기위해
-       /* getSupportFragmentManager().beginTransaction().replace(
-                R.id.fl, new Fragment1()).commit();;*/
+        getSupportFragmentManager().beginTransaction().replace(
+                R.id.fl, new Fragment1()).commit();;
 
         bnv.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
@@ -41,22 +41,22 @@ public class MainActivity extends AppCompatActivity {
                         // 1) fragment가 들어갈 위치 : fl
                         // 2) 내가 fl에 넣고싶은 fragment의 객체 (new Fragment1)
                         getSupportFragmentManager().beginTransaction().replace(
-                                R.id.fl, new Fragment1()).commit();;
+                                R.id.fl, new Fragment1()).commit();
                         break;
                     case R.id.tab2:
                         Toast.makeText(MainActivity.this,"두번째 탭",Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction().replace(
-                                R.id.fl, new Fragment2()).commit();;
+                                R.id.fl, new Fragment2()).commit();
                         break;
                     case R.id.tab3:
                         Toast.makeText(MainActivity.this,"세번째 탭",Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction().replace(
-                                R.id.fl, new Fragment3()).commit();;
+                                R.id.fl, new Fragment3()).commit();
                         break;
                     case R.id.tab4:
                         Toast.makeText(MainActivity.this,"네번째 탭",Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction().replace(
-                                R.id.fl, new Fragment4()).commit();;
+                                R.id.fl, new Fragment4()).commit();
                         break;
                 }
 

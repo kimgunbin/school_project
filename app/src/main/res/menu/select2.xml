@@ -5,7 +5,7 @@
     <item
         android:id="@+id/tab1"
         android:icon="@drawable/img"
-        android:title="CCTV" />
+        android:title="List" />
     <item
         android:id="@+id/tab2"
         android:icon="@drawable/img_1"
