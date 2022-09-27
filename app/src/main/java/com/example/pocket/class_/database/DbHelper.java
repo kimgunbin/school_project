@@ -1,5 +1,7 @@
 package com.example.pocket.class_.database;
 
+import android.util.Log;
+
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
@@ -20,13 +22,16 @@ public class DbHelper {
         //보낼 주소
         String postUrl = url;
 
+        Log.v("s1", result);
+
         //보낼 값
 
         MediaType mediaType = MediaType.parse("text/plain");
         //MediaType mediaType = MediaType.parse("text/plain; charset=utf-8");
         RequestBody postBody = RequestBody.create(mediaType, postText);
 
-        String result = postRequest(postUrl, postBody);
+           result = postRequest(postUrl, postBody);
+
         return result;
     }
 
@@ -43,8 +48,8 @@ public class DbHelper {
         //MediaType mediaType = MediaType.parse("text/plain; charset=utf-8");
         RequestBody postBody = RequestBody.create(mediaType, postText);
 
-        byte[] result = postRequest2(postUrl, postBody);
-        return result;
+      result2 = postRequest2(postUrl, postBody);
+        return result2;
     }
 
 
@@ -52,6 +57,7 @@ public class DbHelper {
 
     String postRequest(String postUrl, RequestBody postBody) {
 
+        Log.v("s2", result);
         OkHttpClient client = new OkHttpClient();
 
         Request request = new Request.Builder()
@@ -75,7 +81,7 @@ public class DbHelper {
                         @Override
                         public void run() {
                             try {
-
+                                Log.v("s3", result);
                                 result = response.body().string();
 
                             } catch (IOException e) {
@@ -84,7 +90,6 @@ public class DbHelper {
                         }
 
                     }).start();
-
             }
         });
 
