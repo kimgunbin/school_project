@@ -54,20 +54,14 @@ public class SignInActivity extends AppCompatActivity {
                     postText = etId.getText().toString()+"/"+etPw1.getText().toString()+"/"
                             +etName.getText().toString()+"/"+etSchool.getText().toString()
                             +"/"+etTel.getText().toString()+"/"+type;
-                    while(true) {
+
                         result = dbHelper.connectServer("http://210.183.87.95:5000/SignUp", postText);
-                        if(result!=null){
-                            break;
-                        }
-                    }
-                    Log.v("타이머", result);
-                    if(result.equals("회원가입 성공")) {
-                        Toast.makeText(getApplicationContext(), "회원가입 성공", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(SignInActivity.this, LoginActivity.class);
-                        startActivity(intent);
-                    }else{
-                        Toast.makeText(getApplicationContext(), "회원가입 실패", Toast.LENGTH_SHORT).show();
-                    }
+
+                            Toast.makeText(getApplicationContext(), "회원가입 성공", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(SignInActivity.this, LoginActivity.class);
+                            startActivity(intent);
+
+
                 }else{
                     Toast.makeText(getApplicationContext(), "비밀번호가 다릅니다", Toast.LENGTH_SHORT).show();
 
