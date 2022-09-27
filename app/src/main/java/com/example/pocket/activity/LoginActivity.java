@@ -23,6 +23,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText edtId, edtPw;
     TextView tvJoin;
     String result = "";
+    int cnt = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,32 +47,32 @@ public class LoginActivity extends AppCompatActivity {
 
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                String postText = edtId.getText().toString() + "/" + edtPw.getText().toString();
-                while(true) {
-                    result = dbHelper.connectServer("http://210.183.87.95:5000/login", postText);
-                    if(result!=null){
-                        break;
+                @Override
+                public void onClick (View view) {
+
+                        String postText = edtId.getText().toString() + "/" + edtPw.getText().toString();
+
+                        result = dbHelper.connectServer("http://210.183.87.95:5000/login", postText);
+
+
+                            Log.v("r", result);
+
+                            if (result.equals("로그인실패")) {
+                                Toast.makeText(getApplicationContext(), "로그인 실패", Toast.LENGTH_SHORT).show();
+                            } else if (result.equals("0")) {
+                                Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                startActivity(intent);
+                            } else if (result.equals("1")) {
+                                Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(LoginActivity.this, MainActivity2.class);
+                                startActivity(intent);
+
+
+                        }
+
                     }
-                }
-                Log.v("r",result);
-                if (result.equals("로그인실패")) {
-                    Toast.makeText(getApplicationContext(), "로그인 실패", Toast.LENGTH_SHORT).show();
-                }else if(result.equals("0")) {
-                    Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(intent);
-                }else if(result.equals("1")){
-                    Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(LoginActivity.this, MainActivity2.class);
-                    startActivity(intent);
-                }
-
-
-            }
-
 
             });
 
