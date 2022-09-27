@@ -58,19 +58,17 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 Log.v("r",result);
                 if (result.equals("로그인 실패")) {
-
                     Toast.makeText(getApplicationContext(), "로그인 실패", Toast.LENGTH_SHORT).show();
-                } else {
-                    /*
-                    String[] responseText = result.split("/");
-                    if(responseText[1].equals("0")){
-                        Intent intent = new Intent(LoginActivity.this, SignInActivity.class);
-                        startActivity(intent);
-                    }else{
-                        Intent intent = new Intent(LoginActivity.this, SignInActivity.class);
-                        startActivity(intent);*/
+                }else if(result.equals("0")) {
+                    Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(intent);
+                }else if(result.equals("1")){
+                    Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(LoginActivity.this, MainActivity2.class);
+                    startActivity(intent);
                 }
-                Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
+
 
             }
 

@@ -26,7 +26,7 @@ public class Fragment1 extends Fragment {
         View view = inflater.inflate(R.layout.fragment_1, container, false);
 
         WebView wv = view.findViewById(R.id.wv);
-
+/*
         SharedPreferences spf = getActivity().getSharedPreferences(
                 "mySPF",
                 Context.MODE_PRIVATE
@@ -49,7 +49,7 @@ public class Fragment1 extends Fragment {
 
         // 4. 주소 설정
         wv.loadUrl(address);
-
+*/
        return view;
     }
 }
