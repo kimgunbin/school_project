@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/tab1"
+        android:icon="@drawable/img"
+        android:title="CCTV" />
+    <item
+        android:id="@+id/tab2"
+        android:icon="@drawable/img_1"
+        android:title="Chat" />
+    <item
+        android:id="@+id/tab3"
+        android:icon="@drawable/img_3"
+        android:title="MyPage" />
+    <item
+        android:id="@+id/tab4"
+        android:icon="@drawable/img_2"
+        android:title="Setting" />
+</menu>

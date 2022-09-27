@@ -35,10 +35,10 @@
             android:name=".activity.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".activity.SignInActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.SignInActivity"
+            android:name=".activity.MainActivity"
             android:exported="false" />
         <activity
             android:name=".activity.IntroActivity"
