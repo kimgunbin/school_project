@@ -17,5 +17,5 @@
     <item
         android:id="@+id/tab4"
         android:icon="@drawable/set_icon"
-        android:title="Settings" />
+        android:title="Law" />
 </menu>

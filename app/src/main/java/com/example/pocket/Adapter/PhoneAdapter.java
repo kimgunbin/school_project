@@ -83,13 +83,12 @@ public class PhoneAdapter extends BaseAdapter {
             public void onClick(View view) {
                 ConstraintLayout.LayoutParams p1 = new ConstraintLayout.LayoutParams(1,1);
                 ConstraintLayout.LayoutParams p3 = new ConstraintLayout.LayoutParams(378,300);
+
                 if(cnt%2==1) {
                     c1.setLayoutParams(p1);
-
                     cnt+=1;
                 }else{
                     c1.setLayoutParams(p3);
-
                     cnt+=1;
                 }
             }

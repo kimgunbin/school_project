@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -39,45 +42,33 @@ public class Fragment4 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        // findViewById 와 같은 뷰에 접근하는 메소드는 Activity에서만가능
-        // xml (코드) -----inflate -----> 눈에보이는 View객체
-        // fragment4.xml ----> inflate ----> 눈에보이는 View객체
+        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_4, container, false);
-        btnSend =view.findViewById(R.id.btnSend);
-        eturl = view.findViewById(R.id.eturl);
 
-        btnSend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        WebView wv = view.findViewById(R.id.wv);
 
-                String url = eturl.getText().toString();
+        SharedPreferences spf = getActivity().getSharedPreferences(
+                "mySPF",
+                Context.MODE_PRIVATE
+        ); // Fragment에서 만든 mySPF를 가져온다 : 있는거 가져옴
 
-                // 1.getActivity().getApplicationContext()
-                // fragment가 얹어져있는 activity의 정보를 가져와서 화면정보를 얻는다.
-                // 2.getContext()
-                // 화면의 정보를 바로 가져오는 메소드
+        // WebView에 원하는 페이지 띄우기
 
-                //Toast.makeText(getActivity().getApplicationContext(),url,Toast.LENGTH_SHORT).show();
-                Toast.makeText(getContext(),url,Toast.LENGTH_SHORT).show();
+        // 1. 주소 지정
+        // spf에서 getString할 때 필요한 매개변수
+        // 1) key값
+        // 2) default value값 : address(키)에 아무것도 없을 때(value가 없을때)
+        String address = spf.getString("address","https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%ED%95%99%EA%B5%90%ED%8F%AD%EB%A0%A5%EC%98%88%EB%B0%A9%EB%B0%8F%EB%8C%80%EC%B1%85%EC%97%90%EA%B4%80%ED%95%9C%EB%B2%95%EB%A5%A0");
 
-                // sharedpreference에 url값에 저장
+        // 2. 설정 변경 (javascript사용가능)
+        WebSettings ws = wv.getSettings();
+        ws.setJavaScriptEnabled(true);
 
-                // 1. sharedpreference 가져오기
-                // 1) 이름지정
-                // 2) 모드 : context.mode_private
-                // -----> mySPF가 없으면 새로생성, 있으면 있는거 가져옴
-                SharedPreferences spf = getActivity().getSharedPreferences(
-                        "mySPF",
-                        Context.MODE_PRIVATE
-                );
+        // 3. WebView에 Client 설정
+        wv.setWebViewClient(new WebViewClient());
 
-                // 2. spf에 데이터를 저장할 수 있는 editor 가져오기
-                SharedPreferences.Editor editor = spf.edit();
-
-                // 3. editor를 통해서 데이터를 저장하기 (commit 꼭 하기)
-                editor.putString("address",url).commit();
-            }
-        });
+        // 4. 주소 설정
+        wv.loadUrl(address);
 
         return view;
     }
