@@ -1,5 +1,6 @@
 package com.example.pocket.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -30,8 +31,6 @@ public class ChatActivity extends AppCompatActivity {
     private String roomNumber;
     EditText etChatMsg;
     Button btnSendMsg;
-    
-    // 푸쉬 테스트
 
     Gson gson = new Gson();
 
@@ -41,6 +40,9 @@ public class ChatActivity extends AppCompatActivity {
         setContentView(R.layout.activity_chat);
 
         btnSendMsg = findViewById(R.id.btnSendMsg);
+        Intent getIntent = getIntent();
+        userName = getIntent.getStringExtra("userName");
+        roomNumber = getIntent.getStringExtra("roomNumber");
 
         try {
             mSocket = IO.socket("http://59.0.129.222:3000");
