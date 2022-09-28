@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
@@ -70,7 +69,7 @@ public class Fragment33 extends Fragment {
 
 
 
-        pw = view.findViewById(R.id.pw);
+        pw = view.findViewById(R.id.pw1);
 
         tel = view.findViewById(R.id.tel);
 

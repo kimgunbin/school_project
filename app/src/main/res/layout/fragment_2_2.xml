@@ -36,9 +36,9 @@
         android:inputType="textPassword"
         android:textAlignment="center"
         android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="@+id/pw"
-        app:layout_constraintStart_toStartOf="@+id/pw"
-        app:layout_constraintTop_toBottomOf="@+id/pw" />
+        app:layout_constraintEnd_toEndOf="@+id/pw1"
+        app:layout_constraintStart_toStartOf="@+id/pw1"
+        app:layout_constraintTop_toBottomOf="@+id/pw1" />
 
     <EditText
         android:id="@+id/scCode"
@@ -72,7 +72,7 @@
 
 
     <Button
-        android:id="@+id/btnSign"
+        android:id="@+id/btnUpdate"
         android:layout_width="210dp"
         android:layout_height="30dp"
         android:layout_marginTop="30dp"
@@ -86,7 +86,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tel" />
 
     <EditText
-        android:id="@+id/pw"
+        android:id="@+id/pw1"
         android:layout_width="210dp"
         android:layout_height="30dp"
         android:layout_marginTop="150dp"
@@ -107,8 +107,8 @@
         android:text="비밀번호"
         android:textSize="12sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/pw"
-        app:layout_constraintStart_toStartOf="@+id/pw" />
+        app:layout_constraintBottom_toTopOf="@+id/pw1"
+        app:layout_constraintStart_toStartOf="@+id/pw1" />
 
 
     <TextView

@@ -27,7 +27,7 @@ public class SignInActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_in);
         DbHelper dbHelper = new DbHelper();
         etId = findViewById(R.id.etId);
-        etPw1 = findViewById(R.id.pw);
+        etPw1 = findViewById(R.id.pw1);
         etPw2 = findViewById(R.id.pw2);
         etName = findViewById(R.id.etName);
         etSchool = findViewById(R.id.scCode);
@@ -35,7 +35,7 @@ public class SignInActivity extends AppCompatActivity {
 
         rbTeacher = findViewById(R.id.rbTeacher);
         rbStudent = findViewById(R.id.rbStudent);
-        btnSign = findViewById(R.id.btnSign);
+        btnSign = findViewById(R.id.btnUpdate);
 
 
 
