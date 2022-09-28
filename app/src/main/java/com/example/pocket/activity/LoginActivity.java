@@ -1,8 +1,11 @@
 package com.example.pocket.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -25,6 +28,8 @@ public class LoginActivity extends AppCompatActivity {
     EditText edtId, edtPw;
     TextView tvJoin;
     String result = "";
+    SharedPreferences pref;
+    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,15 +74,17 @@ public class LoginActivity extends AppCompatActivity {
                         Log.v("list", list[6].replace("'",""));
                         String Check = list[6].replace("'","").replace(" ","");
                             if (Check.equals("0")) {
+
+                                saved(list);
                                 Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 startActivity(intent);
                             }
                             if (Check.equals("1")) {
+                                saved(list);
                                 Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(LoginActivity.this, MainActivity2.class);
                                 startActivity(intent);
-
 
                         }
 
@@ -87,8 +94,47 @@ public class LoginActivity extends AppCompatActivity {
 
             }
 
+            private void saved(@NonNull String[] list) {
+                String id = list[1].replace("'","").replace(" ","");
+                String pw = list[2].replace("'","").replace(" ","");
+                String name = list[3].replace("'","").replace(" ","");
+                String scCode = list[4].replace("'","").replace(" ","");
+                String tel = list[5].replace("'","").replace(" ","");
+                String type = list[6].replace("'","").replace(" ","");
 
-            });
+                pref = getSharedPreferences("id", Activity.MODE_PRIVATE);
+                editor = pref.edit();
+                editor.putString("id", id);
+                editor.apply();
+
+                pref = getSharedPreferences("pw", Activity.MODE_PRIVATE);
+                editor = pref.edit();
+                editor.putString("pw", pw);
+                editor.apply();
+
+                pref = getSharedPreferences("name", Activity.MODE_PRIVATE);
+                editor = pref.edit();
+                editor.putString("name", name);
+                editor.apply();
+
+                pref = getSharedPreferences("scCode", Activity.MODE_PRIVATE);
+                editor = pref.edit();
+                editor.putString("scCode", scCode);
+                editor.apply();
+
+                pref = getSharedPreferences("tel", Activity.MODE_PRIVATE);
+                editor = pref.edit();
+                editor.putString("tel", tel);
+                editor.apply();
+
+                pref = getSharedPreferences("id", Activity.MODE_PRIVATE);
+                editor = pref.edit();
+                editor.putString("type", type);
+                editor.apply();
+            }
+
+
+        });
 
 
 
