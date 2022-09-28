@@ -58,7 +58,7 @@ public class Fragment44 extends Fragment {
         // spf에서 getString할 때 필요한 매개변수
         // 1) key값
         // 2) default value값 : address(키)에 아무것도 없을 때(value가 없을때)
-        String address = spf.getString("address","https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%ED%95%99%EA%B5%90%ED%8F%AD%EB%A0%A5%EC%98%88%EB%B0%A9%EB%B0%8F%EB%8C%80%EC%B1%85%EC%97%90%EA%B4%80%ED%95%9C%EB%B2%95%EB%A5%A0");
+        String address = spf.getString("address","https://m.easylaw.go.kr/MOB/CsmInfoRetrieve.laf?csmSeq=1408&ccfNo=4&cciNo=2&cnpClsNo=4");
 
         // 2. 설정 변경 (javascript사용가능)
         WebSettings ws = wv.getSettings();
