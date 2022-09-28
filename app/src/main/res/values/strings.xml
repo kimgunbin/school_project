@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">CC_Helper</string>
+
+
+    <string-array name="data">
+        <item>1.하진주</item>
+        <item>2.바보</item>
+    </string-array>
+
 </resources>

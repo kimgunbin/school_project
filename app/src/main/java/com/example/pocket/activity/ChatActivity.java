@@ -2,6 +2,7 @@ package com.example.pocket.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,6 +11,7 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.pocket.R;
+import com.example.pocket.class_.chat.ChatAdapter;
 import com.example.pocket.class_.chat.MessageData;
 import com.example.pocket.class_.chat.RoomData;
 import com.google.gson.Gson;
@@ -19,7 +21,6 @@ import java.net.URISyntaxException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-
 
 
 import io.socket.client.IO;
@@ -34,6 +35,8 @@ public class ChatActivity extends AppCompatActivity {
     EditText etChatMsg;
     Button btnSendMsg;
     ListView lv;
+    ArrayList<MessageData> data;
+
 
     Gson gson = new Gson();
 
@@ -46,6 +49,7 @@ public class ChatActivity extends AppCompatActivity {
         Intent getIntent = getIntent();
         userName = getIntent.getStringExtra("userName");
         roomNumber = getIntent.getStringExtra("roomNumber");
+        data = new ArrayList<>();
 
         try {
             mSocket = IO.socket("http://59.0.129.222:3000");
@@ -78,12 +82,24 @@ public class ChatActivity extends AppCompatActivity {
                 System.currentTimeMillis()
         )));
 
+        MessageData msgData = new MessageData("MESSAGE", "진주", "send",
+                etChatMsg.getText().toString(), 456);
+        lv = findViewById(R.id.chatSendView);
+
+        data.add(new MessageData(msgData.getType(), msgData.getFrom(), msgData.getTo(),
+                msgData.getContent(), msgData.getSendTime()));
+
+        ChatAdapter adapter = new ChatAdapter(getApplicationContext(), R.layout.chat_sendtxt, data);
+
         etChatMsg.setText("");
+        lv.setAdapter(adapter);
 
         mSocket.on("update", args -> {
-            MessageData data = gson.fromJson(args[0].toString(), MessageData.class);
-            addChat(data);
+            // data = gson.fromJson(args[0].toString(), MessageData.class);
+            // addChat(data);
         });
+
+
     }
 
     //    private void addChat(MessageData data) {
@@ -104,9 +120,20 @@ public class ChatActivity extends AppCompatActivity {
     //        });
     //    }
 
-    public void addChat(ArrayList<MessageData> data) {
-        lv = findViewById(R.id.chatLv);
+    public void addChat(MessageData msgData) {
+        ArrayList<MessageData> data = new ArrayList<>();
+        lv = findViewById(R.id.chatSendView);
+        etChatMsg = findViewById(R.id.etChatMsg);
 
+        data.add(new MessageData(msgData.getType(), msgData.getFrom(), msgData.getTo(),
+                msgData.getContent(), msgData.getSendTime()));
+
+        data.get(0).setContent(etChatMsg.getText().toString());
+        ChatAdapter adapter = new ChatAdapter(getApplicationContext(), R.layout.chat_sendtxt, data);
+        Log.d("확인", data.get(0).getContent());
+
+        lv.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
     }
 
 
