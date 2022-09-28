@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.pocket.R;
+import com.example.pocket.activity.ChatActivity;
 
 public class ChatTestActivity extends AppCompatActivity {
 
@@ -27,7 +28,7 @@ public class ChatTestActivity extends AppCompatActivity {
         btnChatJoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ChatTestActivity.class);
+                Intent intent = new Intent(getApplicationContext(), ChatActivity.class);
                 intent.putExtra("userName", etRoomNumber.getText().toString());
                 intent.putExtra("roomNumber", etRoomNumber.getText().toString());
                 startActivity(intent);
