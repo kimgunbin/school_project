@@ -97,12 +97,13 @@
         android:background="@drawable/plantext"
         android:ems="10"
         android:hint="PW를 입력해주세요"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         android:textAlignment="center"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="@+id/edtId"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/edtId"
         app:layout_constraintTop_toBottomOf="@+id/edtId" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

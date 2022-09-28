@@ -4,12 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.pocket.R;
@@ -29,11 +27,11 @@ public class SignInActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_in);
         DbHelper dbHelper = new DbHelper();
         etId = findViewById(R.id.etId);
-        etPw1 = findViewById(R.id.etPw1);
-        etPw2 = findViewById(R.id.etPw2);
+        etPw1 = findViewById(R.id.pw);
+        etPw2 = findViewById(R.id.pw2);
         etName = findViewById(R.id.etName);
-        etSchool = findViewById(R.id.etSchool);
-        etTel = findViewById(R.id.etTel);
+        etSchool = findViewById(R.id.scCode);
+        etTel = findViewById(R.id.tel);
 
         rbTeacher = findViewById(R.id.rbTeacher);
         rbStudent = findViewById(R.id.rbStudent);
