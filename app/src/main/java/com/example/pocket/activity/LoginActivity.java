@@ -102,35 +102,33 @@ public class LoginActivity extends AppCompatActivity {
                 String tel = list[5].replace("'","").replace(" ","");
                 String type = list[6].replace("'","").replace(" ","");
 
-                pref = getSharedPreferences("id", Activity.MODE_PRIVATE);
+                pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
                 editor = pref.edit();
+
+
                 editor.putString("id", id);
                 editor.apply();
 
-                pref = getSharedPreferences("pw", Activity.MODE_PRIVATE);
-                editor = pref.edit();
+
                 editor.putString("pw", pw);
                 editor.apply();
 
-                pref = getSharedPreferences("name", Activity.MODE_PRIVATE);
-                editor = pref.edit();
+
                 editor.putString("name", name);
                 editor.apply();
 
-                pref = getSharedPreferences("scCode", Activity.MODE_PRIVATE);
-                editor = pref.edit();
+
                 editor.putString("scCode", scCode);
                 editor.apply();
 
-                pref = getSharedPreferences("tel", Activity.MODE_PRIVATE);
-                editor = pref.edit();
+
                 editor.putString("tel", tel);
                 editor.apply();
 
-                pref = getSharedPreferences("id", Activity.MODE_PRIVATE);
-                editor = pref.edit();
+
                 editor.putString("type", type);
                 editor.apply();
+
             }
 
 
