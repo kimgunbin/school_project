@@ -1,19 +1,13 @@
 package com.example.pocket.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
 
 import com.example.pocket.R;
-import com.example.pocket.activity.ChatActivity;
-import com.example.pocket.activity.LoginActivity;
-import com.example.pocket.activity.MainActivity;
-import com.example.pocket.activity.SignInActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -65,18 +59,7 @@ public class Fragment2 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_chat_test, container, false);
-
-        Button btn = view.findViewById(R.id.btnChatJoin);
-
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext().getApplicationContext(), ChatActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        return view;
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.activity_chat_test, container, false);
     }
 }
