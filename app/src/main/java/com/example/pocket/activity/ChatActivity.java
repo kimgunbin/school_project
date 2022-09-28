@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,6 +17,7 @@ import com.google.gson.Gson;
 
 import java.net.URISyntaxException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 
@@ -31,6 +33,7 @@ public class ChatActivity extends AppCompatActivity {
     private String roomNumber;
     EditText etChatMsg;
     Button btnSendMsg;
+    ListView lv;
 
     Gson gson = new Gson();
 
@@ -59,7 +62,7 @@ public class ChatActivity extends AppCompatActivity {
         btnSendMsg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                sendMessage();
             }
         });
     }
@@ -79,7 +82,7 @@ public class ChatActivity extends AppCompatActivity {
 
         mSocket.on("update", args -> {
             MessageData data = gson.fromJson(args[0].toString(), MessageData.class);
-            // addChat(data);
+            addChat(data);
         });
     }
 
@@ -100,6 +103,12 @@ public class ChatActivity extends AppCompatActivity {
     //            }
     //        });
     //    }
+
+    public void addChat(ArrayList<MessageData> data) {
+        lv = findViewById(R.id.chatLv);
+
+    }
+
 
     public String toData(long currentMillis) {
         return new SimpleDateFormat("hh:mm a").format(new Date(currentMillis));
