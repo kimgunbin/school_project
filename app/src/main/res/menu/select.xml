@@ -4,11 +4,11 @@
 
     <item
         android:id="@+id/tab1"
-        android:icon="@android:drawable/arrow_down_float"
+        android:icon="@drawable/cctv_icon"
         android:title="CCTV" />
     <item
         android:id="@+id/tab2"
-        android:icon="@android:drawable/arrow_up_float"
+        android:icon="@drawable/chat_icon"
         android:title="Chat" />
     <item
         android:id="@+id/tab3"
@@ -16,6 +16,6 @@
         android:title="MyPage" />
     <item
         android:id="@+id/tab4"
-        android:icon="@android:drawable/alert_light_frame"
+        android:icon="@drawable/set_icon"
         android:title="Settings" />
 </menu>
