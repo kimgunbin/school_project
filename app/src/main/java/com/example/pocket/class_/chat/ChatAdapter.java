@@ -13,7 +13,7 @@ import com.example.pocket.R;
 import java.util.ArrayList;
 
 public class ChatAdapter extends BaseAdapter {
-
+//ㅎㅇ
     private Context context;
     private int layout;
     private ArrayList<MessageData> data;
