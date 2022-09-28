@@ -1,0 +1,7 @@
+com.growingio.android.okhttp3.BuildConfig
+com.growingio.android.okhttp3.OkHttpDataFetcher
+com.growingio.android.okhttp3.OkHttpDataLoader
+com.growingio.android.okhttp3.OkHttpDataLoader$Factory
+com.growingio.android.okhttp3.OkhttpLibraryGioModule
+com.growingio.android.okhttp3.SecurityExceptionInterceptor
+com.growingio.sdk.annotation.compiler.GioIndexer_GIOLibraryModule_com_growingio_android_okhttp3_OkhttpLibraryGioModule

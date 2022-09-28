@@ -30,6 +30,8 @@ public class ChatActivity extends AppCompatActivity {
     private String roomNumber;
     EditText etChatMsg;
     Button btnSendMsg;
+    
+    // 푸쉬 테스트
 
     Gson gson = new Gson();
 

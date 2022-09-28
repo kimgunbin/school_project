@@ -1,0 +1,124 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.squareup.okhttp3",
+    "module": "mockwebserver",
+    "version": "5.0.0-alpha.10",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.4.2"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "com.squareup.okhttp3",
+          "module": "okhttp",
+          "version": {
+            "requires": "5.0.0-alpha.10"
+          }
+        },
+        {
+          "group": "com.squareup.okhttp3",
+          "module": "mockwebserver3",
+          "version": {
+            "requires": "5.0.0-alpha.10"
+          }
+        },
+        {
+          "group": "junit",
+          "module": "junit",
+          "version": {
+            "requires": "4.13.2"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.6.21"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "mockwebserver-5.0.0-alpha.10.jar",
+          "url": "mockwebserver-5.0.0-alpha.10.jar",
+          "size": 27588,
+          "sha512": "9d5cda169952a3751a41e46befe48c413f27f87b1a61d3fd66f4e97e0883ad7c53c01efede106c16164c850ba467b6a002b06b745923d94d991e3ac27f9cde68",
+          "sha256": "fd908cb1c1a3a571164bf7a675e5048e1f5bbbd274de95afbfef3229bc72c682",
+          "sha1": "8aec32a30336dffce82cbc12b70a92eabb5d9c71",
+          "md5": "7ae3dce9aff74120db96436e864190e2"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "com.squareup.okhttp3",
+          "module": "okhttp",
+          "version": {
+            "requires": "5.0.0-alpha.10"
+          }
+        },
+        {
+          "group": "com.squareup.okhttp3",
+          "module": "mockwebserver3",
+          "version": {
+            "requires": "5.0.0-alpha.10"
+          }
+        },
+        {
+          "group": "junit",
+          "module": "junit",
+          "version": {
+            "requires": "4.13.2"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.6.21"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "mockwebserver-5.0.0-alpha.10.jar",
+          "url": "mockwebserver-5.0.0-alpha.10.jar",
+          "size": 27588,
+          "sha512": "9d5cda169952a3751a41e46befe48c413f27f87b1a61d3fd66f4e97e0883ad7c53c01efede106c16164c850ba467b6a002b06b745923d94d991e3ac27f9cde68",
+          "sha256": "fd908cb1c1a3a571164bf7a675e5048e1f5bbbd274de95afbfef3229bc72c682",
+          "sha1": "8aec32a30336dffce82cbc12b70a92eabb5d9c71",
+          "md5": "7ae3dce9aff74120db96436e864190e2"
+        }
+      ]
+    }
+  ]
+}
