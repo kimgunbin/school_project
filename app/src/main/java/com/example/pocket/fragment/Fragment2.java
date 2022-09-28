@@ -72,7 +72,7 @@ public class Fragment2 extends Fragment {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Fragment2.this, ChatActivity.class);
+                Intent intent = new Intent(getContext().getApplicationContext(), ChatActivity.class);
                 startActivity(intent);
             }
         });
