@@ -70,7 +70,7 @@ public class Fragment3 extends Fragment {
     Button btnUpdate;
     String postText = "";
     String result = "check";
-    String Id;
+    String id ="";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -94,7 +94,7 @@ public class Fragment3 extends Fragment {
 
 
 
-        id.setText(String.valueOf(pref.getString("id","0")));
+        id = String.valueOf(pref.getString("id","0"));
         sc.setText(String.valueOf(pref.getString("scCode","0")));
 
         tel.setText(String.valueOf(pref.getString("tel","0")));
@@ -110,7 +110,7 @@ public class Fragment3 extends Fragment {
 
                 if(pw1.getText().toString().equals(pw2.getText().toString())) {
 
-                    postText = pw1.getText().toString()+"/"
+                    postText = id+"/"+pw1.getText().toString()+"/"
                            +sc.getText().toString()
                             +"/"+tel.getText().toString()+"/";
 
