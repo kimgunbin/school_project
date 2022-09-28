@@ -10,11 +10,11 @@
         android:id="@+id/etId"
         android:layout_width="210dp"
         android:layout_height="30dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/signin"
         android:ems="10"
         android:hint="영문 4자리 이상"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         android:textAlignment="center"
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,14 +22,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/etPw1"
+        android:id="@+id/pw"
         android:layout_width="210dp"
         android:layout_height="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/signin"
         android:ems="10"
         android:hint="8자리 이상"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         android:textAlignment="center"
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="@+id/etId"
@@ -37,40 +37,40 @@
         app:layout_constraintTop_toBottomOf="@+id/etId" />
 
     <EditText
-        android:id="@+id/etPw2"
+        android:id="@+id/pw2"
         android:layout_width="210dp"
         android:layout_height="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/signin"
         android:ems="10"
         android:hint="비밀번호 재입력"
         android:inputType="textPersonName"
         android:textAlignment="center"
         android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="@+id/etPw1"
-        app:layout_constraintStart_toStartOf="@+id/etPw1"
-        app:layout_constraintTop_toBottomOf="@+id/etPw1" />
+        app:layout_constraintEnd_toEndOf="@+id/pw"
+        app:layout_constraintStart_toStartOf="@+id/pw"
+        app:layout_constraintTop_toBottomOf="@+id/pw" />
 
     <EditText
         android:id="@+id/etName"
         android:layout_width="210dp"
         android:layout_height="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/signin"
         android:ems="10"
         android:hint="홍길동"
         android:inputType="textPersonName"
         android:textAlignment="center"
         android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="@+id/etPw2"
-        app:layout_constraintStart_toStartOf="@+id/etPw2"
-        app:layout_constraintTop_toBottomOf="@+id/etPw2" />
+        app:layout_constraintEnd_toEndOf="@+id/pw2"
+        app:layout_constraintStart_toStartOf="@+id/pw2"
+        app:layout_constraintTop_toBottomOf="@+id/pw2" />
 
     <EditText
-        android:id="@+id/etSchool"
+        android:id="@+id/scCode"
         android:layout_width="210dp"
         android:layout_height="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/signin"
         android:ems="10"
         android:hint="학교찾기"
@@ -82,19 +82,19 @@
         app:layout_constraintTop_toBottomOf="@+id/etName" />
 
     <EditText
-        android:id="@+id/etTel"
+        android:id="@+id/tel"
         android:layout_width="210dp"
         android:layout_height="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/signin"
         android:ems="10"
         android:hint="'-' 생략 후 입력"
         android:inputType="textPersonName"
         android:textAlignment="center"
         android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="@+id/etSchool"
-        app:layout_constraintStart_toStartOf="@+id/etSchool"
-        app:layout_constraintTop_toBottomOf="@+id/etSchool" />
+        app:layout_constraintEnd_toEndOf="@+id/scCode"
+        app:layout_constraintStart_toStartOf="@+id/scCode"
+        app:layout_constraintTop_toBottomOf="@+id/scCode" />
 
 
     <Button
@@ -106,21 +106,21 @@
         android:insetTop="0dp"
         android:insetBottom="0dp"
         android:text="회원가입"
-        app:layout_constraintEnd_toEndOf="@+id/etTel"
+        app:layout_constraintEnd_toEndOf="@+id/tel"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/etTel"
+        app:layout_constraintStart_toStartOf="@+id/tel"
         app:layout_constraintTop_toBottomOf="@+id/radio_group" />
 
     <RadioGroup
         android:id="@+id/radio_group"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="@+id/etTel"
+        app:layout_constraintEnd_toEndOf="@+id/tel"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/etTel"
-        app:layout_constraintTop_toBottomOf="@+id/etTel"
+        app:layout_constraintStart_toStartOf="@+id/tel"
+        app:layout_constraintTop_toBottomOf="@+id/tel"
         tools:ignore="MissingConstraints">
 
         <RadioButton
@@ -164,8 +164,8 @@
         android:text="비밀번호"
         android:textSize="12sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/etPw1"
-        app:layout_constraintStart_toStartOf="@+id/etPw1" />
+        app:layout_constraintBottom_toTopOf="@+id/pw"
+        app:layout_constraintStart_toStartOf="@+id/pw" />
 
     <TextView
         android:id="@+id/textView6"
@@ -174,8 +174,8 @@
         android:text="비밀번호 재입력"
         android:textSize="12sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/etPw2"
-        app:layout_constraintStart_toStartOf="@+id/etPw2" />
+        app:layout_constraintBottom_toTopOf="@+id/pw2"
+        app:layout_constraintStart_toStartOf="@+id/pw2" />
 
     <TextView
         android:id="@+id/textView7"
@@ -194,8 +194,8 @@
         android:text="학교"
         android:textSize="12sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/etSchool"
-        app:layout_constraintStart_toStartOf="@+id/etSchool" />
+        app:layout_constraintBottom_toTopOf="@+id/scCode"
+        app:layout_constraintStart_toStartOf="@+id/scCode" />
 
     <TextView
         android:id="@+id/textView9"
@@ -204,8 +204,8 @@
         android:text="핸드폰번호"
         android:textSize="12sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/etTel"
-        app:layout_constraintStart_toStartOf="@+id/etTel" />
+        app:layout_constraintBottom_toTopOf="@+id/tel"
+        app:layout_constraintStart_toStartOf="@+id/tel" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

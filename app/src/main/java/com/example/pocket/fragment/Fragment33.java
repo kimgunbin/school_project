@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -60,7 +61,7 @@ public class Fragment33 extends Fragment {
     }
     SharedPreferences pref ;
     SharedPreferences.Editor editor;
-    TextView id,pw,name,tel,type,sc;
+    EditText pw,tel,sc;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -68,11 +69,11 @@ public class Fragment33 extends Fragment {
 
 
 
-        id = view.findViewById(R.id.id);
+
         pw = view.findViewById(R.id.pw);
-        name = view.findViewById(R.id.name);
+
         tel = view.findViewById(R.id.tel);
-        type = view.findViewById(R.id.type);
+
         sc = view.findViewById(R.id.scCode);
 
         pref = getActivity().getSharedPreferences("pref", Activity.MODE_PRIVATE);
@@ -80,11 +81,11 @@ public class Fragment33 extends Fragment {
 
 
 
-        id.setText("ID : "+String.valueOf(pref.getString("id","0")));
+
         pw.setText("PW : "+String.valueOf(pref.getString("pw","0")));
-        name.setText("NAME : "+String.valueOf(pref.getString("name","0")));
+
         tel.setText("TEL : "+String.valueOf(pref.getString("tel","0")));
-        type.setText("TYPE : "+String.valueOf(pref.getString("type","0")));
+
         sc.setText("ScCode : "+String.valueOf(pref.getString("scCode","0")));
 
 
