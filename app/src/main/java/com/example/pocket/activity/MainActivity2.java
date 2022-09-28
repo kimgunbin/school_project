@@ -55,7 +55,7 @@ public class MainActivity2 extends AppCompatActivity {
                     case R.id.tab3:
                         Toast.makeText(MainActivity2.this,"세번째 탭",Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction().replace(
-                                R.id.fl, new Fragment33()).commit();
+                                R.id.fl, new Fragment3()).commit();
                         break;
                     case R.id.tab4:
                         Toast.makeText(MainActivity2.this,"네번째 탭",Toast.LENGTH_SHORT).show();

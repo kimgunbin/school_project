@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -71,7 +72,7 @@ public class Fragment3 extends Fragment {
     String postText = "";
     String result = "check";
     String id ="";
-
+    TextView logout;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -82,9 +83,9 @@ public class Fragment3 extends Fragment {
         pw1 = view.findViewById(R.id.pw1);
         pw2 = view.findViewById(R.id.pw2);
 
-
+        logout=view.findViewById(R.id.logout);
         tel = view.findViewById(R.id.tel);
-
+        logout.setText("로그아웃");
         sc = view.findViewById(R.id.scCode);
 
         btnUpdate = view.findViewById(R.id.btnUpdate);
@@ -131,6 +132,13 @@ public class Fragment3 extends Fragment {
             }
         });
 
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext().getApplicationContext(),LoginActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
 
