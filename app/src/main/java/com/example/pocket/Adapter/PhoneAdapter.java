@@ -117,7 +117,7 @@ public class PhoneAdapter extends BaseAdapter {
         // inflate가 된 view를 리턴 -> ListView에 적재
         return view;
     }
-
+    // 가자
     // 디자인 + 데이터
 
 }
