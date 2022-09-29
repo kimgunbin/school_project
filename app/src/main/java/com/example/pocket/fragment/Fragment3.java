@@ -136,6 +136,8 @@ public class Fragment3 extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext().getApplicationContext(),LoginActivity.class);
+                Toast.makeText(getContext(), "로그아웃 성공.", Toast.LENGTH_SHORT).show();
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
             }
         });
