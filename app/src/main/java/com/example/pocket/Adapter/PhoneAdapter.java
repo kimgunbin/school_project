@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -74,26 +75,39 @@ public class PhoneAdapter extends BaseAdapter {
 
         ConstraintLayout c1 = view.findViewById(R.id.C1);
 
-        Button btn = view.findViewById(R.id.button);
 
-        btn.setText("   "+data.get(i).getTitle());
+
+        TextView tvBtn;
+        tvBtn = view.findViewById(R.id.tvBtn);
+        ImageView imgArrow = view.findViewById(R.id.imgArrow);
+        imgArrow.setImageResource(R.drawable.down);
+
+        tvBtn.setText("   "+data.get(i).getTitle());
 
         ImageView img = view.findViewById(R.id.imgCctv);
 
-        img.setImageResource(R.drawable.al);
+        LinearLayout lieb = view.findViewById(R.id.linB);
 
+         img.setImageResource(R.drawable.al);
+        ConstraintLayout.LayoutParams p1 = new ConstraintLayout.LayoutParams(1,1);
+        ConstraintLayout.LayoutParams p3 = new ConstraintLayout.LayoutParams( 500,1200);
 
-        btn.setOnClickListener(new View.OnClickListener() {
+        c1.setLayoutParams(p1);
+        lieb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ConstraintLayout.LayoutParams p1 = new ConstraintLayout.LayoutParams(1,1);
-                ConstraintLayout.LayoutParams p3 = new ConstraintLayout.LayoutParams( 500,1200);
+
+
 
                 if(cnt%2==1) {
                     c1.setLayoutParams(p3);
+                    imgArrow.setImageResource(R.drawable.up);
+
                     cnt+=1;
                 }else{
                     c1.setLayoutParams(p1);
+                    imgArrow.setImageResource(R.drawable.down);
+
                     cnt+=1;
                 }
             }
