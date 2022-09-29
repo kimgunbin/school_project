@@ -37,6 +37,7 @@ public class ChatActivity extends AppCompatActivity {
     ListView lv;
     ArrayList<MessageData> data;
 
+    // 푸시 테스트
 
     Gson gson = new Gson();
 
