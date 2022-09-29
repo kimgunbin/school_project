@@ -5,6 +5,7 @@
     android:id="@+id/frameLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="15dp"
     android:background="#0FFFFFFF"
     tools:context=".fragment.Fragment1">
 
@@ -16,6 +17,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline11"
         app:layout_constraintVertical_bias="1.0" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.08" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CCTV 조회"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/lv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

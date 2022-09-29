@@ -104,7 +104,7 @@ public class Fragment3 extends Fragment {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(getContext().getApplicationContext(),getActivity().getClass());
+                Intent intent = new Intent(getContext().getApplicationContext(),LoginActivity.class);
 
 
 
@@ -117,8 +117,8 @@ public class Fragment3 extends Fragment {
 
                     result = dbHelper.connectServer("http://210.183.87.95:5000/Editmem", postText);
 
-                    Toast.makeText(getContext(), "회원정보수정 성공", Toast.LENGTH_SHORT).show();
-
+                    Toast.makeText(getContext(), "로그인을 다시 해주세요.", Toast.LENGTH_SHORT).show();
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |Intent.FLAG_ACTIVITY_SINGLE_TOP);
                     startActivity(intent);
 
 

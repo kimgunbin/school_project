@@ -5,44 +5,90 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textlist"
+    <Button
+        android:id="@+id/button"
         android:layout_width="378dp"
         android:layout_height="45dp"
         android:layout_marginTop="16dp"
-        android:background="#C0C0C0"
-        android:text=">CCTV 목록"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/lv"
+        android:background="@drawable/cctv"
+        android:text="CCTV 목록                                     >"
+        android:textAlignment="viewStart"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.949"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.019" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/C1"
-        android:layout_width="1dp"
-        android:layout_height="1dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline14"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintHorizontal_bias="0.41"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textlist"
+        app:layout_constraintTop_toBottomOf="@+id/button"
         app:layout_constraintVertical_bias="0.0">
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.6" />
+
+        <ImageView
+            android:id="@+id/imgCctv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline13"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline15"
+            app:srcCompat="@drawable/school" />
+
+        <TextView
+            android:id="@+id/tvDay"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="2022.09.29 13:00"
+            android:textAlignment="viewStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline12" />
+
+        <TextView
+            android:id="@+id/tvCctvText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="학교폭력 탐지내용"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvDay"
+            app:layout_constraintTop_toBottomOf="@+id/tvDay" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.03" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

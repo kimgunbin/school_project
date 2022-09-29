@@ -71,18 +71,23 @@ public class PhoneAdapter extends BaseAdapter {
             view = inflater.inflate(layout,viewGroup,false);
         }
 
-        TextView textlist = view.findViewById(R.id.textlist);
+
         ConstraintLayout c1 = view.findViewById(R.id.C1);
 
         Button btn = view.findViewById(R.id.button);
-        textlist.setText(data.get(i).getTitle());
+
+        btn.setText("   "+data.get(i).getTitle());
+
+        ImageView img = view.findViewById(R.id.imgCctv);
+
+        img.setImageResource(R.drawable.al);
 
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ConstraintLayout.LayoutParams p1 = new ConstraintLayout.LayoutParams(1,1);
-                ConstraintLayout.LayoutParams p3 = new ConstraintLayout.LayoutParams(378,300);
+                ConstraintLayout.LayoutParams p3 = new ConstraintLayout.LayoutParams( 500,1200);
 
                 if(cnt%2==1) {
                     c1.setLayoutParams(p3);
