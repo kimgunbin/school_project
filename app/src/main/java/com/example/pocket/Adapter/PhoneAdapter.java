@@ -85,10 +85,10 @@ public class PhoneAdapter extends BaseAdapter {
                 ConstraintLayout.LayoutParams p3 = new ConstraintLayout.LayoutParams(378,300);
 
                 if(cnt%2==1) {
-                    c1.setLayoutParams(p1);
+                    c1.setLayoutParams(p3);
                     cnt+=1;
                 }else{
-                    c1.setLayoutParams(p3);
+                    c1.setLayoutParams(p1);
                     cnt+=1;
                 }
             }
