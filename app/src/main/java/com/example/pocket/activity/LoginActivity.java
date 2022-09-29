@@ -60,6 +60,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 String postText = edtId.getText().toString() + "/" + edtPw.getText().toString();
 
+
                     result = dbHelper.connectServer("http://210.183.87.95:5000/login", postText);
                     Log.v("r", result);
 
