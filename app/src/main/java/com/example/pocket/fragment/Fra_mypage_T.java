@@ -122,6 +122,7 @@ public class Fra_mypage_T extends Fragment {
 
 
                 }else{
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |Intent.FLAG_ACTIVITY_SINGLE_TOP);
                     Toast.makeText(getContext().getApplicationContext(), "회원정보수정 실패", Toast.LENGTH_SHORT).show();
 
                 }
