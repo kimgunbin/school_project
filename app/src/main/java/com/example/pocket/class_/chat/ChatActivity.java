@@ -1,4 +1,4 @@
-package com.example.pocket.activity;
+package com.example.pocket.class_.chat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,9 +11,9 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.pocket.R;
-import com.example.pocket.class_.chat.ChatAdapter;
-import com.example.pocket.class_.chat.MessageData;
-import com.example.pocket.class_.chat.RoomData;
+import com.example.pocket.class_.chat.builder.ChatAdapter;
+import com.example.pocket.class_.chat.model.MessageData;
+import com.example.pocket.class_.chat.model.RoomData;
 import com.google.gson.Gson;
 
 

@@ -7,7 +7,6 @@ import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.pocket.R;
-import com.example.pocket.class_.chat.ChatTestActivity;
 
 public class IntroActivity extends AppCompatActivity {
 

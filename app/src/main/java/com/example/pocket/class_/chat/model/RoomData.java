@@ -1,4 +1,4 @@
-package com.example.pocket.class_.chat;
+package com.example.pocket.class_.chat.model;
 
 import org.json.JSONException;
 import org.json.JSONObject;

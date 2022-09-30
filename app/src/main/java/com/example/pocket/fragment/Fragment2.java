@@ -10,7 +10,7 @@ import android.widget.Button;
 import androidx.fragment.app.Fragment;
 
 import com.example.pocket.R;
-import com.example.pocket.activity.ChatActivity;
+import com.example.pocket.class_.chat.ChatActivity;
 
 /**
  * A simple {@link Fragment} subclass.

@@ -21,6 +21,13 @@
         android:theme="@style/Theme.Pocket"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".ChatMainActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <!--
         <activity
             android:name=".ChatRoomActivity"
@@ -35,10 +42,8 @@
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity>-->
-        <activity
-            android:name=".class_.chat.ChatTestActivity"
-            android:exported="false" />
+        </activity>
+        -->
         <activity
             android:name=".activity.MainActivity2"
             android:exported="false" />
@@ -46,7 +51,7 @@
             android:name=".activity.CctvActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.ChatActivity"
+            android:name=".class_.chat.ChatActivity"
             android:exported="false" />
         <activity
             android:name=".activity.LoginActivity"
