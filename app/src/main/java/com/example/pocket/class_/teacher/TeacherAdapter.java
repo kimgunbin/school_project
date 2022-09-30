@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -25,6 +26,7 @@ public class TeacherAdapter extends BaseAdapter {
         this.context = context;
         this.layout = layout;
         this.data = data;
+        this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
     }
 
@@ -52,9 +54,9 @@ public class TeacherAdapter extends BaseAdapter {
         }
 
         ConstraintLayout cl = view.findViewById(R.id.clTea);
-        Button tvBtn1 = view.findViewById(R.id.tvBtn1);
+        TextView tvBtn1 = view.findViewById(R.id.tvBtn1);
         tvBtn1.setText("   "+data.get(i).getName());
 
-        return null;
+        return view;
     }
 }
