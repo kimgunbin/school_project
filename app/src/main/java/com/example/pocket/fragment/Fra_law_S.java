@@ -11,7 +11,6 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -34,7 +33,7 @@ import com.example.pocket.R;
 // 어플을 종료해도 이전의 데이터를 유지하고있음
 
 
-public class Fragment44 extends Fragment {
+public class Fra_law_S extends Fragment {
     Button btnSend;
     EditText eturl;
 

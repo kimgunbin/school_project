@@ -57,6 +57,8 @@ public class DbHelper {
 
     String postRequest(String postUrl, RequestBody postBody) {
 
+
+
         Log.v("s2", result);
         OkHttpClient client = new OkHttpClient();
 
@@ -64,6 +66,8 @@ public class DbHelper {
                 .url(postUrl)
                 .post(postBody)
                 .build();
+
+
 
         client.newCall(request).enqueue(new Callback() {
             @Override
@@ -90,8 +94,12 @@ public class DbHelper {
                         }
 
                     }).start();
+
+
+
             }
         });
+
 
         return result;
     }

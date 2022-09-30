@@ -1,23 +1,23 @@
 package com.example.pocket.fragment;
 
-import android.content.Intent;
+import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.fragment.app.Fragment;
 
 import com.example.pocket.R;
-import com.example.pocket.class_.chat.ChatActivity;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link Fragment22#newInstance} factory method to
+ * Use the {@link Fra_mypage_S#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Fragment22 extends Fragment {
+public class Fra_mypage_S extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -28,7 +28,7 @@ public class Fragment22 extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public Fragment22() {
+    public Fra_mypage_S() {
         // Required empty public constructor
     }
 
@@ -38,11 +38,11 @@ public class Fragment22 extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Fragment2.
+     * @return A new instance of fragment Fragment3.
      */
     // TODO: Rename and change types and number of parameters
-    public static Fragment22 newInstance(String param1, String param2) {
-        Fragment22 fragment = new Fragment22();
+    public static Fra_mypage_S newInstance(String param1, String param2) {
+        Fra_mypage_S fragment = new Fra_mypage_S();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -58,22 +58,37 @@ public class Fragment22 extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
+    SharedPreferences pref ;
+    SharedPreferences.Editor editor;
+    EditText pw,tel,sc;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_chat_test, container, false);
+        View view = inflater.inflate(R.layout.fragment_mypage, container, false);
 
-        Button btn = view.findViewById(R.id.btnChatJoin);
 
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext().getApplicationContext(), ChatActivity.class);
-                startActivity(intent);
-            }
-        });
 
+
+        pw = view.findViewById(R.id.pw1);
+
+        tel = view.findViewById(R.id.tel);
+
+        sc = view.findViewById(R.id.scCode);
+
+        pref = getActivity().getSharedPreferences("pref", Activity.MODE_PRIVATE);
+        editor = pref.edit();
+
+
+
+
+        pw.setText("PW : "+String.valueOf(pref.getString("pw","0")));
+
+        tel.setText("TEL : "+String.valueOf(pref.getString("tel","0")));
+
+        sc.setText("ScCode : "+String.valueOf(pref.getString("scCode","0")));
+
+
+        // Inflate the layout for this fragment
         return view;
     }
 }

@@ -11,7 +11,6 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -34,7 +33,7 @@ import com.example.pocket.R;
 // 어플을 종료해도 이전의 데이터를 유지하고있음
 
 
-public class Fragment4 extends Fragment {
+public class Fra_law_T extends Fragment {
     Button btnSend;
     EditText eturl;
 
@@ -43,7 +42,7 @@ public class Fragment4 extends Fragment {
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_4, container, false);
+        View view = inflater.inflate(R.layout.fragment_web, container, false);
 
         WebView wv = view.findViewById(R.id.wv);
 
