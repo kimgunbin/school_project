@@ -60,7 +60,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 String postText = edtId.getText().toString() + "/" + edtPw.getText().toString();
 
-while(true){
+
                 result = dbHelper.connectServer("http://210.183.87.95:5000/login", postText);
                 Log.v("r", result);
 
@@ -69,7 +69,6 @@ while(true){
 
                 if (result.equals("로그인실패")) {
                     Toast.makeText(getApplicationContext(), "로그인 실패", Toast.LENGTH_SHORT).show();
-                    break;
                 } else if(list.length>2) {
 
                     Log.v("list", list[6].replace("'", ""));
@@ -80,19 +79,17 @@ while(true){
                         Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(LoginActivity.this, MainActivity_T.class);
                         startActivity(intent);
-                        break;
                     }
                     if (Check.equals("1")) {
                         saved(list);
                         Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(LoginActivity.this, MainActivity_S.class);
                         startActivity(intent);
-                        break;
 
                     }
 
 
-                }
+
                 }
 
             }
