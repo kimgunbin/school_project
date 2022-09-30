@@ -20,7 +20,7 @@ public class Fra_title_S extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_title_s, container, false);
 
-
+// ㅎㅎ
        return view;
     }
 }
