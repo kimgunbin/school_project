@@ -47,8 +47,6 @@ public class ChatAdapter extends BaseAdapter {
             view = inflater.inflate(layout, viewGroup, false);
         }
 
-        TextView txToMsg = view.findViewById(R.id.txToMsg);
-        txToMsg.setText(data.get(i).getContent());
 
         return view;
     }
