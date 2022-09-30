@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.pocket.R;
@@ -22,6 +23,12 @@ public class MainActivity_S extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_s);
+
+
+
+
+
+        // ------------ flagment
 
         bnv = findViewById(R.id.bnv);
         fl = findViewById(R.id.fl);
