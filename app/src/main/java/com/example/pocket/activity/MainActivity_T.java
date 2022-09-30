@@ -8,31 +8,26 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.example.pocket.R;
-import com.example.pocket.fragment.Fragment1;
-import com.example.pocket.fragment.Fragment11;
-import com.example.pocket.fragment.Fragment2;
-import com.example.pocket.fragment.Fragment22;
-import com.example.pocket.fragment.Fragment3;
-import com.example.pocket.fragment.Fragment33;
-import com.example.pocket.fragment.Fragment4;
-import com.example.pocket.fragment.Fragment44;
+import com.example.pocket.fragment.Fra_cctv_T;
+import com.example.pocket.fragment.Fra_chat_T;
+import com.example.pocket.fragment.Fra_mypage_T;
+import com.example.pocket.fragment.Fra_law_T;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
-public class MainActivity2 extends AppCompatActivity {
+public class MainActivity_T extends AppCompatActivity {
     BottomNavigationView bnv;
     FrameLayout fl;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
-
+        setContentView(R.layout.activity_main_t);
         bnv = findViewById(R.id.bnv);
         fl = findViewById(R.id.fl);
 
         // 어플을 처음 실행시켜줄때 첫화면이 Fragment1이 되게하기위해
         getSupportFragmentManager().beginTransaction().replace(
-                R.id.fl, new Fragment11()).commit();;
+                R.id.fl, new Fra_cctv_T()).commit();
 
         bnv.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
@@ -41,26 +36,26 @@ public class MainActivity2 extends AppCompatActivity {
                 // 내가 선택한 아이탬의 id속성을 가져와서 어떤 메뉴를 선택했는지 판단
                 switch (item.getItemId()){
                     case R.id.tab1:
-                        Toast.makeText(MainActivity2.this,"첫번째 탭",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity_T.this,"첫번째 탭",Toast.LENGTH_SHORT).show();
                         // 1) fragment가 들어갈 위치 : fl
                         // 2) 내가 fl에 넣고싶은 fragment의 객체 (new Fragment1)
                         getSupportFragmentManager().beginTransaction().replace(
-                                R.id.fl, new Fragment11()).commit();
+                                R.id.fl, new Fra_cctv_T()).commit();
                         break;
                     case R.id.tab2:
-                        Toast.makeText(MainActivity2.this,"두번째 탭",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity_T.this,"두번째 탭",Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction().replace(
-                                R.id.fl, new Fragment22()).commit();
+                                R.id.fl, new Fra_chat_T()).commit();
                         break;
                     case R.id.tab3:
-                        Toast.makeText(MainActivity2.this,"세번째 탭",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity_T.this,"세번째 탭",Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction().replace(
-                                R.id.fl, new Fragment3()).commit();
+                                R.id.fl, new Fra_mypage_T()).commit();
                         break;
                     case R.id.tab4:
-                        Toast.makeText(MainActivity2.this,"네번째 탭",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity_T.this,"네번째 탭",Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction().replace(
-                                R.id.fl, new Fragment44()).commit();
+                                R.id.fl, new Fra_law_T()).commit();
                         break;
                 }
 
@@ -88,6 +83,7 @@ public class MainActivity2 extends AppCompatActivity {
         // 3) 1)+2)
         // 4번에서 EditText에 url 작성후 버튼 누르면 URL정보를 Fragment1로 보내서
         // 웹페이지 띄우기
+
 
 
 

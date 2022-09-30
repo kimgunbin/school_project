@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.MainActivity2">
+    tools:context=".activity.MainActivity_S">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bnv"
@@ -21,7 +21,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.998"
-        app:menu="@menu/select2" />
+        app:menu="@menu/select_s" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"

@@ -19,7 +19,7 @@ public class ChatTestActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chat_test);
+        setContentView(R.layout.fragment_chat);
 
         etUserName = findViewById(R.id.etUserName);
         etRoomNumber = findViewById(R.id.etRoomNumber);

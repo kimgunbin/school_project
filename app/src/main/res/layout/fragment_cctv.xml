@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:layout_margin="15dp"
     android:background="#EFEFEF"
-    tools:context=".fragment.Fragment1">
+    tools:context=".fragment.Fra_cctv_T">
 
     <ListView
         android:id="@+id/lv"

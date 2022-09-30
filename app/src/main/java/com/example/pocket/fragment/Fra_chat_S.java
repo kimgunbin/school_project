@@ -14,10 +14,10 @@ import com.example.pocket.activity.ChatActivity;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link Fragment22#newInstance} factory method to
+ * Use the {@link Fra_chat_S#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Fragment22 extends Fragment {
+public class Fra_chat_S extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -28,7 +28,7 @@ public class Fragment22 extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public Fragment22() {
+    public Fra_chat_S() {
         // Required empty public constructor
     }
 
@@ -41,8 +41,8 @@ public class Fragment22 extends Fragment {
      * @return A new instance of fragment Fragment2.
      */
     // TODO: Rename and change types and number of parameters
-    public static Fragment22 newInstance(String param1, String param2) {
-        Fragment22 fragment = new Fragment22();
+    public static Fra_chat_S newInstance(String param1, String param2) {
+        Fra_chat_S fragment = new Fra_chat_S();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -62,7 +62,7 @@ public class Fragment22 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_chat_test, container, false);
+        View view = inflater.inflate(R.layout.fragment_chat, container, false);
 
         Button btn = view.findViewById(R.id.btnChatJoin);
 

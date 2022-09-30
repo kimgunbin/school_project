@@ -1,6 +1,6 @@
-package com.example.pocket.Adapter;
+package com.example.pocket.class_.cctv;
 
-public class PhoneVO {
+public class CctvVO {
 
     private String title;
     private String context;
@@ -31,7 +31,7 @@ public class PhoneVO {
     }
 
 
-    public PhoneVO(String title, String context, String file) {
+    public CctvVO(String title, String context, String file) {
         this.title = title;
         this.context = context;
         this.file = file;

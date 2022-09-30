@@ -40,10 +40,7 @@
             android:name=".class_.chat.ChatTestActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.MainActivity2"
-            android:exported="false" />
-        <activity
-            android:name=".activity.CctvActivity"
+            android:name=".activity.MainActivity_S"
             android:exported="false" />
         <activity
             android:name=".activity.ChatActivity"
@@ -55,7 +52,7 @@
             android:name=".activity.SignInActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".activity.MainActivity_T"
             android:exported="false" />
         <activity
             android:name=".activity.IntroActivity"

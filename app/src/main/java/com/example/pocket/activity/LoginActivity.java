@@ -7,8 +7,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -18,8 +16,6 @@ import android.widget.Toast;
 
 import com.example.pocket.R;
 import com.example.pocket.class_.database.DbHelper;
-
-import javax.net.ssl.HttpsURLConnection;
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -62,6 +58,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
                     result = dbHelper.connectServer("http://210.183.87.95:5000/login", postText);
+
                     Log.v("r", result);
 
 
@@ -78,13 +75,13 @@ public class LoginActivity extends AppCompatActivity {
 
                                 saved(list);
                                 Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                Intent intent = new Intent(LoginActivity.this, MainActivity_T.class);
                                 startActivity(intent);
                             }
                             if (Check.equals("1")) {
                                 saved(list);
                                 Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(LoginActivity.this, MainActivity2.class);
+                                Intent intent = new Intent(LoginActivity.this, MainActivity_S.class);
                                 startActivity(intent);
 
                         }
@@ -94,6 +91,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
             }
+
 
             private void saved(@NonNull String[] list) {
                 String id = list[1].replace("'","").replace(" ","");

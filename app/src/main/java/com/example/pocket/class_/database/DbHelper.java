@@ -68,6 +68,7 @@ public class DbHelper {
                 .build();
 
 
+
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -93,9 +94,11 @@ public class DbHelper {
                         }
 
                     }).start();
+
+
+
             }
         });
-
 
 
         return result;

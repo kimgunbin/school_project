@@ -1,11 +1,10 @@
-package com.example.pocket.Adapter;
+package com.example.pocket.class_.cctv;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -16,16 +15,16 @@ import com.example.pocket.R;
 
 import java.util.ArrayList;
 
-public class PhoneAdapter extends BaseAdapter {
+public class CctvAdapter extends BaseAdapter {
 
     // 필드
     private Context Context;
     private int layout;
-    private ArrayList<PhoneVO> data;
+    private ArrayList<CctvVO> data;
     private LayoutInflater inflater; // xml을 눈에 보이게하는 도구
     int cnt = 1;
     // 생성자 (화면정보,탬플릿,데이터)
-    public PhoneAdapter(Context Context, int layout, ArrayList<PhoneVO> data) {
+    public CctvAdapter(Context Context, int layout, ArrayList<CctvVO> data) {
         this.Context =Context;
         this.layout =layout;
         this.data =data;

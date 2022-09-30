@@ -6,13 +6,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#8BC34A"
-    tools:context=".fragment.Fragment44" >
+    tools:context=".fragment.Fra_law_T" >
 
     <WebView
         android:id="@+id/wv"
         android:layout_width="409dp"
         android:layout_height="729dp"
-        android:scrollbars="horizontal|vertical"
+        android:fadeScrollbars="false"
+        android:overScrollMode="always"
+        android:scrollbarAlwaysDrawHorizontalTrack="false"
+        android:scrollbarAlwaysDrawVerticalTrack="false"
+        android:verticalScrollbarPosition="right"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
