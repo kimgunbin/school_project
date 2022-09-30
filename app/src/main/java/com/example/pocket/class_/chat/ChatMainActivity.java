@@ -5,6 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.pocket.R;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.app.ActivityCompat;
+
+import android.Manifest;
+import android.content.Intent;
+import android.os.Bundle;
 
 public class ChatMainActivity extends AppCompatActivity {
 
