@@ -1,10 +1,6 @@
 package com.example.pocket.class_.chat.model;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 public class MessageData {
-
     private String type;
     private String from;
     private String to;
@@ -57,22 +53,5 @@ public class MessageData {
 
     public void setSendTime(long sendTime) {
         this.sendTime = sendTime;
-    }
-
-    public String toJSON() {
-        JSONObject jsonObject = new JSONObject();
-
-        try {
-            jsonObject.put("type", getType());
-            jsonObject.put("from", getFrom());
-            jsonObject.put("to", getTo());
-            jsonObject.put("content", getContent());
-            jsonObject.put("sendTime", getSendTime());
-
-            return jsonObject.toString();
-        } catch (JSONException e) {
-            e.printStackTrace();
-            return "";
-        }
     }
 }

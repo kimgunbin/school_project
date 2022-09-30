@@ -1,24 +1,21 @@
 package com.example.pocket.class_.chat.model;
 
-import org.json.JSONException;
-import org.json.JSONObject;
 
 public class RoomData {
-
-    private String userName;
+    private String username;
     private String roomNumber;
 
-    public RoomData(String userName, String roomNumber) {
-        this.userName = userName;
+    public RoomData(String username, String roomNumber) {
+        this.username = username;
         this.roomNumber = roomNumber;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getRoomNumber() {
@@ -27,19 +24,5 @@ public class RoomData {
 
     public void setRoomNumber(String roomNumber) {
         this.roomNumber = roomNumber;
-    }
-
-    public String toJSON() {
-        JSONObject jsonObject = new JSONObject();
-
-        try {
-            jsonObject.put("username", getUserName());
-            jsonObject.put("roomNumber", getRoomNumber());
-
-            return jsonObject.toString();
-        } catch (JSONException e) {
-            e.printStackTrace();
-            return "";
-        }
     }
 }
