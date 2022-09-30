@@ -28,6 +28,7 @@ public class MainActivity_S extends AppCompatActivity {
 
 
 
+
         // ------------ flagment
 
         bnv = findViewById(R.id.bnv);
