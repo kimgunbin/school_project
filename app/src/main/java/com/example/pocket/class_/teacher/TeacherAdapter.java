@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -53,9 +54,12 @@ public class TeacherAdapter extends BaseAdapter {
             view = inflater.inflate(layout,viewGroup,false);
         }
 
+        ImageView imgTeacher = view.findViewById(R.id.imgT);
+
         ConstraintLayout cl = view.findViewById(R.id.clTea);
         TextView tvBtn1 = view.findViewById(R.id.tvBtn1);
         tvBtn1.setText("   "+data.get(i).getName());
+        imgTeacher.setImageResource(R.drawable.people);
 
         return view;
     }
