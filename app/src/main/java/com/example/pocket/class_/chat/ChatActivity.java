@@ -49,7 +49,7 @@ public class ChatActivity extends AppCompatActivity {
 
     private void init() {
         try {
-            mSocket = IO.socket("http://59.0.129.222:3000");
+            mSocket = IO.socket("http:  //59.0.129.222:3000");
             Log.d("SOCKET", "Connection success : " + mSocket.id());
         } catch (URISyntaxException e) {
             e.printStackTrace();
