@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
     String result = "";
     SharedPreferences pref;
     SharedPreferences.Editor editor;
-
+    String[] list = {};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +58,13 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                result = "";
+                if(list!=null){
+                    for(int i = 0 ; i<list.length;i++){
+                        list[i] = "";
+                    }
+                }
+
                 String postText = edtId.getText().toString() + "/" + edtPw.getText().toString();
 
 
@@ -65,7 +72,7 @@ public class LoginActivity extends AppCompatActivity {
                 Log.v("r", result);
 
 
-                String[] list = result.split(",");
+                list = result.split(",");
 
                 if (result.equals("로그인실패")) {
                     Toast.makeText(getApplicationContext(), "로그인 실패", Toast.LENGTH_SHORT).show();
@@ -79,12 +86,14 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(LoginActivity.this, MainActivity_T.class);
                         startActivity(intent);
+                        finish();
                     }
                     if (Check.equals("1")) {
                         saved(list);
                         Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(LoginActivity.this, MainActivity_S.class);
                         startActivity(intent);
+                        finish();
 
                     }
 

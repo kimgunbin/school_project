@@ -139,6 +139,7 @@ public class Fra_mypage_T extends Fragment {
                 Toast.makeText(getContext(), "로그아웃 성공.", Toast.LENGTH_SHORT).show();
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
+
             }
         });
 
