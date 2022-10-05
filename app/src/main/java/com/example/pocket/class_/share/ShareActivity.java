@@ -68,7 +68,7 @@ public class ShareActivity extends AppCompatActivity {
 
 // 컴포넌트 초기화
         listView = findViewById(R.id.listView);
-while(result==null) {
+for(int i = 0 ; i<5;i++){
     result = dbHelper.connectServer("http://210.183.87.95:5000/list", String.valueOf(pref.getString("scCode", "0")));
 }
 
