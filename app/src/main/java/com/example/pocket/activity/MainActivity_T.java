@@ -11,7 +11,7 @@ import com.example.pocket.R;
 import com.example.pocket.fragment.Fra_cctv_T;
 import com.example.pocket.fragment.Fra_chat_T;
 import com.example.pocket.fragment.Fra_mypage_T;
-import com.example.pocket.fragment.Fra_law_T;
+import com.example.pocket.fragment.Fra_share;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
@@ -50,7 +50,7 @@ public class MainActivity_T extends AppCompatActivity {
                     case R.id.tab3:
                         Toast.makeText(MainActivity_T.this,"세번째 탭",Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction().replace(
-                                R.id.fl, new Fra_law_T()).commit();
+                                R.id.fl, new Fra_share()).commit();
                         break;
                     case R.id.tab4:
                         Toast.makeText(MainActivity_T.this,"네번째 탭",Toast.LENGTH_SHORT).show();
