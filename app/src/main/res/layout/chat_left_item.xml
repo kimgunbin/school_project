@@ -25,6 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="4dp"
+        android:background="#BFBBBB"
         android:paddingLeft="16dp"
         android:paddingTop="4dp"
         android:paddingRight="16dp"
