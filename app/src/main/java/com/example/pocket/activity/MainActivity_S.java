@@ -9,6 +9,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.pocket.R;
+import com.example.pocket.fragment.Fra_board;
 import com.example.pocket.fragment.Fra_title_S;
 import com.example.pocket.fragment.Fra_chat_S;
 import com.example.pocket.fragment.Fra_mypage_T;
@@ -59,7 +60,7 @@ public class MainActivity_S extends AppCompatActivity {
                     case R.id.tab3:
                         Toast.makeText(MainActivity_S.this,"세번째 탭",Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction().replace(
-                                R.id.fl, new Fra_law_S()).commit();
+                                R.id.fl, new Fra_board()).commit();
                         break;
                     case R.id.tab4:
                         Toast.makeText(MainActivity_S.this,"네번째 탭",Toast.LENGTH_SHORT).show();

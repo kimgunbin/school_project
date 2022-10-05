@@ -13,14 +13,17 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.pocket.R;
+import com.example.pocket.activity.MainActivity_S;
+import com.example.pocket.activity.MainActivity_T;
 import com.example.pocket.class_.database.DbHelper;
+import com.example.pocket.fragment.Fra_board;
 
 public class RegisterActivity extends AppCompatActivity {
 
     EditText title_et, content_et;
     Button reg_button;
     DbHelper dbHelper = new DbHelper();
-    String total,result,id,sc;
+    String total,result,id,sc,type;
     SharedPreferences pref ;
     SharedPreferences.Editor editor;
 
@@ -42,7 +45,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         id = String.valueOf(pref.getString("id","0"));
         sc =  String.valueOf(pref.getString("scCode","0"));
-
+        type = String.valueOf(pref.getString("type","0"));
         reg_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -50,8 +53,14 @@ public class RegisterActivity extends AppCompatActivity {
                 result = dbHelper.connectServer("http://210.183.87.95:5000/register",total);
                 Log.v("r", result);
                 Toast.makeText(getApplicationContext(), "게시글 생성 성공", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(RegisterActivity.this, ShareActivity.class);
-                startActivity(intent);
+                if(type.equals("0")){
+                    Intent intent = new Intent(RegisterActivity.this, MainActivity_T.class);
+                    startActivity(intent);
+                }else{
+                    Intent intent = new Intent(RegisterActivity.this, MainActivity_S.class);
+                    startActivity(intent);
+                }
+
             }
         });
 

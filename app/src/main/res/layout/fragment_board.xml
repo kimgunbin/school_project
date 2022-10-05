@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#8BC34A"
-    tools:context=".fragment.Fra_share" >
+    tools:context=".fragment.Fra_board" >
 
     <Button
         android:id="@+id/button3"
