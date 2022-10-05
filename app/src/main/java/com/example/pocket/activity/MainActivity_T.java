@@ -50,12 +50,12 @@ public class MainActivity_T extends AppCompatActivity {
                     case R.id.tab3:
                         Toast.makeText(MainActivity_T.this,"세번째 탭",Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction().replace(
-                                R.id.fl, new Fra_mypage_T()).commit();
+                                R.id.fl, new Fra_law_T()).commit();
                         break;
                     case R.id.tab4:
                         Toast.makeText(MainActivity_T.this,"네번째 탭",Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction().replace(
-                                R.id.fl, new Fra_law_T()).commit();
+                                R.id.fl, new Fra_mypage_T()).commit();
                         break;
                 }
 
