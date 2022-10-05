@@ -68,12 +68,7 @@ public class ShareActivity extends AppCompatActivity {
 
 // 컴포넌트 초기화
         listView = findViewById(R.id.listView);
-for(int i = 0 ; i<5;i++){
-    result = dbHelper.connectServer("http://210.183.87.95:5000/list", String.valueOf(pref.getString("scCode", "0")));
-}
 
-Log.v("a",result);
-        list = result.split("/");
 
 
 // listView 를 클릭했을 때 이벤트 추가
@@ -145,15 +140,16 @@ Log.v("a",result);
 
 // 결과물이 JSONArray 형태로 넘어오기 때문에 파싱
 
+                JSONArray jsonArray = new JSONArray(result);
+                for(int i=0;i<jsonArray.length();i++){
+                    JSONObject jsonObject = jsonArray.getJSONObject(i);
 
-                for(int i=0;i<list.length;i++){
+                    String title = jsonObject.optString("title");
+                    String seq = jsonObject.optString("seq");
 
-
-
-
-
-                    titleList.add(list[i]);
-                    seqList.add(list[i]);
+// title, seq 값을 변수로 받아서 배열에 추가
+                    titleList.add(title);
+                    seqList.add(seq);
 
                 }
 
