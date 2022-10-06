@@ -22,28 +22,28 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31" >
         <activity
-            android:name=".class_.share.custom_comment"
+            android:name=".class_.board.custom_comment"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".class_.share.DetailActivity"
+            android:name=".class_.board.DetailActivity"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".class_.share.RegisterActivity"
+            android:name=".class_.board.RegisterActivity"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".class_.share.ShareActivity"
+            android:name=".class_.board.BoardActivity"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"

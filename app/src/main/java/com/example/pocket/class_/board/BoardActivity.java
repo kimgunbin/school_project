@@ -1,4 +1,4 @@
-package com.example.pocket.class_.share;
+package com.example.pocket.class_.board;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -20,7 +20,6 @@ import com.example.pocket.R;
 import com.example.pocket.class_.database.DbHelper;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -34,7 +33,7 @@ import java.util.ArrayList;
 
 import javax.net.ssl.HttpsURLConnection;
 
-public class ShareActivity extends AppCompatActivity {
+public class BoardActivity extends AppCompatActivity {
 
     // 로그에 사용할 TAG 변수
     final private String TAG = getClass().getSimpleName();
@@ -58,7 +57,7 @@ public class ShareActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_share);
+        setContentView(R.layout.activity_board);
 
         pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
         editor = pref.edit();
@@ -77,11 +76,11 @@ public class ShareActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
 // 어떤 값을 선택했는지 토스트를 뿌려줌
-                Toast.makeText(ShareActivity.this, "", Toast.LENGTH_SHORT).show();
-                Toast.makeText(ShareActivity.this, adapterView.getItemAtPosition(i)+ " 클릭", Toast.LENGTH_SHORT).show();
+                Toast.makeText(BoardActivity.this, "", Toast.LENGTH_SHORT).show();
+                Toast.makeText(BoardActivity.this, adapterView.getItemAtPosition(i)+ " 클릭", Toast.LENGTH_SHORT).show();
 
 // 게시물의 번호와 userid를 가지고 DetailActivity 로 이동
-                Intent intent = new Intent(ShareActivity.this, DetailActivity.class);
+                Intent intent = new Intent(BoardActivity.this, DetailActivity.class);
                 intent.putExtra("board_seq", seqList.get(i));
                 intent.putExtra("userid", userid);
                 startActivity(intent);
@@ -98,7 +97,7 @@ public class ShareActivity extends AppCompatActivity {
             public void onClick(View view) {
 
 // userid 를 가지고 RegisterActivity 로 이동
-                Intent intent = new Intent(ShareActivity.this, RegisterActivity.class);
+                Intent intent = new Intent(BoardActivity.this, RegisterActivity.class);
 
                 startActivity(intent);
             }
@@ -154,7 +153,7 @@ public class ShareActivity extends AppCompatActivity {
                 }
 
 // ListView 에서 사용할 arrayAdapter를 생성하고, ListView 와 연결
-                ArrayAdapter arrayAdapter = new ArrayAdapter<String>(ShareActivity.this, android.R.layout.simple_list_item_1, titleList);
+                ArrayAdapter arrayAdapter = new ArrayAdapter<String>(BoardActivity.this, android.R.layout.simple_list_item_1, titleList);
                 listView.setAdapter(arrayAdapter);
 
 // arrayAdapter의 데이터가 변경되었을때 새로고침

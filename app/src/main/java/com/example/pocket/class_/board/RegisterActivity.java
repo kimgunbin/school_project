@@ -1,4 +1,4 @@
-package com.example.pocket.class_.share;
+package com.example.pocket.class_.board;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -16,7 +16,6 @@ import com.example.pocket.R;
 import com.example.pocket.activity.MainActivity_S;
 import com.example.pocket.activity.MainActivity_T;
 import com.example.pocket.class_.database.DbHelper;
-import com.example.pocket.fragment.Fra_board;
 
 public class RegisterActivity extends AppCompatActivity {
 

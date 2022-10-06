@@ -20,9 +20,8 @@ import androidx.fragment.app.Fragment;
 
 import com.example.pocket.R;
 import com.example.pocket.class_.database.DbHelper;
-import com.example.pocket.class_.share.DetailActivity;
-import com.example.pocket.class_.share.RegisterActivity;
-import com.example.pocket.class_.share.ShareActivity;
+import com.example.pocket.class_.board.DetailActivity;
+import com.example.pocket.class_.board.RegisterActivity;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -81,7 +80,7 @@ public class Fra_board extends Fragment {
                              Bundle savedInstanceState) {
 
 
-        View view = inflater.inflate(R.layout.activity_share, container, false);
+        View view = inflater.inflate(R.layout.activity_board, container, false);
 
         pref = getActivity().getSharedPreferences("pref", Activity.MODE_PRIVATE);
         editor = pref.edit();

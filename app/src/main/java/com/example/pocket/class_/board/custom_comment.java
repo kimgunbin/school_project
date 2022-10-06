@@ -1,4 +1,4 @@
-package com.example.pocket.class_.share;
+package com.example.pocket.class_.board;
 
 import android.os.Bundle;
 
