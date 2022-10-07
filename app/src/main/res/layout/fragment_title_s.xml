@@ -9,7 +9,7 @@
     tools:context=".fragment.Fra_title_S">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvCctv1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="상담자"
@@ -26,5 +26,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/tvCctv1" />
 </androidx.constraintlayout.widget.ConstraintLayout>

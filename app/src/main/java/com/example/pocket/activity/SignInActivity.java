@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.pocket.R;
@@ -36,6 +37,9 @@ public class SignInActivity extends AppCompatActivity {
         rbTeacher = findViewById(R.id.rbTeacher);
         rbStudent = findViewById(R.id.rbStudent);
         btnSign = findViewById(R.id.btnUpdate);
+        RadioButton typeT = findViewById(R.id.rbTeacher);
+        RadioButton  typeS  = findViewById(R.id.rbStudent);
+        RadioGroup type1 = findViewById(R.id.radioType);
 
 
 
@@ -43,12 +47,17 @@ public class SignInActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                if(etPw1.getText().toString().equals(etPw2.getText().toString())) {
+                if ( etId.getText().toString().equals("") || etPw1.getText().toString().equals("") ||  etName.getText().toString().equals("") ||
+                        etSchool.getText().toString().equals("") ||  etTel.getText().toString().equals("") || typeS.isChecked()==false || typeT.isChecked()==false ){
+                    Toast.makeText(getApplicationContext(), "모두 입력해주세요.", Toast.LENGTH_SHORT).show();
+                }
+               else if(etPw1.getText().toString().equals(etPw2.getText().toString())) {
                     if(rbTeacher.isChecked()){
                         type = "0";
                     }else if(rbStudent.isChecked()){
                         type = "1";
                     }
+
                     postText = etId.getText().toString()+"/"+etPw1.getText().toString()+"/"
                             +etName.getText().toString()+"/"+etSchool.getText().toString()
                             +"/"+etTel.getText().toString()+"/"+type;

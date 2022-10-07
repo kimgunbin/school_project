@@ -6,13 +6,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.pocket.R;
+import com.example.pocket.activity.MainActivity_T;
 import com.example.pocket.class_.board.DetailActivity;
+import com.example.pocket.fragment.Fra_board;
 
 import java.util.ArrayList;
 
@@ -77,22 +80,25 @@ public class BoardAdapter extends BaseAdapter {
 
 
         TextView B_title,B_date;
-        ConstraintLayout C2;
+       Button btn;
         B_title = view.findViewById(R.id.B_title);
         B_date = view.findViewById(R.id.B_date);
-        C2 = view.findViewById(R.id.c2);
+        btn = view.findViewById(R.id.button);
 
         B_title.setText(data.get(i).getTitle());
         B_date.setText(data.get(i).getFile());
 
-        C2.setOnClickListener(new View.OnClickListener() {
+        btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*
-                Intent intent = new Intent(get.getApplicationContext(), DetailActivity.class);
+
+                Intent intent = new Intent(view.getContext(), DetailActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
                 intent.putExtra("Title", data.get(i).getTitle());
-                intent.putExtra("Context",data.get(i).getContext());
-                view.startActivity(intent);*/
+                intent.putExtra("Con",data.get(i).getContext());
+                intent.putExtra("Date",data.get(i).getFile());
+                view.getContext().startActivity(intent);
             }
         });
 

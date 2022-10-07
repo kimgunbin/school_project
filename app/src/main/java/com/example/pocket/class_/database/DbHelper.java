@@ -1,5 +1,7 @@
 package com.example.pocket.class_.database;
 
+import android.app.Activity;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import java.io.IOException;
@@ -14,6 +16,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class DbHelper {
+
     String result ="";
     byte [] result2 = {};
     public String connectServer(String url, String postText) {
@@ -31,6 +34,24 @@ public class DbHelper {
         RequestBody postBody = RequestBody.create(mediaType, postText);
 
            result = postRequest(postUrl, postBody);
+
+        return result;
+    }
+    public String connectServerB(String url, String postText) {
+
+
+        //보낼 주소
+        String postUrl = url;
+
+        Log.v("s1", result);
+
+        //보낼 값
+
+        MediaType mediaType = MediaType.parse("text/plain");
+        //MediaType mediaType = MediaType.parse("text/plain; charset=utf-8");
+        RequestBody postBody = RequestBody.create(mediaType, postText);
+
+        result = postRequestB(postUrl, postBody);
 
         return result;
     }
@@ -106,6 +127,34 @@ public class DbHelper {
         return result;
     }
 
+    String postRequestB(String postUrl, RequestBody postBody) {
+
+        Log.v("s2", result);
+        OkHttpClient client = new OkHttpClient();
+
+        Request request = new Request.Builder()
+                .url(postUrl)
+                .post(postBody)
+                .build();
+
+
+        try {
+            Response response = client.newCall(request).execute();
+            result = response.body().string();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+
+
+
+
+
+
+
+        return result;
+    }
 
     byte[] postRequest2(String postUrl, RequestBody postBody) {
 

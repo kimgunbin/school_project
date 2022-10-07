@@ -36,6 +36,7 @@ public class MainActivity_T extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(
                 R.id.fl, new Fra_cctv_T()).commit();
 
+
         bnv.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
@@ -57,13 +58,17 @@ public class MainActivity_T extends AppCompatActivity {
                     case R.id.tab3:
                         pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
                         editor = pref.edit();
-                        String content = dbHelper.connectServer("http://210.183.87.95:5000/list2", String.valueOf(pref.getString("scCode", "0")));
-                        editor.putString("content", content);
-                        editor.apply();
+                        String content;
 
-                        Toast.makeText(MainActivity_T.this,"세번째 탭",Toast.LENGTH_SHORT).show();
-                        getSupportFragmentManager().beginTransaction().replace(
-                                R.id.fl, new Fra_board()).commit();
+                            content = dbHelper.connectServer("http://210.183.87.95:5000/list2", String.valueOf(pref.getString("scCode", "0")));
+
+                                editor.putString("content", content);
+                                editor.apply();
+
+                                Toast.makeText(MainActivity_T.this, "세번째 탭", Toast.LENGTH_SHORT).show();
+                                getSupportFragmentManager().beginTransaction().replace(
+                                        R.id.fl, new Fra_board()).commit();
+
                         break;
                     case R.id.tab4:
                         Toast.makeText(MainActivity_T.this,"네번째 탭",Toast.LENGTH_SHORT).show();

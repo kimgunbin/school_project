@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -58,8 +59,16 @@ public class TeacherAdapter extends BaseAdapter {
 
         ConstraintLayout cl = view.findViewById(R.id.clTea);
         TextView tvBtn1 = view.findViewById(R.id.tvBtn1);
-        tvBtn1.setText("   "+data.get(i).getName());
+        tvBtn1.setText(data.get(i).getName());
         imgTeacher.setImageResource(R.drawable.people);
+
+        cl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(view.getContext(), "선생님", Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
         return view;
     }

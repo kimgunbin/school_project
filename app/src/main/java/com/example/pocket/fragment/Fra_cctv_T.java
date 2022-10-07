@@ -4,7 +4,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
@@ -35,9 +37,42 @@ public class Fra_cctv_T extends Fragment {
                 R.layout.cctv_list,
                 data);
 
+        TextView tvCctv1, tvCctv2;
+        Button btnBox;
+
+
+        tvCctv1 = view.findViewById(R.id.tvCctv1);
+        tvCctv2 = view.findViewById(R.id.tvCctv2);
+        btnBox = view.findViewById(R.id.btnBox);
+
+
+        btnBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (tvCctv1.getVisibility()==View.VISIBLE){
+                    tvCctv1.setVisibility(View.INVISIBLE);
+                    tvCctv2.setVisibility(View.VISIBLE);
+                    btnBox.setText("조회");
+                }else {
+                    tvCctv1.setVisibility(View.VISIBLE);
+                    tvCctv2.setVisibility(View.INVISIBLE);
+                    btnBox.setText("보관함");
+
+                }
+
+            }
+        });
+
+
+
+
+
 
         // 5 ListView에 Adapter적용 시키기
         lv.setAdapter(adapter);
+
+
         return view;
     }
 }

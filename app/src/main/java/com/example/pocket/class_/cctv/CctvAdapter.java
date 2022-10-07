@@ -26,13 +26,18 @@ public class CctvAdapter extends BaseAdapter {
     private ArrayList<CctvVO> data;
     private LayoutInflater inflater; // xml을 눈에 보이게하는 도구
     int cnt = 1;
+
+
     // 생성자 (화면정보,탬플릿,데이터)
     public CctvAdapter(Context Context, int layout, ArrayList<CctvVO> data) {
         this.Context =Context;
         this.layout =layout;
         this.data =data;
         this.inflater = (LayoutInflater) Context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+
         // 다운캐스팅
+
 
     }
 
@@ -84,11 +89,13 @@ public class CctvAdapter extends BaseAdapter {
         btnYes = view.findViewById(R.id.btnYes);
         btnWait = view.findViewById(R.id.btnWait);
 
+
         tvBtn.setText(data.get(i).getTitle());
 
 
         ImageView img = view.findViewById(R.id.imgCctv);
         ImageView icon = view.findViewById(R.id.imgIcon);
+
 
         LinearLayout lieb = view.findViewById(R.id.linB);
 
@@ -96,6 +103,8 @@ public class CctvAdapter extends BaseAdapter {
          icon.setImageResource(R.drawable.warning_icon);
         ConstraintLayout.LayoutParams p1 = new ConstraintLayout.LayoutParams(1,1);
         ConstraintLayout.LayoutParams p3 = new ConstraintLayout.LayoutParams( 500,1200);
+
+
         
         btnYes.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,7 +113,7 @@ public class CctvAdapter extends BaseAdapter {
 
             }
         });
-        
+
         btnWait.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -112,6 +121,12 @@ public class CctvAdapter extends BaseAdapter {
 
             }
         });
+
+
+
+
+
+
 
 
 
