@@ -55,8 +55,8 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 result = "";
-                if(list!=null){
-                    for(int i = 0 ; i<list.length;i++){
+                if (list != null) {
+                    for (int i = 0; i < list.length; i++) {
                         list[i] = "";
                     }
                 }
@@ -64,39 +64,41 @@ public class LoginActivity extends AppCompatActivity {
                 String postText = edtId.getText().toString() + "/" + edtPw.getText().toString();
 
 
-                result = dbHelper.connectServer("http://210.183.87.95:5000/login", postText);
-                Log.v("r", result);
+                   while(true) {
+                       result = dbHelper.connectServer("http://210.183.87.95:5000/login", postText);
+
+                       Log.v("r", result);
 
 
-                list = result.split(",");
+                       list = result.split(",");
 
-                if (result.equals("로그인실패")) {
-                    Toast.makeText(getApplicationContext(), "로그인 실패", Toast.LENGTH_SHORT).show();
-                } else if(list.length>2) {
+                       if (result.equals("로그인실패")) {
+                           Toast.makeText(getApplicationContext(), "로그인 실패", Toast.LENGTH_SHORT).show();
+                           break;
+                       } else if (list.length > 2) {
 
-                    Log.v("list", list[6].replace("'", ""));
-                    String Check = list[6].replace("'", "").replace(" ", "");
-                    if (Check.equals("0")) {
+                           Log.v("list", list[6].replace("'", ""));
+                           String Check = list[6].replace("'", "").replace(" ", "");
+                           if (Check.equals("0")) {
 
-                        saved(list);
-                        Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(LoginActivity.this, MainActivity_T.class);
-                        startActivity(intent);
-                        finish();
-                    }
-                    if (Check.equals("1")) {
-                        saved(list);
-                        Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(LoginActivity.this, MainActivity_S.class);
-                        startActivity(intent);
-                        finish();
+                               saved(list);
+                               Intent intent = new Intent(LoginActivity.this, MainActivity_T.class);
+                               startActivity(intent);
+                               finish();
+                               break;
+                           }
+                           if (Check.equals("1")) {
+                               saved(list);
+                               Intent intent = new Intent(LoginActivity.this, MainActivity_S.class);
+                               startActivity(intent);
+                               finish();
+                               break;
 
-                    }
+                           }
 
 
-
-                }
-
+                       }
+                   }
             }
 
             private void saved(@NonNull String[] list) {

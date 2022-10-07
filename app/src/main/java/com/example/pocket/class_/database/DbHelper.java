@@ -138,12 +138,16 @@ public class DbHelper {
                 .build();
 
 
+        okhttp3.Response response = null;
         try {
-            Response response = client.newCall(request).execute();
-            result = response.body().string();
+            response = client.newCall(request).execute();
+            if (response.isSuccessful()) {
+                 result = response.body().string();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
+
 
 
 
