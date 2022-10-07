@@ -66,7 +66,7 @@ public class MainActivity_S extends AppCompatActivity {
                     case R.id.tab3:
                         pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
                         editor = pref.edit();
-                        String content = dbHelper.connectServer("http://210.183.87.95:5000/list2", "789");
+                        String content = dbHelper.connectServer("http://210.183.87.95:5000/list2", String.valueOf(pref.getString("scCode", "0")));
                         editor.putString("content", content);
                         editor.apply();
 
