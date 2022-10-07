@@ -13,7 +13,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/btnBox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,24 +27,37 @@
         app:layout_constraintGuide_percent="0.08" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvCctv1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="CCTV 조회"
         android:textSize="34sp"
         android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/lv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvCctv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CCTV 보관함"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/lv"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnBox"
         android:layout_width="385dp"
         android:layout_height="48dp"
         android:backgroundTint="#8A8FA8"
         android:insetTop="0dp"
         android:insetBottom="0dp"
-        android:text="+ 기기 추가"
+        android:text="보관함"
         app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

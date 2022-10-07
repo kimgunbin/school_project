@@ -130,6 +130,8 @@ public class CctvAdapter extends BaseAdapter {
 
 
 
+
+
         // inflate가 된 view를 리턴 -> ListView에 적재
         return view;
     }
