@@ -101,11 +101,14 @@
             android:background="#eeeeee"
             android:layout_weight="1"
             android:hint="댓글 내용을 입력하세요"/>
+
         <Button
             android:id="@+id/reg_button"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
             android:padding="8dp"
-            android:text="등록하기"/>
+            android:text="등록하기" />
     </LinearLayout>
 </LinearLayout>
