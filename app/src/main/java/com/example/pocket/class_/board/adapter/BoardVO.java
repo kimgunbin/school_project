@@ -5,7 +5,7 @@ public class BoardVO {
     private String title;
     private String context;
     private String file;
-
+    private String seq;
     public String getTitle() {
         return title;
     }
@@ -30,11 +30,20 @@ public class BoardVO {
         this.file = file;
     }
 
+    public String getSeq() {
+        return seq;
+    }
 
-    public BoardVO(String title, String context, String file) {
+    public void setSeq(String seq) {
+        this.seq = seq;
+    }
+
+
+    public BoardVO(String title, String context, String file,String seq) {
         this.title = title;
         this.context = context;
         this.file = file;
+        this.seq = seq;
     }
 // private (내부 메서드(get/set)를 사용해서 접근 가능)
 

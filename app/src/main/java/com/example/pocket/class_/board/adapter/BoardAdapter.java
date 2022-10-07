@@ -98,6 +98,7 @@ public class BoardAdapter extends BaseAdapter {
                 intent.putExtra("Title", data.get(i).getTitle());
                 intent.putExtra("Con",data.get(i).getContext());
                 intent.putExtra("Date",data.get(i).getFile());
+                intent.putExtra("Date",data.get(i).getSeq());
                 view.getContext().startActivity(intent);
             }
         });
