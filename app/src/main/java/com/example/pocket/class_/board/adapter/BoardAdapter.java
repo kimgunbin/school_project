@@ -1,13 +1,18 @@
 package com.example.pocket.class_.board.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import com.example.pocket.R;
+import com.example.pocket.class_.board.DetailActivity;
 
 import java.util.ArrayList;
 
@@ -72,16 +77,24 @@ public class BoardAdapter extends BaseAdapter {
 
 
         TextView B_title,B_date;
-
+        ConstraintLayout C2;
         B_title = view.findViewById(R.id.B_title);
         B_date = view.findViewById(R.id.B_date);
-
+        C2 = view.findViewById(R.id.c2);
 
         B_title.setText(data.get(i).getTitle());
         B_date.setText(data.get(i).getFile());
 
-
-        
+        C2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                /*
+                Intent intent = new Intent(get.getApplicationContext(), DetailActivity.class);
+                intent.putExtra("Title", data.get(i).getTitle());
+                intent.putExtra("Context",data.get(i).getContext());
+                view.startActivity(intent);*/
+            }
+        });
 
 
 
