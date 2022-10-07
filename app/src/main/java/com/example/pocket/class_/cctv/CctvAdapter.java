@@ -72,14 +72,11 @@ public class CctvAdapter extends BaseAdapter {
         }
 
 
-        ConstraintLayout c1 = view.findViewById(R.id.C1);
 
 
 
         TextView tvBtn;
         tvBtn = view.findViewById(R.id.tvBtn);
-        ImageView imgArrow = view.findViewById(R.id.imgArrow);
-        imgArrow.setImageResource(R.drawable.down);
 
         tvBtn.setText("   "+data.get(i).getTitle());
 
@@ -91,26 +88,6 @@ public class CctvAdapter extends BaseAdapter {
         ConstraintLayout.LayoutParams p1 = new ConstraintLayout.LayoutParams(1,1);
         ConstraintLayout.LayoutParams p3 = new ConstraintLayout.LayoutParams( 500,1200);
 
-        c1.setLayoutParams(p1);
-        lieb.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-
-
-                if(cnt%2==1) {
-                    c1.setLayoutParams(p3);
-                    imgArrow.setImageResource(R.drawable.up);
-
-                    cnt+=1;
-                }else{
-                    c1.setLayoutParams(p1);
-                    imgArrow.setImageResource(R.drawable.down);
-
-                    cnt+=1;
-                }
-            }
-        });
 
 
         // inflate가 된 view를 리턴 -> ListView에 적재

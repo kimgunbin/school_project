@@ -1,16 +1,21 @@
 package com.example.pocket.fragment;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
 import com.example.pocket.R;
+import com.example.pocket.activity.LoginActivity;
+import com.example.pocket.activity.SignInActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -61,6 +66,7 @@ public class Fra_mypage_S extends Fragment {
     SharedPreferences pref ;
     SharedPreferences.Editor editor;
     EditText pw,tel,sc;
+    TextView out;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -74,6 +80,7 @@ public class Fra_mypage_S extends Fragment {
         tel = view.findViewById(R.id.tel);
 
         sc = view.findViewById(R.id.scCode);
+        out = view.findViewById(R.id.tvOut);
 
         pref = getActivity().getSharedPreferences("pref", Activity.MODE_PRIVATE);
         editor = pref.edit();
@@ -86,6 +93,22 @@ public class Fra_mypage_S extends Fragment {
         tel.setText("TEL : "+String.valueOf(pref.getString("tel","0")));
 
         sc.setText("ScCode : "+String.valueOf(pref.getString("scCode","0")));
+
+        out.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+
+
+                Toast.makeText(getContext(), "회원탈퇴 성공", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getContext(), LoginActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+
 
 
         // Inflate the layout for this fragment
