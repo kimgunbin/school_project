@@ -5,9 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -76,17 +78,41 @@ public class CctvAdapter extends BaseAdapter {
 
 
         TextView tvBtn;
+        Button btnYes, btnWait;
         tvBtn = view.findViewById(R.id.tvBtn);
+        btnYes = view.findViewById(R.id.btnYes);
+        btnWait = view.findViewById(R.id.btnWait);
 
-        tvBtn.setText("   "+data.get(i).getTitle());
+        tvBtn.setText(data.get(i).getTitle());
+
 
         ImageView img = view.findViewById(R.id.imgCctv);
+        ImageView icon = view.findViewById(R.id.imgIcon);
 
         LinearLayout lieb = view.findViewById(R.id.linB);
 
          img.setImageResource(R.drawable.al);
+         icon.setImageResource(R.drawable.warning_icon);
         ConstraintLayout.LayoutParams p1 = new ConstraintLayout.LayoutParams(1,1);
         ConstraintLayout.LayoutParams p3 = new ConstraintLayout.LayoutParams( 500,1200);
+        
+        btnYes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(view.getContext(), "확인", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        
+        btnWait.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(view.getContext(), "보류", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
 
 
 
