@@ -91,12 +91,12 @@ public class Fra_board extends Fragment {
         listView = view.findViewById(R.id.listView);
         Log.v("i", String.valueOf(pref.getString("scCode", "0")));
 
-        for(int i = 0 ; i<5 ;i++){
+        for (int i = 0; i < 5; i++) {
+            result = dbHelper.connectServer("http://210.183.87.95:5000/list2", "789");
+            list = result.split(",");
+            Log.v("result", list[0]);
 
-            result = dbHelper.connectServer("http://210.183.87.95:5000/list", "789");
-        }
-        list = result.split("/");
-        Log.v("list",list[0]);
+
 // listView 를 클릭했을 때 이벤트 추가
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -129,6 +129,7 @@ public class Fra_board extends Fragment {
                 startActivity(intent);
             }
         });
+    }
         return view;
     }
 
