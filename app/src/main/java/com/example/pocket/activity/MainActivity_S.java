@@ -2,6 +2,8 @@ package com.example.pocket.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
@@ -9,6 +11,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.pocket.R;
+import com.example.pocket.class_.database.DbHelper;
 import com.example.pocket.fragment.Fra_board;
 import com.example.pocket.fragment.Fra_title_S;
 import com.example.pocket.fragment.Fra_chat_S;
@@ -20,6 +23,9 @@ import com.google.android.material.navigation.NavigationBarView;
 public class MainActivity_S extends AppCompatActivity {
     BottomNavigationView bnv;
     FrameLayout fl;
+    SharedPreferences pref;
+    SharedPreferences.Editor editor;
+    DbHelper dbHelper = new DbHelper();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +64,11 @@ public class MainActivity_S extends AppCompatActivity {
                                 R.id.fl, new Fra_chat_S()).commit();
                         break;
                     case R.id.tab3:
-
+                        pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
+                        editor = pref.edit();
+                        String content = dbHelper.connectServer("http://210.183.87.95:5000/list2", "789");
+                        editor.putString("content", content);
+                        editor.apply();
 
 
                         Toast.makeText(MainActivity_S.this,"세번째 탭",Toast.LENGTH_SHORT).show();
