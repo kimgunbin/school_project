@@ -37,6 +37,7 @@ public class Fra_title_S extends Fragment {
     SharedPreferences.Editor editor;
     byte[] teacherList = new byte[100];
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -46,6 +47,14 @@ public class Fra_title_S extends Fragment {
         pref = getActivity().getSharedPreferences("pref", Activity.MODE_PRIVATE);
         editor = pref.edit();
         String sc = String.valueOf(pref.getString("scCode", "0"));
+
+        data.add(new TeacherVO("선생님1","선생님"));
+        data.add(new TeacherVO("선생님2","선생님"));
+        data.add(new TeacherVO("선생님3","선생님"));
+        data.add(new TeacherVO("선생님4","선생님"));
+
+
+
 
         DbHelper dbHelper = new DbHelper();
     while(teacherList==null) {
@@ -63,5 +72,7 @@ public class Fra_title_S extends Fragment {
         lv.setAdapter(adapter);
 
         return view;
+
+
     }
 }

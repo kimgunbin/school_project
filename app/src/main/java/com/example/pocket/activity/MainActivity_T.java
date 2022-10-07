@@ -36,6 +36,7 @@ public class MainActivity_T extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(
                 R.id.fl, new Fra_cctv_T()).commit();
 
+
         bnv.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
