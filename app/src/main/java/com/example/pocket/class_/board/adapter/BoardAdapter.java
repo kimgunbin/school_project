@@ -1,33 +1,26 @@
-package com.example.pocket.class_.cctv;
+package com.example.pocket.class_.board.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.pocket.R;
-import com.example.pocket.class_.board.adapter.BoardVO;
 
 import java.util.ArrayList;
 
-public class CctvAdapter extends BaseAdapter {
+public class BoardAdapter extends BaseAdapter {
 
     // 필드
     private Context Context;
     private int layout;
-    private ArrayList<CctvVO> data;
+    private ArrayList<BoardVO> data;
     private LayoutInflater inflater; // xml을 눈에 보이게하는 도구
     int cnt = 1;
     // 생성자 (화면정보,탬플릿,데이터)
-    public CctvAdapter(Context Context, int layout, ArrayList<CctvVO> data) {
+    public BoardAdapter(Context Context, int layout, ArrayList<BoardVO> data) {
         this.Context =Context;
         this.layout =layout;
         this.data =data;
@@ -78,46 +71,23 @@ public class CctvAdapter extends BaseAdapter {
 
 
 
-        TextView tvBtn;
-        Button btnYes, btnWait;
-        tvBtn = view.findViewById(R.id.tvBtn);
-        btnYes = view.findViewById(R.id.btnYes);
-        btnWait = view.findViewById(R.id.btnWait);
+        TextView B_title,B_date;
 
-        tvBtn.setText(data.get(i).getTitle());
+        B_title = view.findViewById(R.id.B_title);
+        B_date = view.findViewById(R.id.B_date);
 
 
-        ImageView img = view.findViewById(R.id.imgCctv);
-        ImageView icon = view.findViewById(R.id.imgIcon);
+        B_title.setText(data.get(i).getTitle());
+        B_date.setText(data.get(i).getFile());
 
-        LinearLayout lieb = view.findViewById(R.id.linB);
 
-         img.setImageResource(R.drawable.al);
-         icon.setImageResource(R.drawable.warning_icon);
-        ConstraintLayout.LayoutParams p1 = new ConstraintLayout.LayoutParams(1,1);
-        ConstraintLayout.LayoutParams p3 = new ConstraintLayout.LayoutParams( 500,1200);
         
-        btnYes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(view.getContext(), "확인", Toast.LENGTH_SHORT).show();
-
-            }
-        });
-        
-        btnWait.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(view.getContext(), "보류", Toast.LENGTH_SHORT).show();
-
-            }
-        });
 
 
 
 
 
-        // inflate가 된 view를 리턴 -> ListView에 적재
+
         return view;
     }
     // 가자

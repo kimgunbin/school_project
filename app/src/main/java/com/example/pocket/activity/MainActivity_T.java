@@ -2,12 +2,15 @@ package com.example.pocket.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.example.pocket.R;
+import com.example.pocket.class_.database.DbHelper;
 import com.example.pocket.fragment.Fra_cctv_T;
 import com.example.pocket.fragment.Fra_chat_T;
 import com.example.pocket.fragment.Fra_mypage_T;
@@ -18,12 +21,16 @@ import com.google.android.material.navigation.NavigationBarView;
 public class MainActivity_T extends AppCompatActivity {
     BottomNavigationView bnv;
     FrameLayout fl;
+    SharedPreferences pref;
+    SharedPreferences.Editor editor;
+    DbHelper dbHelper = new DbHelper();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_t);
         bnv = findViewById(R.id.bnv);
         fl = findViewById(R.id.fl);
+
 
         // 어플을 처음 실행시켜줄때 첫화면이 Fragment1이 되게하기위해
         getSupportFragmentManager().beginTransaction().replace(
@@ -48,6 +55,12 @@ public class MainActivity_T extends AppCompatActivity {
                                 R.id.fl, new Fra_chat_T()).commit();
                         break;
                     case R.id.tab3:
+                        pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
+                        editor = pref.edit();
+                        String content = dbHelper.connectServer("http://210.183.87.95:5000/list2", "789");
+                        editor.putString("content", content);
+                        editor.apply();
+
                         Toast.makeText(MainActivity_T.this,"세번째 탭",Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction().replace(
                                 R.id.fl, new Fra_board()).commit();

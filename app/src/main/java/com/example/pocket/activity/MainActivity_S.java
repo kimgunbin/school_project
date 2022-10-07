@@ -58,6 +58,9 @@ public class MainActivity_S extends AppCompatActivity {
                                 R.id.fl, new Fra_chat_S()).commit();
                         break;
                     case R.id.tab3:
+
+
+
                         Toast.makeText(MainActivity_S.this,"세번째 탭",Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction().replace(
                                 R.id.fl, new Fra_board()).commit();
