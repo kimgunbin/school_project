@@ -67,8 +67,9 @@ public class Fra_board extends Fragment {
     DbHelper dbHelper = new DbHelper();
     SharedPreferences pref;
     SharedPreferences.Editor editor;
+    String [] list;
     // 리스트뷰에 사용할 제목 배열
-    String[] list = {};
+
 
     ArrayList<String> titleList = new ArrayList<>();
 
@@ -85,11 +86,17 @@ public class Fra_board extends Fragment {
         pref = getActivity().getSharedPreferences("pref", Activity.MODE_PRIVATE);
         editor = pref.edit();
 
-
+        DbHelper dbHelper = new DbHelper();
 // 컴포넌트 초기화
         listView = view.findViewById(R.id.listView);
+        Log.v("i", String.valueOf(pref.getString("scCode", "0")));
 
+        for(int i = 0 ; i<5 ;i++){
 
+            result = dbHelper.connectServer("http://210.183.87.95:5000/list", "789");
+        }
+        list = result.split("/");
+        Log.v("list",list[0]);
 // listView 를 클릭했을 때 이벤트 추가
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -161,16 +168,13 @@ public class Fra_board extends Fragment {
 
 // 결과물이 JSONArray 형태로 넘어오기 때문에 파싱
 
-                JSONArray jsonArray = new JSONArray(result);
-                for (int i = 0; i < jsonArray.length(); i++) {
-                    JSONObject jsonObject = jsonArray.getJSONObject(i);
 
-                    String title = jsonObject.optString("title");
-                    String seq = jsonObject.optString("seq");
+                for (int i = 0; i < list.length; i++) {
 
-// title, seq 값을 변수로 받아서 배열에 추가
-                    titleList.add(title);
-                    seqList.add(seq);
+
+// t
+                    titleList.add(list[i]);
+                    seqList.add(list[i]);
 
                 }
 
