@@ -47,6 +47,7 @@ public class DetailActivity extends AppCompatActivity {
 
     String Content = "";
     String Date = "";
+    String Code = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +59,7 @@ public class DetailActivity extends AppCompatActivity {
         Title = getIntent().getStringExtra("Title");
         Content = getIntent().getStringExtra("Con");
         Date = getIntent().getStringExtra("Date");
+
 
 // 컴포넌트 초기화
         title_tv = findViewById(R.id.title_tv);

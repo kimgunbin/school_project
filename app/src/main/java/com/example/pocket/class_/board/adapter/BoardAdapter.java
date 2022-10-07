@@ -84,7 +84,7 @@ public class BoardAdapter extends BaseAdapter {
         B_title = view.findViewById(R.id.B_title);
         B_date = view.findViewById(R.id.B_date);
         btn = view.findViewById(R.id.button);
-
+        btn.setText(data.get(i).getCode());
         B_title.setText(data.get(i).getTitle());
         B_date.setText(data.get(i).getFile());
 
@@ -98,7 +98,8 @@ public class BoardAdapter extends BaseAdapter {
                 intent.putExtra("Title", data.get(i).getTitle());
                 intent.putExtra("Con",data.get(i).getContext());
                 intent.putExtra("Date",data.get(i).getFile());
-                intent.putExtra("Date",data.get(i).getSeq());
+                intent.putExtra("Seq",data.get(i).getSeq());
+                intent.putExtra("code",data.get(i).getCode());
                 view.getContext().startActivity(intent);
             }
         });
