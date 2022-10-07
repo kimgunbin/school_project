@@ -11,6 +11,8 @@
         android:id="@+id/linB"
         android:layout_width="0dp"
         android:layout_height="200dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:background="@drawable/cctv"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,7 +25,6 @@
             android:layout_height="match_parent"
             android:layout_marginEnd="0dp"
             android:layout_marginRight="279dp"
-            android:layout_weight="1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -31,48 +32,11 @@
             app:srcCompat="@drawable/school" />
     </LinearLayout>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.32147744" />
-
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linB" />
-
-    <TextView
-        android:id="@+id/tvBtn"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_weight="1"
-        android:gravity="center_vertical"
-        android:text="TextView"
-        android:textAlignment="viewStart"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/linB"
-        app:layout_constraintHorizontal_bias="0.473"
-        app:layout_constraintStart_toStartOf="@+id/linB"
-        app:layout_constraintTop_toBottomOf="@+id/linB" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="20dp" />
-
     <TextView
         android:id="@+id/tvCctvText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="14dp"
         android:text="학교폭력 탐지내용"
         app:layout_constraintStart_toStartOf="@+id/tvBtn"
         app:layout_constraintTop_toBottomOf="@+id/tvBtn" />
@@ -81,7 +45,7 @@
         android:id="@+id/tvDay"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         android:text="2022.09.29 13:00"
         android:textAlignment="viewStart"
         app:layout_constraintStart_toStartOf="@+id/tvCctvText"
@@ -91,10 +55,64 @@
         android:id="@+id/textView3"
         android:layout_width="0dp"
         android:layout_height="20dp"
-        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnYes" />
+
+    <Button
+        android:id="@+id/btnYes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:backgroundTint="#8A8FA8"
+        android:text="확인"
+        android:textColor="#FFFFFF"
+        app:cornerRadius="10dp"
+        app:iconPadding="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/btnWait"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvDay" />
+
+    <Button
+        android:id="@+id/btnWait"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#8A8FA8"
+        android:text="보류"
+        android:textColor="#FFFFFF"
+        app:cornerRadius="10dp"
+        app:iconPadding="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnYes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnYes"
+        app:layout_constraintTop_toTopOf="@+id/btnYes" />
+
+    <ImageView
+        android:id="@+id/imgIcon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="132dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvBtn"
+        app:layout_constraintEnd_toEndOf="@+id/linB"
+        app:layout_constraintStart_toEndOf="@+id/tvBtn"
+        app:layout_constraintTop_toTopOf="@+id/tvBtn"
+        app:srcCompat="@drawable/warning_icon" />
+
+    <TextView
+        android:id="@+id/tvBtn"
+        android:layout_width="200dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        android:text="TextView"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/linB"
+        app:layout_constraintTop_toBottomOf="@+id/linB" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

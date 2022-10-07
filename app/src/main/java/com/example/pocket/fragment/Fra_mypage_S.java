@@ -66,7 +66,6 @@ public class Fra_mypage_S extends Fragment {
     SharedPreferences pref ;
     SharedPreferences.Editor editor;
     EditText pw,tel,sc;
-    TextView out;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -80,7 +79,7 @@ public class Fra_mypage_S extends Fragment {
         tel = view.findViewById(R.id.tel);
 
         sc = view.findViewById(R.id.scCode);
-        out = view.findViewById(R.id.tvOut);
+
 
         pref = getActivity().getSharedPreferences("pref", Activity.MODE_PRIVATE);
         editor = pref.edit();
@@ -94,19 +93,7 @@ public class Fra_mypage_S extends Fragment {
 
         sc.setText("ScCode : "+String.valueOf(pref.getString("scCode","0")));
 
-        out.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-
-
-
-                Toast.makeText(getContext(), "회원탈퇴 성공", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getContext(), LoginActivity.class);
-                startActivity(intent);
-
-            }
-        });
 
 
 

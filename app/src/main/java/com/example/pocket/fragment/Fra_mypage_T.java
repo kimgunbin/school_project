@@ -71,7 +71,7 @@ public class Fra_mypage_T extends Fragment {
     String postText = "";
     String result = "check";
     String id ="";
-    TextView logout;
+    TextView logout, out;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -86,6 +86,7 @@ public class Fra_mypage_T extends Fragment {
         tel = view.findViewById(R.id.tel);
         logout.setText("로그아웃");
         sc = view.findViewById(R.id.scCode);
+        out = view.findViewById(R.id.tvOut);
 
         btnUpdate = view.findViewById(R.id.btnUpdate);
 
@@ -140,9 +141,23 @@ public class Fra_mypage_T extends Fragment {
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
 
+
             }
         });
 
+
+        out.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(getContext().getApplicationContext(), LoginActivity.class);
+                Toast.makeText(getContext(), "회원탈퇴 성공", Toast.LENGTH_SHORT).show();
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |Intent.FLAG_ACTIVITY_SINGLE_TOP);
+
+                startActivity(intent);
+
+            }
+        });
 
 
         // Inflate the layout for this fragment
