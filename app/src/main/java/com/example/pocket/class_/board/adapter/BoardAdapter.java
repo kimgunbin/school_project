@@ -79,16 +79,17 @@ public class BoardAdapter extends BaseAdapter {
 
 
 
-        TextView B_title,B_date;
-       Button btn;
+        TextView B_title,B_date, tvSc;
         B_title = view.findViewById(R.id.B_title);
         B_date = view.findViewById(R.id.B_date);
-        btn = view.findViewById(R.id.button);
-        btn.setText(data.get(i).getCode());
+        tvSc = view.findViewById(R.id.tvSc);
+        tvSc.setText(data.get(i).getCode());
         B_title.setText(data.get(i).getTitle());
         B_date.setText(data.get(i).getFile());
 
-        btn.setOnClickListener(new View.OnClickListener() {
+        ConstraintLayout c2 = view.findViewById(R.id.c2);
+
+        c2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
