@@ -23,12 +23,14 @@ public class NodePostJSON extends AsyncTask {
         try {
             JSONObject jsonObject = new JSONObject();
 
+            jsonObject.accumulate("query", objects[1].toString());
+            jsonObject.accumulate("rm", objects[2].toString());
+
             HttpURLConnection con = null;
             BufferedReader reader = null;
 
             try {
                 URL url = new URL(objects[0].toString());
-                String queryStr = objects[1].toString();
                 con = (HttpURLConnection) url.openConnection();
 
                 con.setRequestMethod("POST");
@@ -42,7 +44,7 @@ public class NodePostJSON extends AsyncTask {
                 OutputStream outputStream = con.getOutputStream();
                 BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream));
 
-                writer.write(queryStr);
+                writer.write(jsonObject.toString());
                 writer.flush();
                 writer.close();
 
@@ -82,14 +84,5 @@ public class NodePostJSON extends AsyncTask {
     @Override
     protected void onPostExecute(Object o) {
         super.onPostExecute(o);
-        this.o = o;
-    }
-
-    public Object getO() {
-        return o;
-    }
-
-    public void setO(Object o) {
-        this.o = o;
     }
 }
