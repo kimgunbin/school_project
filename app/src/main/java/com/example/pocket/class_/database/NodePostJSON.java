@@ -16,7 +16,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class NodePostJSON extends AsyncTask {
-    Object o;
 
     @Override
     public Object doInBackground(Object[] objects) {
