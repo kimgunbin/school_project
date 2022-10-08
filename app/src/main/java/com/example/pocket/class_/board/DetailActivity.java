@@ -97,7 +97,7 @@ public class DetailActivity extends AppCompatActivity {
         comment_et = findViewById(R.id.comment_et);
         reg_button = findViewById(R.id.reg_button);
 
-        boardSeq = String.valueOf(pref.getString("seq","0"));
+        boardSeq = String.valueOf(pref.getString("Seq","0"));
         id = String.valueOf(pref.getString("id","0"));
 
 
@@ -107,7 +107,7 @@ public class DetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 total = boardSeq+"/"+id+"/"+comment_et.getText().toString();
-                result = dbHelper.connectServer("http://210.183.87.95:5000/register",total);
+                result = dbHelper.connectServer("http://210.183.87.95:5000/Comments",total);
 
                 Log.d("r",result);
 
