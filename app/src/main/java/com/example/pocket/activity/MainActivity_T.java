@@ -58,16 +58,21 @@ public class MainActivity_T extends AppCompatActivity {
                     case R.id.tab3:
                         pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
                         editor = pref.edit();
-                        String content;
-
-                            content = dbHelper.connectServer("http://210.183.87.95:5000/list2", String.valueOf(pref.getString("scCode", "0")));
-
+                        String content = null;
+                            do{
+                               for(int i = 0 ; i<40;i++){
+                                    content = dbHelper.connectServer("http://210.183.87.95:5000/list2", String.valueOf(pref.getString("scCode", "0")));
+                                }
                                 editor.putString("content", content);
                                 editor.apply();
 
                                 Toast.makeText(MainActivity_T.this, "세번째 탭", Toast.LENGTH_SHORT).show();
                                 getSupportFragmentManager().beginTransaction().replace(
                                         R.id.fl, new Fra_board()).commit();
+                            }while (content==null);
+
+
+
 
                         break;
                     case R.id.tab4:

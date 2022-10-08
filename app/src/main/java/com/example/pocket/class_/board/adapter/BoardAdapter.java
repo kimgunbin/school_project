@@ -2,6 +2,7 @@ package com.example.pocket.class_.board.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -79,16 +80,17 @@ public class BoardAdapter extends BaseAdapter {
 
 
 
-        TextView B_title,B_date;
-       Button btn;
+        TextView B_title,B_date, tvSc;
         B_title = view.findViewById(R.id.B_title);
         B_date = view.findViewById(R.id.B_date);
-        btn = view.findViewById(R.id.button);
-
+        tvSc = view.findViewById(R.id.tvSc);
+        tvSc.setText(data.get(i).getCode());
         B_title.setText(data.get(i).getTitle());
         B_date.setText(data.get(i).getFile());
 
-        btn.setOnClickListener(new View.OnClickListener() {
+        ConstraintLayout c2 = view.findViewById(R.id.c2);
+
+        c2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -98,6 +100,9 @@ public class BoardAdapter extends BaseAdapter {
                 intent.putExtra("Title", data.get(i).getTitle());
                 intent.putExtra("Con",data.get(i).getContext());
                 intent.putExtra("Date",data.get(i).getFile());
+                intent.putExtra("Seq",data.get(i).getSeq());
+                Log.v("댓글1",data.get(i).getSeq());
+                intent.putExtra("code",data.get(i).getCode());
                 view.getContext().startActivity(intent);
             }
         });
