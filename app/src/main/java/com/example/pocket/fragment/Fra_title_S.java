@@ -14,12 +14,17 @@ import androidx.fragment.app.Fragment;
 import com.example.pocket.R;
 import com.example.pocket.activity.LoginActivity;
 import com.example.pocket.class_.database.DbHelper;
+import com.example.pocket.class_.database.NodePostJSON;
 import com.example.pocket.class_.teacher.TeacherAdapter;
 import com.example.pocket.class_.teacher.TeacherVO;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -36,6 +41,7 @@ public class Fra_title_S extends Fragment {
     SharedPreferences pref;
     SharedPreferences.Editor editor;
     byte[] teacherList = new byte[100];
+    JSONArray jsonArray;
 
 
     @Override
@@ -48,18 +54,37 @@ public class Fra_title_S extends Fragment {
         editor = pref.edit();
         String sc = String.valueOf(pref.getString("scCode", "0"));
 
-        data.add(new TeacherVO("선생님1","선생님"));
-        data.add(new TeacherVO("선생님2","선생님"));
-        data.add(new TeacherVO("선생님3","선생님"));
-        data.add(new TeacherVO("선생님4","선생님"));
+        NodePostJSON np = new NodePostJSON();
+        try {
+            jsonArray = new JSONArray(np.execute("http://119.200.31.82:80/select",
+                    "SELECT MB_NAME FROM T_MEMBER WHERE SC_CODE = '고등학교' AND MB_USERTYPE = '0'",
+                    "teacher list").get().toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
+        try {
+            for (int i = 0; i < jsonArray.length(); i++) {
+                data.add(new TeacherVO(jsonArray.getJSONObject(i).getString("MB_NAME").toString()));
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
+//        data.add(new TeacherVO("선생님1","선생님"));
+//        data.add(new TeacherVO("선생님2","선생님"));
+//        data.add(new TeacherVO("선생님3","선생님"));
+//        data.add(new TeacherVO("선생님4","선생님"));
 
 
         DbHelper dbHelper = new DbHelper();
-    while(teacherList==null) {
-        teacherList = dbHelper.connectServerList("http://210.183.87.95:5000/TeacherList", sc);
-    }
+        while (teacherList == null) {
+            teacherList = dbHelper.connectServerList("http://210.183.87.95:5000/TeacherList", sc);
+        }
         Log.d("bu", sc);
 
         TeacherAdapter adapter = new TeacherAdapter(

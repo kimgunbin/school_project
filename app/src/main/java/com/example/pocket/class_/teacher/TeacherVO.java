@@ -26,4 +26,8 @@ public class TeacherVO {
         this.name = name;
         this.context = context;
     }
+
+    public TeacherVO(String name) {
+        this.name = name;
+    }
 }
