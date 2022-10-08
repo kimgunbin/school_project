@@ -16,6 +16,13 @@ import android.widget.Toast;
 
 import com.example.pocket.R;
 import com.example.pocket.class_.database.DbHelper;
+import com.example.pocket.class_.database.NodePostJSON;
+import com.example.pocket.class_.teacher.TeacherVO;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import java.util.concurrent.ExecutionException;
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -27,6 +34,8 @@ public class LoginActivity extends AppCompatActivity {
     SharedPreferences pref;
     SharedPreferences.Editor editor;
     String[] list = {};
+    JSONArray jsonArray;
+    String id,pw,name,scCode,tel,type;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +45,9 @@ public class LoginActivity extends AppCompatActivity {
         edtId = findViewById(R.id.edtId);
         edtPw = findViewById(R.id.edtPw);
         tvJoin = findViewById(R.id.tvJoin);
+
+
+
 
 
 
@@ -54,60 +66,63 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                result = "";
-                if (list != null) {
-                    for (int i = 0; i < list.length; i++) {
-                        list[i] = "";
-                    }
+
+
+                try {
+                    NodePostJSON np = new NodePostJSON();
+                    jsonArray = new JSONArray(np.execute("http://119.200.31.82:80/select",
+                            "SELECT * FROM T_MEMBER WHERE MB_ID = '"+edtId.getText().toString()+"' AND MB_PW = '"+edtPw.getText().toString()+"'",
+                            "login list").get().toString());
+
+                        id = jsonArray.getJSONObject(0).getString("MB_ID").toString();
+                        pw = jsonArray.getJSONObject(0).getString("MB_PW").toString();
+                        name = jsonArray.getJSONObject(0).getString("MB_NAME").toString();
+                        scCode = jsonArray.getJSONObject(0).getString("SC_CODE").toString();
+                        tel = jsonArray.getJSONObject(0).getString("MB_PHONE").toString();
+                        type = jsonArray.getJSONObject(0).getString("MB_USERTYPE").toString();
+
+                        if (type.equals("0")) {
+
+                            saved(id,pw,name,scCode,tel,type);
+                            Intent intent = new Intent(LoginActivity.this, MainActivity_T.class);
+                            startActivity(intent);
+                            finish();
+
+                        }
+                        if (type.equals("1")) {
+                            saved(id,pw,name,scCode,tel,type);
+                            Intent intent = new Intent(LoginActivity.this, MainActivity_S.class);
+                            startActivity(intent);
+                            finish();
+
+
+                        }
+
+
+
+                } catch (JSONException e) {
+                    Toast.makeText(getApplicationContext(), "로그인 실패", Toast.LENGTH_SHORT).show();
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    Toast.makeText(getApplicationContext(), "로그인 실패", Toast.LENGTH_SHORT).show();
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    Toast.makeText(getApplicationContext(), "로그인 실패", Toast.LENGTH_SHORT).show();
+                    e.printStackTrace();
                 }
 
-                String postText = edtId.getText().toString() + "/" + edtPw.getText().toString();
 
 
-                   while(true) {
-                       result = dbHelper.connectServer("http://210.183.87.95:5000/login", postText);
-
-                       Log.v("r", result);
 
 
-                       list = result.split(",");
-
-                       if (result.equals("로그인실패")) {
-                           Toast.makeText(getApplicationContext(), "로그인 실패", Toast.LENGTH_SHORT).show();
-                           break;
-                       } else if (list.length > 2) {
-
-                           Log.v("list", list[6].replace("'", ""));
-                           String Check = list[6].replace("'", "").replace(" ", "");
-                           if (Check.equals("0")) {
-
-                               saved(list);
-                               Intent intent = new Intent(LoginActivity.this, MainActivity_T.class);
-                               startActivity(intent);
-                               finish();
-                               break;
-                           }
-                           if (Check.equals("1")) {
-                               saved(list);
-                               Intent intent = new Intent(LoginActivity.this, MainActivity_S.class);
-                               startActivity(intent);
-                               finish();
-                               break;
-
-                           }
 
 
-                       }
-                   }
+
             }
 
-            private void saved(@NonNull String[] list) {
-                String id = list[1].replace("'","").replace(" ","");
-                String pw = list[2].replace("'","").replace(" ","");
-                String name = list[3].replace("'","").replace(" ","");
-                String scCode = list[4].replace("'","").replace(" ","");
-                String tel = list[5].replace("'","").replace(" ","");
-                String type = list[6].replace("'","").replace(" ","");
+            private void saved(String id ,String pw ,String name
+                    ,String scCode ,String tel ,String type  ) {
+
 
                 pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
                 editor = pref.edit();
