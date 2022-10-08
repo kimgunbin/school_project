@@ -97,8 +97,10 @@ public class Fra_board extends Fragment {
 
         for(int i = 0 ; i< list.length;i+=11) {
             if(i+2<list.length) {
-                data.add(new BoardVO(list[i + 1].replace("'",""), list[i + 2].replace("'","").replace("\\n","")
-                        , list[i+5].replace("datetime.datetime(","")+"년"+list[i+6]+"월"+list[i+7]+"일",list[i].replace("(","").replace("[",""),
+                data.add(new BoardVO(list[i + 1].replace("'",""),
+                        list[i + 2].replace("'","").replace("\\n","")
+                        , list[i+5].replace("datetime.datetime(","")+"년"+list[i+6]+"월"+list[i+7]+"일",
+                        list[i].replace("(","").replace("[",""),
                         list[i+4].replace("'","")));
             }
         }

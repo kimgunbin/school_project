@@ -2,6 +2,7 @@ package com.example.pocket.class_.board.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -100,6 +101,7 @@ public class BoardAdapter extends BaseAdapter {
                 intent.putExtra("Con",data.get(i).getContext());
                 intent.putExtra("Date",data.get(i).getFile());
                 intent.putExtra("Seq",data.get(i).getSeq());
+                Log.v("댓글1",data.get(i).getSeq());
                 intent.putExtra("code",data.get(i).getCode());
                 view.getContext().startActivity(intent);
             }

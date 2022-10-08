@@ -82,7 +82,7 @@ public class DetailActivity extends AppCompatActivity {
         Title = getIntent().getStringExtra("Title");
         Content = getIntent().getStringExtra("Con");
         Date = getIntent().getStringExtra("Date");
-
+        boardSeq = getIntent().getStringExtra("Seq");
 
 // 컴포넌트 초기화
         title_tv = findViewById(R.id.title_tv);
@@ -97,7 +97,7 @@ public class DetailActivity extends AppCompatActivity {
         comment_et = findViewById(R.id.comment_et);
         reg_button = findViewById(R.id.reg_button);
 
-        boardSeq = String.valueOf(pref.getString("Seq","0"));
+        Log.v("댓글",boardSeq);
         id = String.valueOf(pref.getString("id","0"));
 
 
