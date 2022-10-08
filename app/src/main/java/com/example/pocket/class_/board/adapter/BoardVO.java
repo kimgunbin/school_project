@@ -56,6 +56,7 @@ public class BoardVO {
         this.seq = seq;
         this.code = code;
     }
+
 // private (내부 메서드(get/set)를 사용해서 접근 가능)
 
 
