@@ -16,7 +16,15 @@ import androidx.fragment.app.Fragment;
 
 import com.example.pocket.R;
 import com.example.pocket.activity.LoginActivity;
+import com.example.pocket.activity.MainActivity_S;
+import com.example.pocket.activity.MainActivity_T;
 import com.example.pocket.class_.database.DbHelper;
+import com.example.pocket.class_.database.NodePostJSON;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import java.util.concurrent.ExecutionException;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -71,13 +79,15 @@ public class Fra_mypage_T extends Fragment {
     String postText = "";
     String result = "check";
     String id ="";
-    TextView logout, out;
+    TextView logout, out,tvout;
+
+    JSONArray jsonArray;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_mypage, container, false);
         DbHelper dbHelper = new DbHelper();
-
+        tvout = view.findViewById(R.id.tvOut);
 
         pw1 = view.findViewById(R.id.pw1);
         pw2 = view.findViewById(R.id.pw2);
@@ -99,6 +109,26 @@ public class Fra_mypage_T extends Fragment {
         sc.setText(String.valueOf(pref.getString("scCode","0")));
 
         tel.setText(String.valueOf(pref.getString("tel","0")));
+
+
+        tvout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                NodePostJSON np = new NodePostJSON();
+                    np.execute("http://119.200.31.82:80/delete",
+                            "DELETE FROM T_MEMBER WHERE MB_ID = '"+id+"'","A");
+
+
+
+
+
+
+
+
+            }
+        });
 
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
