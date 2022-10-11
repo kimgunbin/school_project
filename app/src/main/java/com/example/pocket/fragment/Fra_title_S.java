@@ -54,11 +54,13 @@ public class Fra_title_S extends Fragment {
         editor = pref.edit();
         String sc = String.valueOf(pref.getString("scCode", "0"));
 
+
         NodePostJSON np = new NodePostJSON();
         try {
             jsonArray = new JSONArray(np.execute("http://119.200.31.82:80/select",
-                    "SELECT MB_NAME FROM T_MEMBER WHERE SC_CODE = '고등학교' AND MB_USERTYPE = '0'",
+                    "SELECT MB_NAME FROM T_MEMBER WHERE SC_CODE = '"+sc+"' AND MB_USERTYPE = '0'",
                     "teacher list").get().toString());
+
         } catch (JSONException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
@@ -69,7 +71,7 @@ public class Fra_title_S extends Fragment {
 
         try {
             for (int i = 0; i < jsonArray.length(); i++) {
-                data.add(new TeacherVO(jsonArray.getJSONObject(i).getString("MB_NAME").toString()));
+                data.add(new TeacherVO(jsonArray.getJSONObject(i).getString("MB_NAME").toString()+" 선생님"));
             }
         } catch (JSONException e) {
             e.printStackTrace();

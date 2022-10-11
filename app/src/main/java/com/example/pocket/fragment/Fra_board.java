@@ -26,8 +26,10 @@ import com.example.pocket.class_.cctv.CctvVO;
 import com.example.pocket.class_.database.DbHelper;
 import com.example.pocket.class_.board.DetailActivity;
 import com.example.pocket.class_.board.RegisterActivity;
+import com.example.pocket.class_.database.NodePostJSON;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -38,6 +40,7 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 import javax.net.ssl.HttpsURLConnection;
 
@@ -75,6 +78,8 @@ public class Fra_board extends Fragment {
     ArrayList<BoardVO> data = new ArrayList<>();
     // 리스트뷰에 사용할 제목 배열
 
+    JSONArray jsonArray;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -88,22 +93,65 @@ public class Fra_board extends Fragment {
 
         DbHelper dbHelper = new DbHelper();
 
+        NodePostJSON np = new NodePostJSON();
+
+        try {
+            jsonArray = new JSONArray(np.execute("http://119.200.31.82:80/select",
+                    "SELECT * FROM T_BOARD ORDER BY ARTICLE_DATE DESC;" ,"board list").get().toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+
+        try {
+            for(int i = 0; i<jsonArray.length(); i++){
+               String res = jsonArray.getJSONObject(i).getString("ARTICLE_DATE").toString();
+               String resa[] = res.split("T");
+                data.add(new BoardVO(jsonArray.getJSONObject(i).getString("ARTICLE_TITLE").toString(),
+                                jsonArray.getJSONObject(i).getString("ARTICLE_CONTENT").toString(),
+                                resa[0].toString(),
+                                jsonArray.getJSONObject(i).getString("BOARD_SEQ").toString(),
+                                jsonArray.getJSONObject(i).getString("SC_CODE").toString()
+                                ));
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+//
+//        try {
+//            for(int i = 0; i<jsonArray.length(); i++){
+//                String res = jsonArray.getJSONObject(i).getString("ARTICLE_DATE").toString();
+//                String resa[] = res.split("T");
+//                data.add(new BoardVO(jsonArray.getJSONObject(i).getString("ARTICLE_TITLE").toString(),
+//                        jsonArray.getJSONObject(i).getString("BOARD_SEQ").toString(),
+//                        jsonArray.getJSONObject(i).getString("SC_CODE").toString(),
+//                        resa[0].toString()
+//                ));
+//            }
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+
 
         result = String.valueOf(pref.getString("content", "0"));
             list = result.split(",");
 
             Log.v("result", list[0]);
         lv = view.findViewById(R.id.lv);
-
-        for(int i = 0 ; i< list.length;i+=11) {
-            if(i+2<list.length) {
-                data.add(new BoardVO(list[i + 1].replace("'",""),
-                        list[i + 2].replace("'","").replace("\\n","")
-                        , list[i+5].replace("datetime.datetime(","")+"년"+list[i+6]+"월"+list[i+7]+"일",
-                        list[i].replace("(","").replace("[",""),
-                        list[i+4].replace("'","")));
-            }
-        }
+//
+//        for(int i = 0 ; i< list.length;i+=11) {
+//            if(i+2<list.length) {
+//                data.add(new BoardVO(list[i + 1].replace("'",""),
+//                        list[i + 2].replace("'","").replace("\\n","")
+//                        , list[i+5].replace("datetime.datetime(","")+"년"+list[i+6]+"월"+list[i+7]+"일",
+//                        list[i].replace("(","").replace("[",""),
+//                        list[i+4].replace("'","")));
+//            }
+//        }
 
         BoardAdapter adapter = new BoardAdapter(
                 getContext().getApplicationContext(),

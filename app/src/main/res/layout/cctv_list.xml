@@ -37,7 +37,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
-        android:text="학교폭력 탐지내용"
+        android:text="학교폭력이 70%이상 감지됐습니다. 즉시 확인 바랍니다!!!"
         app:layout_constraintStart_toStartOf="@+id/tvBtn"
         app:layout_constraintTop_toBottomOf="@+id/tvBtn" />
 
@@ -46,7 +46,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="2022.09.29 13:00"
+        android:text="2022.10.08 15:05"
         android:textAlignment="viewStart"
         app:layout_constraintStart_toStartOf="@+id/tvCctvText"
         app:layout_constraintTop_toBottomOf="@+id/tvCctvText" />
