@@ -48,8 +48,9 @@ public class SignInActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if ( etId.getText().toString().equals("") || etPw1.getText().toString().equals("") ||  etName.getText().toString().equals("") ||
-                        etSchool.getText().toString().equals("") ||  etTel.getText().toString().equals("") || typeS.isChecked()==false || typeT.isChecked()==false ){
-                    Toast.makeText(getApplicationContext(), "모두 입력해주세요.", Toast.LENGTH_SHORT).show();
+                        etSchool.getText().toString().equals("") ||  etTel.getText().toString().equals("") ){
+                    if(typeS.isChecked()==false && typeT.isChecked()==false)
+                        Toast.makeText(getApplicationContext(), "모두 입력해주세요.", Toast.LENGTH_SHORT).show();
                 }
                else if(etPw1.getText().toString().equals(etPw2.getText().toString())) {
                     if(rbTeacher.isChecked()){
