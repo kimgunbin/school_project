@@ -1,11 +1,19 @@
 package com.example.pocket.activity;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -22,6 +30,11 @@ import com.example.pocket.class_.teacher.TeacherVO;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.concurrent.ExecutionException;
 
 
@@ -36,6 +49,16 @@ public class LoginActivity extends AppCompatActivity {
     String[] list = {};
     JSONArray jsonArray;
     String id,pw,name,scCode,tel,type;
+    private Socket client;
+    private DataOutputStream dataOutput;
+    private DataInputStream dataInput;
+    private static String SERVER_IP = "";
+    private static String CONNECT_MSG = "connect";
+    private static String STOP_MSG = "stop";
+
+    private static int BUF_SIZE = 100;
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,18 +106,21 @@ public class LoginActivity extends AppCompatActivity {
                         type = jsonArray.getJSONObject(0).getString("MB_USERTYPE").toString();
 
                         if (type.equals("0")) {
-
+                            Connect connect = new Connect();
+                            connect.execute(CONNECT_MSG);
                             saved(id,pw,name,scCode,tel,type);
                             Intent intent = new Intent(LoginActivity.this, MainActivity_T.class);
                             startActivity(intent);
-                            finish();
+
 
                         }
                         if (type.equals("1")) {
+                            Connect connect = new Connect();
+                            connect.execute(CONNECT_MSG);
                             saved(id,pw,name,scCode,tel,type);
                             Intent intent = new Intent(LoginActivity.this, MainActivity_S.class);
                             startActivity(intent);
-                            finish();
+
 
 
                         }
@@ -162,7 +188,74 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
+    private class Connect extends AsyncTask< String , String,Void > {
+        private String output_message;
+        private String input_message;
 
+        @Override
+        protected Void doInBackground(String... strings) {
+            try {
+                client = new Socket("210.183.87.95", 5000);
+                dataOutput = new DataOutputStream(client.getOutputStream());
+                dataInput = new DataInputStream(client.getInputStream());
+                output_message = strings[0];
+                dataOutput.writeUTF(output_message);
+
+            } catch (UnknownHostException e) {
+                String str = e.getMessage().toString();
+                Log.w("discnt", str + " 1");
+            } catch (IOException e) {
+                String str = e.getMessage().toString();
+                Log.w("discnt", str + " 2");
+            }
+
+            while (true){
+                try {
+                    byte[] buf = new byte[BUF_SIZE];
+                    int read_Byte  = dataInput.read(buf);
+                    input_message = new String(buf, 0, read_Byte);
+                    if (!input_message.equals(STOP_MSG)){
+                        publishProgress(input_message);
+                    }
+                    else{
+                        break;
+                    }
+                    Thread.sleep(2);
+                } catch (IOException | InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            return null;
+        }
+
+        @Override
+        protected void onProgressUpdate(String... params){
+
+
+            createNotification(params[0]);
+
+        }
+    }
+    private void createNotification(String context) {
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "default");
+
+        builder.setSmallIcon(R.mipmap.ic_launcher);
+        builder.setContentTitle("알림");
+        builder.setContentText(context);
+
+
+
+        // 알림 표시
+        NotificationManager notificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            notificationManager.createNotificationChannel(new NotificationChannel("default", "SensorData", NotificationManager.IMPORTANCE_HIGH));
+        }
+
+        // id값은
+        // 정의해야하는 각 알림의 고유한 int값
+        notificationManager.notify(1, builder.build());
+    }
 
 
 }
