@@ -14,7 +14,7 @@ import com.example.pocket.R;
 public class Notification extends AppCompatActivity {
 
 
-    private void createNotification(String Title , String Content) {
+    public void createNotification(String Title, String Content) {
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this,"default");
 
