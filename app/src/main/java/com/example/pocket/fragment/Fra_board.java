@@ -97,7 +97,7 @@ public class Fra_board extends Fragment {
 
         try {
             jsonArray = new JSONArray(np.execute("http://119.200.31.82:80/select",
-                    "SELECT * FROM T_BOARD ORDER BY ARTICLE_DATE DESC;" ,"board list").get().toString());
+                    "SELECT * FROM T_BOARD ORDER BY ARTICLE_DATE DESC" ,"board list").get().toString());
         } catch (JSONException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {

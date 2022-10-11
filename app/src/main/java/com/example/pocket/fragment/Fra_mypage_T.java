@@ -111,24 +111,7 @@ public class Fra_mypage_T extends Fragment {
         tel.setText(String.valueOf(pref.getString("tel","0")));
 
 
-        tvout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-
-                NodePostJSON np = new NodePostJSON();
-                    np.execute("http://119.200.31.82:80/delete",
-                            "DELETE FROM T_MEMBER WHERE MB_ID = '"+id+"'","A");
-
-
-
-
-
-
-
-
-            }
-        });
 
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -166,6 +149,7 @@ public class Fra_mypage_T extends Fragment {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent(getContext().getApplicationContext(),LoginActivity.class);
                 Toast.makeText(getContext(), "로그아웃 성공.", Toast.LENGTH_SHORT).show();
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |Intent.FLAG_ACTIVITY_SINGLE_TOP);
@@ -179,6 +163,9 @@ public class Fra_mypage_T extends Fragment {
         out.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                NodePostJSON np = new NodePostJSON();
+                np.execute("http://119.200.31.82:80/delete",
+                        "DELETE FROM T_MEMBER WHERE MB_ID = '"+id+"'","A");
 
                 Intent intent = new Intent(getContext().getApplicationContext(), LoginActivity.class);
                 Toast.makeText(getContext(), "회원탈퇴 성공", Toast.LENGTH_SHORT).show();
