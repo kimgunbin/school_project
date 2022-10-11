@@ -121,7 +121,7 @@ public class DetailActivity extends AppCompatActivity {
                         resa[0].toString()
                 ));
 
-                System.out.println(data.get(i).getContent());
+
             }
         } catch (JSONException e) {
             e.printStackTrace();
