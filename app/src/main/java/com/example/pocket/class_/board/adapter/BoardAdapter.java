@@ -84,9 +84,10 @@ public class BoardAdapter extends BaseAdapter {
         B_title = view.findViewById(R.id.B_title);
         B_date = view.findViewById(R.id.B_date);
         tvSc = view.findViewById(R.id.tvSc);
+
         tvSc.setText(data.get(i).getCode());
         B_title.setText(data.get(i).getTitle());
-        B_date.setText(data.get(i).getFile());
+        B_date.setText(data.get(i).getDate());
 
         ConstraintLayout c2 = view.findViewById(R.id.c2);
 
@@ -99,7 +100,7 @@ public class BoardAdapter extends BaseAdapter {
 
                 intent.putExtra("Title", data.get(i).getTitle());
                 intent.putExtra("Con",data.get(i).getContext());
-                intent.putExtra("Date",data.get(i).getFile());
+                intent.putExtra("Date",data.get(i).getDate());
                 intent.putExtra("Seq",data.get(i).getSeq());
                 Log.v("댓글1",data.get(i).getSeq());
                 intent.putExtra("code",data.get(i).getCode());

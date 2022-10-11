@@ -7,6 +7,8 @@ public class BoardVO {
     private String file;
     private String seq;
     private String code;
+    private String date;
+
 
     public String getCode() {
         return code;
@@ -48,16 +50,30 @@ public class BoardVO {
         this.seq = seq;
     }
 
+    public String getDate() {
+        return date;
+    }
 
-    public BoardVO(String title, String context, String file,String seq,String code) {
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public BoardVO(String title, String context, String date, String seq, String code) {
         this.title = title;
         this.context = context;
-        this.file = file;
+        this.date = date;
         this.seq = seq;
         this.code = code;
     }
 
-// private (내부 메서드(get/set)를 사용해서 접근 가능)
+//    public BoardVO(String title, String seq, String code, String date) {
+//        this.title = title;
+//        this.seq = seq;
+//        this.code = code;
+//        this.date = date;
+//    }
+
+    // private (내부 메서드(get/set)를 사용해서 접근 가능)
 
 
 
