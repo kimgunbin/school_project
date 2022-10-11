@@ -94,8 +94,8 @@ public class LoginActivity extends AppCompatActivity {
                 try {
                     NodePostJSON np = new NodePostJSON();
                     jsonArray = new JSONArray(np.execute("http://119.200.31.82:80/select",
-                            "SELECT * FROM T_MEMBER WHERE MB_ID = '"+edtId.getText().toString()+"' "
-                                    + "AND MB_PW = '"+edtPw.getText().toString()+"'",
+                            "SELECT * FROM T_MEMBER WHERE MB_ID = '"+edtId.getText().toString()
+                                    + "'AND MB_PW = '"+edtPw.getText().toString()+"'",
                             "login list").get().toString());
 
                         id = jsonArray.getJSONObject(0).getString("MB_ID").toString();
