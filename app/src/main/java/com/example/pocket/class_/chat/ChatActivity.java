@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 
+import com.example.pocket.class_.alarm.Notification;
 import com.example.pocket.class_.chat.builder.ChatAdapter;
 import com.example.pocket.class_.chat.builder.ChatItem;
 import com.example.pocket.class_.chat.builder.ChatType;
@@ -98,6 +99,9 @@ public class ChatActivity extends AppCompatActivity {
                         toDate(data.getSendTime()), ChatType.LEFT_IMAGE));
                 binding.recyclerView.scrollToPosition(adapter.getItemCount() - 1);
             } else {
+                Notification notifity = new Notification();
+                notifity.createNotification("채팅",data.getContent());
+
                 adapter.addItem(new ChatItem(data.getFrom(), data.getContent(),
                         toDate(data.getSendTime()), ChatType.LEFT_MESSAGE));
                 binding.recyclerView.scrollToPosition(adapter.getItemCount() - 1);
