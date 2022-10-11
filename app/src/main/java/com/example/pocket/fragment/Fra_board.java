@@ -74,7 +74,7 @@ public class Fra_board extends Fragment {
 
     SharedPreferences pref;
     SharedPreferences.Editor editor;
-    String [] list;
+    String[] list;
     ArrayList<BoardVO> data = new ArrayList<>();
     // 리스트뷰에 사용할 제목 배열
 
@@ -95,32 +95,32 @@ public class Fra_board extends Fragment {
 
         NodePostJSON np = new NodePostJSON();
 
-        try {
-            jsonArray = new JSONArray(np.execute("http://119.200.31.82:80/select",
-                    "SELECT * FROM T_BOARD ORDER BY ARTICLE_DATE DESC" ,"board list").get().toString());
-        } catch (JSONException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-
-        try {
-            for(int i = 0; i<jsonArray.length(); i++){
-               String res = jsonArray.getJSONObject(i).getString("ARTICLE_DATE").toString();
-               String resa[] = res.split("T");
-                data.add(new BoardVO(jsonArray.getJSONObject(i).getString("ARTICLE_TITLE").toString(),
-                                jsonArray.getJSONObject(i).getString("ARTICLE_CONTENT").toString(),
-                                resa[0].toString(),
-                                jsonArray.getJSONObject(i).getString("BOARD_SEQ").toString(),
-                                jsonArray.getJSONObject(i).getString("SC_CODE").toString()
-                                ));
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+//      try {
+//            jsonArray = new JSONArray(np.execute("http://119.200.31.82:80/select",
+//                    "SELECT * FROM T_BOARD " ,"board list").get().toString());
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        } catch (ExecutionException e) {
+//            e.printStackTrace();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//
+//
+//        try {
+//            for(int i = 0; i<jsonArray.length(); i++){
+//               String res = jsonArray.getJSONObject(i).getString("ARTICLE_DATE").toString();
+//               String resa[] = res.split("T");
+//                data.add(new BoardVO(jsonArray.getJSONObject(i).getString("ARTICLE_TITLE").toString(),
+//                                jsonArray.getJSONObject(i).getString("ARTICLE_CONTENT").toString(),
+//                                resa[0].toString(),
+//                                jsonArray.getJSONObject(i).getString("BOARD_SEQ").toString(),
+//                                jsonArray.getJSONObject(i).getString("SC_CODE").toString()
+//                                ));
+//            }
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
 //
 //        try {
 //            for(int i = 0; i<jsonArray.length(); i++){
@@ -138,29 +138,28 @@ public class Fra_board extends Fragment {
 
 
         result = String.valueOf(pref.getString("content", "0"));
-            list = result.split(",");
+        list = result.split(",");
 
-            Log.v("result", list[0]);
+        Log.v("result", list[0]);
         lv = view.findViewById(R.id.lv);
-//
-//        for(int i = 0 ; i< list.length;i+=11) {
-//            if(i+2<list.length) {
-//                data.add(new BoardVO(list[i + 1].replace("'",""),
-//                        list[i + 2].replace("'","").replace("\\n","")
-//                        , list[i+5].replace("datetime.datetime(","")+"년"+list[i+6]+"월"+list[i+7]+"일",
-//                        list[i].replace("(","").replace("[",""),
-//                        list[i+4].replace("'","")));
-//            }
-//        }
 
-        BoardAdapter adapter = new BoardAdapter(
-                getContext().getApplicationContext(),
-                R.layout.board_list,
-                data);
+        for (int i = 0; i < list.length; i += 11) {
+            if (i + 2 < list.length) {
+                data.add(new BoardVO(list[i + 1].replace("'", ""),
+                        list[i + 2].replace("'", "").replace("\\n", "")
+                        , list[i + 5].replace("datetime.datetime(", "") + "년" + list[i + 6] + "월" + list[i + 7] + "일",
+                        list[i].replace("(", "").replace("[", ""),
+                        list[i + 4].replace("'", "")));
+            }
+        }
+            BoardAdapter adapter = new BoardAdapter(
+                    getContext().getApplicationContext(),
+                    R.layout.board_list,
+                    data);
 
 
-        // 5 ListView에 Adapter적용 시키기
-        lv.setAdapter(adapter);
+            // 5 ListView에 Adapter적용 시키기
+            lv.setAdapter(adapter);
 
 // listView 를 클릭했을 때 이벤트 추가
 //
@@ -183,27 +182,22 @@ public class Fra_board extends Fragment {
         });*/
 
 // 버튼 컴포넌트 초기화
-        reg_button = view.findViewById(R.id.button15);
+            reg_button = view.findViewById(R.id.button15);
 
 // 버튼 이벤트 추가
-        reg_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+            reg_button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
 
 // userid 를 가지고 RegisterActivity 로 이동
-                Intent intent = new Intent(getContext().getApplicationContext(), RegisterActivity.class);
+                    Intent intent = new Intent(getContext().getApplicationContext(), RegisterActivity.class);
 
-                startActivity(intent);
-            }
-        });
+                    startActivity(intent);
+                }
+            });
 
-        return view;
+            return view;
+        }
+
+
     }
-
-
-
-
-
-
-
-}

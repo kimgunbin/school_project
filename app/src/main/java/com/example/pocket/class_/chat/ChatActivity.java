@@ -3,11 +3,19 @@ package com.example.pocket.class_.chat;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 
+import com.example.pocket.activity.LoginActivity;
+import com.example.pocket.activity.MainActivity_S;
+import com.example.pocket.activity.MainActivity_T;
+import com.example.pocket.activity.SignInActivity;
 import com.example.pocket.class_.alarm.Notification;
 import com.example.pocket.class_.chat.builder.ChatAdapter;
 import com.example.pocket.class_.chat.builder.ChatItem;
@@ -36,15 +44,33 @@ public class ChatActivity extends AppCompatActivity {
     private ChatAdapter adapter;
     private Gson gson = new Gson();
     private final int SELECT_IMAGE = 100;
-
+    TextView runtext;
+    SharedPreferences pref;
+    SharedPreferences.Editor editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(com.example.pocket.R.layout.activity_chat);
-
+        runtext.findViewById(R.id.runtext);
         binding = ActivityChatBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        runtext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
+                editor = pref.edit();
 
+                String type = String.valueOf(pref.getString("type","0"));
+                if(type.equals("0")){
+
+                    Intent intent = new Intent(ChatActivity.this, MainActivity_T.class);
+                    startActivity(intent);
+                }else{
+                    Intent intent = new Intent(ChatActivity.this, MainActivity_S.class);
+                    startActivity(intent);
+                }
+            }
+        });
         init();
     }
 
@@ -99,8 +125,8 @@ public class ChatActivity extends AppCompatActivity {
                         toDate(data.getSendTime()), ChatType.LEFT_IMAGE));
                 binding.recyclerView.scrollToPosition(adapter.getItemCount() - 1);
             } else {
-                Notification notifity = new Notification();
-                notifity.createNotification("채팅",data.getContent());
+//                Notification notifity = new Notification();
+//                notifity.createNotification("채팅",data.getContent());
 
                 adapter.addItem(new ChatItem(data.getFrom(), data.getContent(),
                         toDate(data.getSendTime()), ChatType.LEFT_MESSAGE));
