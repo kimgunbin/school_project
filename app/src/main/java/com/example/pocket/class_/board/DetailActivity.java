@@ -1,16 +1,12 @@
 package com.example.pocket.class_.board;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -21,23 +17,16 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.pocket.R;
+import com.example.pocket.class_.board.adapter.CommentAdapter;
 import com.example.pocket.class_.board.adapter.CommentVO;
 import com.example.pocket.class_.database.DbHelper;
+import com.example.pocket.class_.database.NodePostJSON;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
-
-import javax.net.ssl.HttpsURLConnection;
+import java.util.concurrent.ExecutionException;
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -48,12 +37,13 @@ public class DetailActivity extends AppCompatActivity {
     EditText comment_et;
     Button reg_button;
 
-    SharedPreferences pref ;
+    SharedPreferences pref;
     SharedPreferences.Editor editor;
 
     ListView lv;
+    ArrayList<CommentVO> data = new ArrayList<>();
 
-    String total,result,boardSeq,id;
+    String total, result, boardSeq, id;
 
 
     String Title = "";
@@ -62,12 +52,14 @@ public class DetailActivity extends AppCompatActivity {
     String Content = "";
     String Date = "";
     String Code = "";
-    String [] list;
+    String[] list;
 
-    ArrayList<CommentVO> data = new ArrayList<>();
 
     DbHelper dbHelper = new DbHelper();
 
+    JSONArray jsonArray;
+
+    @SuppressLint({"WrongViewCast", "MissingInflatedId"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,30 +85,72 @@ public class DetailActivity extends AppCompatActivity {
         content_tv.setText(Content);
         date_tv.setText(Date);
 
-        comment_layout = findViewById(R.id.comment_layout);
+//        comment_layout = findViewById(R.id.commm);
         comment_et = findViewById(R.id.comment_et);
         reg_button = findViewById(R.id.reg_button);
 
-        Log.v("댓글",boardSeq);
-        id = String.valueOf(pref.getString("id","0"));
+        Log.v("댓글", boardSeq);
+        id = String.valueOf(pref.getString("id", "0"));
+
+        NodePostJSON np = new NodePostJSON();
+        try {
+            jsonArray = new JSONArray(np.execute("http://119.200.31.82:80/select", "SELECT  * FROM T_COMMENT WHERE BOARD_SEQ=" + boardSeq, "comment list").get().toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        /*
+        *     private String  seq;
+                private String id;
+                private String content;
+                private String date;
+        *
+        * */
+
+        try {
+            for (int i = 0; i < jsonArray.length(); i++) {
+                String res = jsonArray.getJSONObject(i).getString("COMMENT_DATE").toString();
+                String resa[] = res.split("T");
+                data.add(new CommentVO(jsonArray.getJSONObject(i).getString("BOARD_SEQ").toString(),
+                        jsonArray.getJSONObject(i).getString("MB_ID").toString(),
+                        jsonArray.getJSONObject(i).getString("COMMENT_CONTENT").toString(),
+                        resa[0].toString()
+                ));
 
 
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        lv = findViewById(R.id.commm);
+
+        CommentAdapter adapter = new CommentAdapter(
+                getApplicationContext(),
+                R.layout.activity_custom_comment,
+                data);
+
+        lv.setAdapter(adapter);
 
 
         reg_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                total = boardSeq+"/"+id+"/"+comment_et.getText().toString();
-                result = dbHelper.connectServer("http://210.183.87.95:5000/Comments",total);
+                total = boardSeq + "/" + id + "/" + comment_et.getText().toString();
+                result = dbHelper.connectServer("http://210.183.87.95:5000/Comments", total);
 
-                Log.d("r",result);
+                Log.d("r", result);
+
 
                 Intent intent = new Intent(DetailActivity.this, DetailActivity.class);
                 Toast.makeText(getApplicationContext(), "댓글 작성 성공", Toast.LENGTH_SHORT).show();
 
                 startActivity(intent);
                 finish();
-
 
 
             }

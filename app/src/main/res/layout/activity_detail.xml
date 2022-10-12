@@ -80,12 +80,10 @@
                 android:text="댓글"
                 />
 
-            <LinearLayout
-                android:id="@+id/comment_layout"
+            <ListView
+                android:id="@+id/commm"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:orientation="vertical"/>
+                android:layout_height="match_parent" />
         </LinearLayout>
     </ScrollView>
 

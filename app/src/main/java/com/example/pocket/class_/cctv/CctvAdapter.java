@@ -99,8 +99,8 @@ public class CctvAdapter extends BaseAdapter {
 
         LinearLayout lieb = view.findViewById(R.id.linB);
 
-         img.setImageResource(R.drawable.al);
-         icon.setImageResource(R.drawable.warning_icon);
+         img.setImageResource(R.drawable.blinde);
+         icon.setImageResource(R.drawable.wa);
         ConstraintLayout.LayoutParams p1 = new ConstraintLayout.LayoutParams(1,1);
         ConstraintLayout.LayoutParams p3 = new ConstraintLayout.LayoutParams( 500,1200);
 
