@@ -3,6 +3,7 @@ package com.example.pocket.fragment;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,31 +36,23 @@ public class Fra_cctv_T extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(com.example.pocket.R.layout.fragment_cctv, container, false);
-
         pref = getContext().getSharedPreferences("pref", Activity.MODE_PRIVATE);
         editor = pref.edit();
-        DbHelper dbHelper = new DbHelper();
 
-        String content2 = null;
 
-            for(int i = 0 ; i<40;i++){
-                content2 = dbHelper.connectServer("http://210.183.87.95:5000/CCTVlist", String.valueOf(pref.getString("scCode", "0")));
-            }
-
-            editor.putString("content2", content2);
-            editor.apply();
 
         result = String.valueOf(pref.getString("content2", "0"));
-        /*
-        list = result.split("/");*/
+        Log.v("값",result);
+        result = result.replace("null","");
 
-        lv = view.findViewById(R.id.lv);
-        /*
+
+        list = result.split("/");
+
         for(int i = 0 ; i<list.length;i++){
             list2 = list[i].split(",");
             data.add(new CctvVO(list2[0],list2[2],list2[1]));
-        }*/
-
+        }
+        lv = view.findViewById(R.id.lv);
         CctvAdapter adapter = new CctvAdapter(
                 getContext().getApplicationContext(),
                 R.layout.cctv_list,

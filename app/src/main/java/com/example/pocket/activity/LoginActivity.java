@@ -47,7 +47,9 @@ public class LoginActivity extends AppCompatActivity {
     SharedPreferences pref;
     SharedPreferences.Editor editor;
     String[] list = {};
-    JSONArray jsonArray;
+    JSONArray jsonArray,jsonArray2;
+    String title,content,file,content2;
+
     String id,pw,name,scCode,tel,type;
     private Socket client;
     private DataOutputStream dataOutput;
@@ -68,6 +70,8 @@ public class LoginActivity extends AppCompatActivity {
         edtId = findViewById(R.id.edtId);
         edtPw = findViewById(R.id.edtPw);
         tvJoin = findViewById(R.id.tvJoin);
+        pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
+        editor = pref.edit();
 
 
 
@@ -104,6 +108,31 @@ public class LoginActivity extends AppCompatActivity {
                         scCode = jsonArray.getJSONObject(0).getString("SC_CODE").toString();
                         tel = jsonArray.getJSONObject(0).getString("MB_PHONE").toString();
                         type = jsonArray.getJSONObject(0).getString("MB_USERTYPE").toString();
+
+
+                    np = new NodePostJSON();
+                    jsonArray = new JSONArray(np.execute("http://119.200.31.82:80/select",
+                            "SELECT a.CC_NAME , b.CC_PATH , b.CCTV_DATE  FROM T_CCTV a LEFT OUTER JOIN T_CCTV_CONTENT b ON a.CC_SEQ = b.CC_SEQ where a.sc_code = '"+scCode+"' AND STATE_YNW = 'N' OR STATE_YNW = 'B'",
+                            "cctv list").get().toString());
+                    title = jsonArray.getJSONObject(0).getString("CC_NAME").toString();
+                    content = jsonArray.getJSONObject(0).getString("CC_PATH").toString();
+                    file = jsonArray.getJSONObject(0).getString("CCTV_DATE").toString();
+                    content2 = title+","+content+","+file;
+                    if(jsonArray.length()>1) {
+                        for (int i = 1; i < jsonArray.length(); i++) {
+                            title = jsonArray.getJSONObject(i).getString("CC_NAME").toString();
+                            content = jsonArray.getJSONObject(i).getString("CC_PATH").toString();
+                            file = jsonArray.getJSONObject(i).getString("CCTV_DATE").toString();
+                            Log.v("title", title);
+                            content2 += "/" + title + "," + content + "," + file;
+                        }
+                    }
+
+                        editor.putString("content2", content2);
+                        editor.apply();
+
+
+
 
                         if (type.equals("0")) {
                             Connect connect = new Connect();
