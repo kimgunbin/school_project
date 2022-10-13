@@ -1,5 +1,7 @@
 package com.example.pocket.fragment;
 
+import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import com.example.pocket.class_.cctv.CctvAdapter;
 import com.example.pocket.class_.cctv.CctvVO;
 import com.example.pocket.R;
+import com.example.pocket.class_.database.DbHelper;
 
 import java.util.ArrayList;
 
@@ -22,16 +25,41 @@ public class Fra_cctv_T extends Fragment {
 
     ArrayList<CctvVO> data = new ArrayList<>();
     ListView lv;
+    String result;
+    String[] list = {};
+    String[] list2 = {};
+    SharedPreferences pref;
+    SharedPreferences.Editor editor;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(com.example.pocket.R.layout.fragment_cctv, container, false);
+
+        pref = getContext().getSharedPreferences("pref", Activity.MODE_PRIVATE);
+        editor = pref.edit();
+        DbHelper dbHelper = new DbHelper();
+
+        String content2 = null;
+
+            for(int i = 0 ; i<40;i++){
+                content2 = dbHelper.connectServer("http://210.183.87.95:5000/CCTVlist", String.valueOf(pref.getString("scCode", "0")));
+            }
+
+            editor.putString("content2", content2);
+            editor.apply();
+
+        result = String.valueOf(pref.getString("content2", "0"));
+        /*
+        list = result.split("/");*/
+
         lv = view.findViewById(R.id.lv);
-        data.add(new CctvVO("교실 1","폭행","1"));
-        data.add(new CctvVO("교실 2","갈취","2"));
-        data.add(new CctvVO("운동장","살해","3"));
-        data.add(new CctvVO("체육관 뒤","사기","4"));
+        /*
+        for(int i = 0 ; i<list.length;i++){
+            list2 = list[i].split(",");
+            data.add(new CctvVO(list2[0],list2[2],list2[1]));
+        }*/
+
         CctvAdapter adapter = new CctvAdapter(
                 getContext().getApplicationContext(),
                 R.layout.cctv_list,

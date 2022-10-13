@@ -195,7 +195,7 @@ public class LoginActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(String... strings) {
             try {
-                client = new Socket("210.183.87.95", 5000);
+                client = new Socket("210.183.87.95", 7000);
                 dataOutput = new DataOutputStream(client.getOutputStream());
                 dataInput = new DataInputStream(client.getInputStream());
                 output_message = strings[0];
