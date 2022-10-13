@@ -59,11 +59,14 @@ public class MainActivity_T extends AppCompatActivity {
                         pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
                         editor = pref.edit();
                         String content = null;
+                        String content2 = null;
                             do{
                                for(int i = 0 ; i<40;i++){
-                                    content = dbHelper.connectServer("http://210.183.87.95:5000/list2", String.valueOf(pref.getString("scCode", "0")));
+                                   content = dbHelper.connectServer("http://210.183.87.95:5000/list2", String.valueOf(pref.getString("scCode", "0")));
+                                   content2 = dbHelper.connectServer("http://210.183.87.95:5000/CCTVlist", String.valueOf(pref.getString("scCode", "0")));
                                 }
                                 editor.putString("content", content);
+                                editor.putString("content2", content2);
                                 editor.apply();
 
                                 Toast.makeText(MainActivity_T.this, "세번째 탭", Toast.LENGTH_SHORT).show();
