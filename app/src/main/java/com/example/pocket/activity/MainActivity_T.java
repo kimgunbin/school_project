@@ -30,7 +30,8 @@ public class MainActivity_T extends AppCompatActivity {
         setContentView(R.layout.activity_main_t);
         bnv = findViewById(R.id.bnv);
         fl = findViewById(R.id.fl);
-
+        pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
+        editor = pref.edit();
 
         // 어플을 처음 실행시켜줄때 첫화면이 Fragment1이 되게하기위해
         getSupportFragmentManager().beginTransaction().replace(
@@ -44,9 +45,10 @@ public class MainActivity_T extends AppCompatActivity {
                 // 내가 선택한 아이탬의 id속성을 가져와서 어떤 메뉴를 선택했는지 판단
                 switch (item.getItemId()){
                     case R.id.tab1:
-                        Toast.makeText(MainActivity_T.this,"첫번째 탭",Toast.LENGTH_SHORT).show();
-                        // 1) fragment가 들어갈 위치 : fl
-                        // 2) 내가 fl에 넣고싶은 fragment의 객체 (new Fragment1)
+
+
+
+                        Toast.makeText(MainActivity_T.this, "첫번째 탭", Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction().replace(
                                 R.id.fl, new Fra_cctv_T()).commit();
                         break;
@@ -56,17 +58,15 @@ public class MainActivity_T extends AppCompatActivity {
                                 R.id.fl, new Fra_chat_T()).commit();
                         break;
                     case R.id.tab3:
-                        pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
-                        editor = pref.edit();
                         String content = null;
-                        String content2 = null;
-                            do{
-                               for(int i = 0 ; i<40;i++){
+
+                        do{
+                               for(int i = 0 ; i<40;i++) {
                                    content = dbHelper.connectServer("http://210.183.87.95:5000/list2", String.valueOf(pref.getString("scCode", "0")));
-                                   content2 = dbHelper.connectServer("http://210.183.87.95:5000/CCTVlist", String.valueOf(pref.getString("scCode", "0")));
-                                }
+
+                               }
                                 editor.putString("content", content);
-                                editor.putString("content2", content2);
+
                                 editor.apply();
 
                                 Toast.makeText(MainActivity_T.this, "세번째 탭", Toast.LENGTH_SHORT).show();
