@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.pocket.class_.board.adapter.BoardVO;
 import com.example.pocket.class_.cctv.CctvAdapter;
 import com.example.pocket.class_.cctv.CctvVO;
 import com.example.pocket.R;
@@ -41,17 +42,29 @@ public class Fra_cctv_T extends Fragment {
 
 
 
-        result = String.valueOf(pref.getString("content2", "0"));
+        result = String.valueOf(pref.getString("contentCctv", "0"));
+
         Log.v("값",result);
-        result = result.replace("null","");
+        list = result.split(",");
 
-
-        list = result.split("/");
-
-        for(int i = 0 ; i<list.length;i++){
-            list2 = list[i].split(",");
-            data.add(new CctvVO(list2[0],list2[2],list2[1]));
+        for (int i = 0; i < list.length; i += 9) {
+            if (i+8< list.length) {
+                data.add(new CctvVO(list[i].replace("'", "").replace("[(","").replace("(",""),
+                        list[i + 1].replace("'", "")
+                        , list[i + 2].replace("datetime.datetime(", "") + "년" + list[i + 3] + "월" + list[i + 4] + "일"+list[i+5]+"시"+list[i+6]+"분",
+                        list[i+8].replace(" ", "").replace("'","").replace(")","")));
+            }
         }
+        Log.v("값1", list[0]);
+
+
+
+
+
+//        for(int i = 0 ; i<list.length;i++){
+//            list2 = list[i].split(",");
+//            data.add(new CctvVO(list2[0],list2[2],list2[1]));
+//        }
         lv = view.findViewById(R.id.lv);
         CctvAdapter adapter = new CctvAdapter(
                 getContext().getApplicationContext(),

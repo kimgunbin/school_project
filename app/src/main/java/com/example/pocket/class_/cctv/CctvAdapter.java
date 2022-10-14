@@ -1,6 +1,7 @@
 package com.example.pocket.class_.cctv;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -83,7 +84,7 @@ public class CctvAdapter extends BaseAdapter {
 
 
 
-        TextView tvBtn;
+        TextView tvBtn, tvCctvText, tvDay;
         Button btnYes, btnWait;
         tvBtn = view.findViewById(R.id.tvBtn);
         btnYes = view.findViewById(R.id.btnYes);
@@ -96,11 +97,24 @@ public class CctvAdapter extends BaseAdapter {
         ImageView img = view.findViewById(R.id.imgCctv);
         ImageView icon = view.findViewById(R.id.imgIcon);
 
+        tvCctvText = view.findViewById(R.id.tvCctvText);
+        tvDay = view.findViewById(R.id.tvDay);
+        String type = data.get(i).getType();
+        if(type.equals("N")){
+            tvCctvText.setText("학교 폭력이 탐지 되었습니다. 즉시 확인 바랍니다!!");
+            icon.setImageResource(R.drawable.warning_icon);
+        }else if(type.equals("B")){
+            tvCctvText.setText("CCTV에 이상상황이 발생했습니다. CCTV를 확인해주세요");
+            icon.setImageResource(R.drawable.wa);
+        }
+
+        tvDay.setText(data.get(i).getDate());
+
+
 
         LinearLayout lieb = view.findViewById(R.id.linB);
 
          img.setImageResource(R.drawable.blinde);
-         icon.setImageResource(R.drawable.wa);
         ConstraintLayout.LayoutParams p1 = new ConstraintLayout.LayoutParams(1,1);
         ConstraintLayout.LayoutParams p3 = new ConstraintLayout.LayoutParams( 500,1200);
 

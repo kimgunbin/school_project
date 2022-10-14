@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.widget.Toast;
@@ -45,13 +46,26 @@ public class MainActivity_T extends AppCompatActivity {
                 // 내가 선택한 아이탬의 id속성을 가져와서 어떤 메뉴를 선택했는지 판단
                 switch (item.getItemId()){
                     case R.id.tab1:
+                        String contentCctv = null;
+
+                        do{
+                            for(int i = 0 ; i<40;i++) {
+                                contentCctv = dbHelper.connectServer("http://210.183.87.95:5000/CCTVlist", String.valueOf(pref.getString("scCode", "0")));
+
+                            }
+                            Log.v("CCTV", contentCctv);
+                            editor.putString("contentCctv", contentCctv);
+
+                            editor.apply();
 
 
-
-                        Toast.makeText(MainActivity_T.this, "첫번째 탭", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity_T.this, "첫번째 탭", Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction().replace(
                                 R.id.fl, new Fra_cctv_T()).commit();
+                        }while (contentCctv==null);
+
                         break;
+
                     case R.id.tab2:
                         Toast.makeText(MainActivity_T.this,"두번째 탭",Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction().replace(
