@@ -107,7 +107,7 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }
 
         public void setItem(ChatItem item) {
-            contentText.setText(item.getContent());
+//            contentText.setText(item.getContent());
         }
     }
 

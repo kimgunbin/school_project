@@ -51,26 +51,26 @@ public class ChatActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(com.example.pocket.R.layout.activity_chat);
-        runtext.findViewById(R.id.runtext);
+//        runtext.findViewById(R.id.runtext);
         binding = ActivityChatBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        runtext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
-                editor = pref.edit();
-
-                String type = String.valueOf(pref.getString("type","0"));
-                if(type.equals("0")){
-
-                    Intent intent = new Intent(ChatActivity.this, MainActivity_T.class);
-                    startActivity(intent);
-                }else{
-                    Intent intent = new Intent(ChatActivity.this, MainActivity_S.class);
-                    startActivity(intent);
-                }
-            }
-        });
+//        runtext.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
+//                editor = pref.edit();
+//
+//                String type = String.valueOf(pref.getString("type","0"));
+//                if(type.equals("0")){
+//
+//                    Intent intent = new Intent(ChatActivity.this, MainActivity_T.class);
+//                    startActivity(intent);
+//                }else{
+//                    Intent intent = new Intent(ChatActivity.this, MainActivity_S.class);
+//                    startActivity(intent);
+//                }
+//            }
+//        });
         init();
     }
 

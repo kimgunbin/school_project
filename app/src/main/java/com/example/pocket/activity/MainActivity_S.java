@@ -3,6 +3,7 @@ package com.example.pocket.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -33,17 +34,31 @@ public class MainActivity_S extends AppCompatActivity {
 
 
 
-
+        Intent intent = getIntent();
+        String user = intent.getStringExtra("teacher_id");
+        String isOn = intent.getStringExtra("caseNum");
 
 
         // ------------ flagment
 
+        if (isOn != null) {
+            if (isOn.equals("1")) {
+                pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
+                editor = pref.edit();
+                editor.putString("user", user);
+                editor.apply();
+                getSupportFragmentManager().beginTransaction().replace(
+                        R.id.fl, new Fra_chat_S()).commit();
+            }
+        } else {
+            getSupportFragmentManager().beginTransaction().replace(
+                    R.id.fl, new Fra_title_S()).commit();
+        }
+
         bnv = findViewById(R.id.bnv);
         fl = findViewById(R.id.fl);
 
-        // 어플을 처음 실행시켜줄때 첫화면이 Fragment1이 되게하기위해
-        getSupportFragmentManager().beginTransaction().replace(
-                R.id.fl, new Fra_title_S()).commit();;
+
 
         bnv.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
