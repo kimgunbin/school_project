@@ -73,7 +73,7 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             ((RightImageViewHolder) viewHolder).setItem(item, context);
         }
     }
-
+// 푸시용 주석
     @Override
     public int getItemCount() {
         return items.size();
