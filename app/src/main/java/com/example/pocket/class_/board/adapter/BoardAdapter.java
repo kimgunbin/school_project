@@ -16,6 +16,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.example.pocket.R;
 import com.example.pocket.activity.MainActivity_T;
 import com.example.pocket.class_.board.DetailActivity;
+import com.example.pocket.class_.database.DbHelper;
 import com.example.pocket.fragment.Fra_board;
 
 import java.util.ArrayList;
@@ -26,7 +27,9 @@ public class BoardAdapter extends BaseAdapter {
     private Context Context;
     private int layout;
     private ArrayList<BoardVO> data;
-    private LayoutInflater inflater; // xml을 눈에 보이게하는 도구
+    private LayoutInflater inflater;
+    DbHelper dbHelper = new DbHelper();
+    String abcd = null;// xml을 눈에 보이게하는 도구
     int cnt = 1;
     // 생성자 (화면정보,탬플릿,데이터)
     public BoardAdapter(Context Context, int layout, ArrayList<BoardVO> data) {
@@ -91,9 +94,12 @@ public class BoardAdapter extends BaseAdapter {
 
         ConstraintLayout c2 = view.findViewById(R.id.c2);
 
+
+
         c2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
 
                 Intent intent = new Intent(view.getContext(), DetailActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -105,6 +111,9 @@ public class BoardAdapter extends BaseAdapter {
                 Log.v("댓글1",data.get(i).getSeq());
                 intent.putExtra("code",data.get(i).getCode());
                 view.getContext().startActivity(intent);
+
+
+
             }
         });
 

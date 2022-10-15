@@ -21,19 +21,14 @@ public class DbHelper {
     byte [] result2 = {};
     public String connectServer(String url, String postText) {
 
-
-        //보낼 주소
         String postUrl = url;
-
         Log.v("s1", result);
-
-        //보낼 값
-
         MediaType mediaType = MediaType.parse("text/plain");
-        //MediaType mediaType = MediaType.parse("text/plain; charset=utf-8");
         RequestBody postBody = RequestBody.create(mediaType, postText);
+        result = postRequest(postUrl, postBody);
 
-           result = postRequest(postUrl, postBody);
+
+
 
         return result;
     }

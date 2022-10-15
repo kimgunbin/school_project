@@ -51,7 +51,8 @@ public class DetailActivity extends AppCompatActivity {
     ListView lv;
     ArrayList<CommentVO> data = new ArrayList<>();
 
-    String total, result, boardSeq, id;
+    String total, result, boardSeq, id,comment;
+
 
 
     String Title = "";
@@ -85,6 +86,7 @@ public class DetailActivity extends AppCompatActivity {
         Content = getIntent().getStringExtra("Con");
         Date = getIntent().getStringExtra("Date");
         boardSeq = getIntent().getStringExtra("Seq");
+
 
 // 컴포넌트 초기화
         title_tv = findViewById(R.id.title_tv);
@@ -120,6 +122,7 @@ public class DetailActivity extends AppCompatActivity {
                 private String date;
         *
         * */
+
 
         try {
             for (int i = 0; i < jsonArray.length(); i++) {
