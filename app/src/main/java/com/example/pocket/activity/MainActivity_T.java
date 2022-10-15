@@ -4,13 +4,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.pocket.R;
+import com.example.pocket.class_.cctv.CctvAdapter;
+import com.example.pocket.class_.cctv.CctvVO;
 import com.example.pocket.class_.database.DbHelper;
 import com.example.pocket.fragment.Fra_cctv_T;
 import com.example.pocket.fragment.Fra_chat_T;
@@ -19,12 +24,22 @@ import com.example.pocket.fragment.Fra_board;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+
 public class MainActivity_T extends AppCompatActivity {
     BottomNavigationView bnv;
     FrameLayout fl;
     SharedPreferences pref;
     SharedPreferences.Editor editor;
     DbHelper dbHelper = new DbHelper();
+    Bitmap bitmap;
+    CctvVO data;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +52,10 @@ public class MainActivity_T extends AppCompatActivity {
         // 어플을 처음 실행시켜줄때 첫화면이 Fragment1이 되게하기위해
         getSupportFragmentManager().beginTransaction().replace(
                 R.id.fl, new Fra_cctv_T()).commit();
+
+
+
+
 
 
         bnv.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
