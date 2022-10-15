@@ -132,7 +132,6 @@ public class CctvAdapter extends BaseAdapter {
 
         tvDay.setText(data.get(i).getDate());
 
-        Log.v("타입",data.get(i).getFile());
 
         Thread uThread = new Thread() {
             @Override
@@ -144,6 +143,13 @@ public class CctvAdapter extends BaseAdapter {
                     }else if (type.equals("B")){
                         url = new URL("http://210.183.87.95:5000/static/blind/" + data.get(i).getFile());
                     }
+                     else if(type.equals("Y")){
+                        url = new URL("http://210.183.87.95:5000/static/123.png");
+                    }else{
+                        url = new URL("http://210.183.87.95:5000/static/123.png");
+                    }
+
+                     Log.v("주소", String.valueOf(url));
 
                     // 이미지 URL 경로
 
@@ -186,7 +192,6 @@ public class CctvAdapter extends BaseAdapter {
 
         LinearLayout lieb = view.findViewById(R.id.linB);
 
-//         img.setImageResource(R.drawable.blinde);
         ConstraintLayout.LayoutParams p1 = new ConstraintLayout.LayoutParams(1, 1);
         ConstraintLayout.LayoutParams p3 = new ConstraintLayout.LayoutParams(500, 1200);
 
@@ -197,11 +202,9 @@ public class CctvAdapter extends BaseAdapter {
                 Toast.makeText(view.getContext(), "확인", Toast.LENGTH_SHORT).show();
 
 
-           //dbHelper.connectServer("http://210.183.87.95:5000/UpdateY", data.get(i).getFile());
-
-
-
-
+         dbHelper.connectServer("http://210.183.87.95:5000/UpdateY", data.get(i).getFile());
+           Intent intent = new Intent(view.getContext(), MainActivity_T.class);
+          view.getContext().startActivity(intent);
 
 
 
@@ -213,6 +216,8 @@ public class CctvAdapter extends BaseAdapter {
             @Override
             public void onClick(View view) {
                 Toast.makeText(view.getContext(), "보류", Toast.LENGTH_SHORT).show();
+
+             dbHelper.connectServer("http://210.183.87.95:5000/UpdateW", data.get(i).getFile());
 
             }
         });
