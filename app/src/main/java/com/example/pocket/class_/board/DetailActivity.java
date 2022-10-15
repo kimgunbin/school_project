@@ -86,7 +86,7 @@ public class DetailActivity extends AppCompatActivity {
         Content = getIntent().getStringExtra("Con");
         Date = getIntent().getStringExtra("Date");
         boardSeq = getIntent().getStringExtra("Seq");
-        comment = getIntent().getStringExtra("comment");
+
 
 // 컴포넌트 초기화
         title_tv = findViewById(R.id.title_tv);
@@ -122,7 +122,7 @@ public class DetailActivity extends AppCompatActivity {
                 private String date;
         *
         * */
-        Log.v("댓글",comment);
+
 
         try {
             for (int i = 0; i < jsonArray.length(); i++) {
