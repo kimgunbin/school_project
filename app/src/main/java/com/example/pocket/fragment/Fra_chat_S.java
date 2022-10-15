@@ -38,6 +38,7 @@ import java.net.URISyntaxException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 
 import io.socket.client.IO;
 import io.socket.client.Socket;
@@ -78,14 +79,25 @@ public class Fra_chat_S extends Fragment {
         sendBtn = rootView.findViewById(R.id.send_btn);
         contentEdit = rootView.findViewById(R.id.content_edit);
 
+        Random rd = new Random();
 
+        String[] front = {"멋진 ", "귀여운 ", "깜찍한 ", "힘찬 ", "웃고 있는 ", "흐뭇한 ", "만족스러운 "};
+        String[] end = {"총총이", "만두", "찐빵", "라이더", "산도", "메디", "크라운", "제로", "예감",
+                "누텔라", "무쵸", "쿠크다스", "곰", "뉴요커", "식신", "소세지", "짬뽕", "짜장면", "삼겹살",
+                "하우스", "수면", "꿈", "기사", "궁수", "도적", "힐러", "농민", "사무라이", "모험가", "닌자",
+                "화랑", "조조", "유비", "관우", "장비", "원시인", "공룡", "침팬치", "효소", "생명", "대장"};
+
+        int f_num = rd.nextInt(front.length);
+        int e_num = rd.nextInt(end.length);
+
+        String nickname = front[f_num] + end[e_num];
 
 
 
         pref = getActivity().getSharedPreferences("pref", Activity.MODE_PRIVATE);
         editor = pref.edit();
         room = String.valueOf(pref.getString("user", "0"));
-        user = String.valueOf(pref.getString("name", "0"));
+        user = nickname;
 
         contentEdit.setHint(room + "에게 메시지를 입력하세요.");
 
