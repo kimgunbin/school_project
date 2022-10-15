@@ -104,7 +104,7 @@ public class CctvAdapter extends BaseAdapter {
 
 
         TextView tvBtn, tvCctvText, tvDay;
-        Button btnYes, btnWait, btnBox;
+        Button btnYes, btnWait;
         tvBtn = view.findViewById(R.id.tvBtn);
         btnYes = view.findViewById(R.id.btnYes);
         btnWait = view.findViewById(R.id.btnWait);
@@ -149,7 +149,6 @@ public class CctvAdapter extends BaseAdapter {
                         url = new URL("http://210.183.87.95:5000/static/123.png");
                     }
 
-                     Log.v("주소", String.valueOf(url));
 
                     // 이미지 URL 경로
 
