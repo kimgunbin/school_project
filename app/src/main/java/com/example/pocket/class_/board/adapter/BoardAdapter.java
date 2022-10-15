@@ -16,6 +16,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.example.pocket.R;
 import com.example.pocket.activity.MainActivity_T;
 import com.example.pocket.class_.board.DetailActivity;
+import com.example.pocket.class_.database.DbHelper;
 import com.example.pocket.fragment.Fra_board;
 
 import java.util.ArrayList;
@@ -97,7 +98,15 @@ public class BoardAdapter extends BaseAdapter {
 
                 Intent intent = new Intent(view.getContext(), DetailActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                DbHelper dbHelper = new DbHelper();
+                String abcd = null;
+                do{
+                    for(int i = 0 ; i<40 ; i++){
+                        abcd = dbHelper.connectServer("http://210.183.87.95:5000/Commentslist1",data.get(i).getSeq());
+                    }
 
+                }while (abcd!=null);
+                intent.putExtra("comment", abcd);
                 intent.putExtra("Title", data.get(i).getTitle());
                 intent.putExtra("Con",data.get(i).getContext());
                 intent.putExtra("Date",data.get(i).getDate());
@@ -105,6 +114,9 @@ public class BoardAdapter extends BaseAdapter {
                 Log.v("댓글1",data.get(i).getSeq());
                 intent.putExtra("code",data.get(i).getCode());
                 view.getContext().startActivity(intent);
+
+
+
             }
         });
 
