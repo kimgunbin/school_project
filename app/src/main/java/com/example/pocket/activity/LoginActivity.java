@@ -109,7 +109,7 @@ public class LoginActivity extends AppCompatActivity {
                         tel = jsonArray.getJSONObject(0).getString("MB_PHONE").toString();
                         type = jsonArray.getJSONObject(0).getString("MB_USERTYPE").toString();
 
-
+/*
                     np = new NodePostJSON();
                     jsonArray = new JSONArray(np.execute("http://119.200.31.82:80/select",
                             "SELECT a.CC_NAME , b.CC_PATH , b.CCTV_DATE  FROM T_CCTV a LEFT OUTER JOIN T_CCTV_CONTENT b ON a.CC_SEQ = b.CC_SEQ where a.sc_code = '"+scCode+"' AND STATE_YNW = 'N' OR STATE_YNW = 'B'",
@@ -127,7 +127,7 @@ public class LoginActivity extends AppCompatActivity {
                             content2 += "/" + title + "," + content + "," + file;
                         }
                     }
-
+*/
                         editor.putString("content2", content2);
                         editor.apply();
 

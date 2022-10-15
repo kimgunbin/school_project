@@ -103,7 +103,7 @@ public class DetailActivity extends AppCompatActivity {
 
         Log.v("댓글", boardSeq);
         id = String.valueOf(pref.getString("id", "0"));
-/*
+
         NodePostJSON np = new NodePostJSON();
         try {
             jsonArray = new JSONArray(np.execute("http://119.200.31.82:80/select", "SELECT  * FROM T_COMMENT WHERE BOARD_SEQ=" + boardSeq, "comment list").get().toString());
@@ -113,7 +113,7 @@ public class DetailActivity extends AppCompatActivity {
             e.printStackTrace();
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }*/
+        }
 
         /*
         *     private String  seq;
@@ -123,7 +123,7 @@ public class DetailActivity extends AppCompatActivity {
         *
         * */
         Log.v("댓글",comment);
-/*
+
         try {
             for (int i = 0; i < jsonArray.length(); i++) {
                 String res = jsonArray.getJSONObject(i).getString("COMMENT_DATE").toString();
@@ -139,7 +139,7 @@ public class DetailActivity extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-*/
+
         lv = findViewById(R.id.commm);
 
         CommentAdapter adapter = new CommentAdapter(

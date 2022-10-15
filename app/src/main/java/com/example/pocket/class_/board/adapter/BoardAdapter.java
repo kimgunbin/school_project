@@ -27,7 +27,9 @@ public class BoardAdapter extends BaseAdapter {
     private Context Context;
     private int layout;
     private ArrayList<BoardVO> data;
-    private LayoutInflater inflater; // xml을 눈에 보이게하는 도구
+    private LayoutInflater inflater;
+    DbHelper dbHelper = new DbHelper();
+    String abcd = null;// xml을 눈에 보이게하는 도구
     int cnt = 1;
     // 생성자 (화면정보,탬플릿,데이터)
     public BoardAdapter(Context Context, int layout, ArrayList<BoardVO> data) {
@@ -92,21 +94,16 @@ public class BoardAdapter extends BaseAdapter {
 
         ConstraintLayout c2 = view.findViewById(R.id.c2);
 
+
+
         c2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+
                 Intent intent = new Intent(view.getContext(), DetailActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                DbHelper dbHelper = new DbHelper();
-                String abcd = null;
-                do{
-                    for(int i = 0 ; i<40 ; i++){
-                        abcd = dbHelper.connectServer("http://210.183.87.95:5000/Commentslist1",data.get(i).getSeq());
-                    }
 
-                }while (abcd!=null);
-                intent.putExtra("comment", abcd);
                 intent.putExtra("Title", data.get(i).getTitle());
                 intent.putExtra("Con",data.get(i).getContext());
                 intent.putExtra("Date",data.get(i).getDate());
