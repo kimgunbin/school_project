@@ -34,6 +34,9 @@ public class Fra_cctv_T extends Fragment {
     String[] list2 = {};
     SharedPreferences pref;
     SharedPreferences.Editor editor;
+
+    DbHelper dbHelper = new DbHelper();
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -82,13 +85,13 @@ public class Fra_cctv_T extends Fragment {
 
 
 
-
+     /*
         tvCctv1 = view.findViewById(R.id.tvCctv1);
         tvCctv2 = view.findViewById(R.id.tvCctv2);
         btnBox = view.findViewById(R.id.btnBox);
 
 
-        btnBox.setOnClickListener(new View.OnClickListener() {
+            btnBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -101,11 +104,14 @@ public class Fra_cctv_T extends Fragment {
                     tvCctv1.setVisibility(View.VISIBLE);
                     tvCctv2.setVisibility(View.INVISIBLE);
                     btnBox.setText("보관함");
+                    dbHelper.connectServer("http://210.183.87.95:5000/CCTVlistW", String.valueOf(pref.getString("scCode","0")));
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(
+                            R.id.fl, new Fra_cctv_T()).commit();
 
                 }
 
             }
-        });
+        });  */
 
 
 

@@ -41,12 +41,12 @@ public class CctvAdapter extends BaseAdapter {
     private int layout;
     private ArrayList<CctvVO> data;
     private LayoutInflater inflater; // xml을 눈에 보이게하는 도구
-    SharedPreferences pref;
-    SharedPreferences.Editor editor;
     int cnt = 1;
 
     private Bitmap bitmap;
 
+    SharedPreferences pref;
+    SharedPreferences.Editor editor;
     DbHelper dbHelper = new DbHelper();
     URL url;
 
@@ -104,7 +104,7 @@ public class CctvAdapter extends BaseAdapter {
 
 
         TextView tvBtn, tvCctvText, tvDay;
-        Button btnYes, btnWait;
+        Button btnYes, btnWait, btnBox;
         tvBtn = view.findViewById(R.id.tvBtn);
         btnYes = view.findViewById(R.id.btnYes);
         btnWait = view.findViewById(R.id.btnWait);
@@ -203,8 +203,8 @@ public class CctvAdapter extends BaseAdapter {
 
 
          dbHelper.connectServer("http://210.183.87.95:5000/UpdateY", data.get(i).getFile());
-           Intent intent = new Intent(view.getContext(), MainActivity_T.class);
-          view.getContext().startActivity(intent);
+   /*        Intent intent = new Intent(view.getContext(), MainActivity_T.class);
+          view.getContext().startActivity(intent); */
 
 
 
@@ -221,7 +221,15 @@ public class CctvAdapter extends BaseAdapter {
 
             }
         });
-
+        /*
+        btnBox = view.findViewById(R.id.btnBox);
+        btnBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dbHelper.connectServer("http://210.183.87.95:5000/CCTVlistW", String.valueOf(pref.getString("scCode","0")));
+            }
+        });
+*/
 
         // inflate가 된 view를 리턴 -> ListView에 적재
         return view;
