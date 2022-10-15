@@ -135,8 +135,10 @@ public class LoginActivity extends AppCompatActivity {
 
 
                         if (type.equals("0")) {
-                            Connect connect = new Connect();
+                           Connect connect = new Connect();
                             connect.execute(CONNECT_MSG);
+
+
 
                             saved(id,pw,name,scCode,tel,type);
                             Intent intent = new Intent(LoginActivity.this, MainActivity_T.class);

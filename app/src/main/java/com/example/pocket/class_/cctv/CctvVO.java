@@ -50,7 +50,6 @@ public class CctvVO {
         this.file = file;
     }
 
-
     public CctvVO(String title, String context, String file) {
         this.title = title;
         this.context = context;

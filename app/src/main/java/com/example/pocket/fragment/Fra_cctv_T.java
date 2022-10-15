@@ -1,6 +1,7 @@
 package com.example.pocket.fragment;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,6 +19,7 @@ import com.example.pocket.class_.cctv.CctvAdapter;
 import com.example.pocket.class_.cctv.CctvVO;
 import com.example.pocket.R;
 import com.example.pocket.class_.database.DbHelper;
+import com.example.pocket.imgtest.ImgActivity;
 
 import java.util.ArrayList;
 
@@ -49,8 +51,8 @@ public class Fra_cctv_T extends Fragment {
 
         for (int i = 0; i < list.length; i += 9) {
             if (i+8< list.length) {
-                data.add(new CctvVO(list[i].replace("'", "").replace("[(","").replace("(",""),
-                        list[i + 1].replace("'", "")
+                data.add(new CctvVO(list[i].replace("'", "").replace("[(","").replace("(","").replace(" ",""),
+                        list[i + 1].replace("'", "").replace(" ","")
                         , list[i + 2].replace("datetime.datetime(", "") + "년" + list[i + 3] + "월" + list[i + 4] + "일"+list[i+5]+"시"+list[i+6]+"분",
                         list[i+8].replace(" ", "").replace("'","").replace(")","")));
             }
@@ -61,11 +63,14 @@ public class Fra_cctv_T extends Fragment {
 
 
 
+
+
 //        for(int i = 0 ; i<list.length;i++){
 //            list2 = list[i].split(",");
 //            data.add(new CctvVO(list2[0],list2[2],list2[1]));
 //        }
         lv = view.findViewById(R.id.lv);
+
         CctvAdapter adapter = new CctvAdapter(
                 getContext().getApplicationContext(),
                 R.layout.cctv_list,
@@ -73,6 +78,9 @@ public class Fra_cctv_T extends Fragment {
 
         TextView tvCctv1, tvCctv2;
         Button btnBox;
+
+
+
 
 
         tvCctv1 = view.findViewById(R.id.tvCctv1);
@@ -88,6 +96,7 @@ public class Fra_cctv_T extends Fragment {
                     tvCctv1.setVisibility(View.INVISIBLE);
                     tvCctv2.setVisibility(View.VISIBLE);
                     btnBox.setText("조회");
+
                 }else {
                     tvCctv1.setVisibility(View.VISIBLE);
                     tvCctv2.setVisibility(View.INVISIBLE);
