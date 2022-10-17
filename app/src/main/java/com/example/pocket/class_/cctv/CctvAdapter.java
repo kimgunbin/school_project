@@ -104,10 +104,11 @@ public class CctvAdapter extends BaseAdapter {
 
 
         TextView tvBtn, tvCctvText, tvDay;
-        Button btnYes, btnWait;
+        Button btnYes, btnWait, btnBox;
         tvBtn = view.findViewById(R.id.tvBtn);
         btnYes = view.findViewById(R.id.btnYes);
         btnWait = view.findViewById(R.id.btnWait);
+        btnBox = view.findViewById(R.id.btnBox);
 
 
         tvBtn.setText(data.get(i).getTitle());
@@ -221,7 +222,6 @@ public class CctvAdapter extends BaseAdapter {
             }
         });
         /*
-        btnBox = view.findViewById(R.id.btnBox);
         btnBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

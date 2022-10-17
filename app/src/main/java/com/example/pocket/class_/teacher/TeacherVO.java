@@ -4,6 +4,7 @@ public class TeacherVO {
 
     private String name;
     private String context;
+    private int teacherIcon;
 
 
     public String getName() {
@@ -29,5 +30,18 @@ public class TeacherVO {
 
     public TeacherVO(String name) {
         this.name = name;
+    }
+
+    public TeacherVO(String name, int teacherIcon) {
+        this.name = name;
+        this.teacherIcon = teacherIcon;
+    }
+
+    public int getTeacherIcon() {
+        return teacherIcon;
+    }
+
+    public void setTeacherIcon(int teacherIcon) {
+        this.teacherIcon = teacherIcon;
     }
 }

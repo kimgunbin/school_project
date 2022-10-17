@@ -62,7 +62,7 @@ public class TeacherAdapter extends BaseAdapter {
         ConstraintLayout cl = view.findViewById(R.id.clTea);
         TextView tvBtn1 = view.findViewById(R.id.tvBtn1);
         tvBtn1.setText(data.get(i).getName());
-        imgTeacher.setImageResource(R.drawable.people);
+        imgTeacher.setImageResource(data.get(i).getTeacherIcon());
 
         cl.setOnClickListener(new View.OnClickListener() {
             @Override

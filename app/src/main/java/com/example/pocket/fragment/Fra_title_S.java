@@ -42,6 +42,8 @@ public class Fra_title_S extends Fragment {
     SharedPreferences.Editor editor;
     byte[] teacherList = new byte[100];
     JSONArray jsonArray;
+    int[] teacherIcon = {R.drawable.teacher_munghoon, R.drawable.teacher_soohuyn, R.drawable.teacher_yeho,
+    R.drawable.teacher_yeejin};
 
 
     @Override
@@ -71,7 +73,8 @@ public class Fra_title_S extends Fragment {
 
         try {
             for (int i = 0; i < jsonArray.length(); i++) {
-                data.add(new TeacherVO(jsonArray.getJSONObject(i).getString("MB_NAME").toString()+" 선생님"));
+                data.add(new TeacherVO(jsonArray.getJSONObject(i).getString("MB_NAME").toString()+" 선생님",
+                        teacherIcon[i]));
             }
         } catch (JSONException e) {
             e.printStackTrace();

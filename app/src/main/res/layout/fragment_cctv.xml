@@ -52,17 +52,16 @@
 
     <Button
         android:id="@+id/btnBox"
-        android:layout_width="385dp"
+        android:layout_width="0dp"
         android:layout_height="48dp"
         android:backgroundTint="#8A8FA8"
         android:insetTop="0dp"
         android:insetBottom="0dp"
         android:text="보관함"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
 

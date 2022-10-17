@@ -1,9 +1,11 @@
 package com.example.pocket.fragment;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,20 +14,14 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import androidx.fragment.app.Fragment;
-
-import com.example.pocket.class_.board.adapter.BoardVO;
+import com.example.pocket.R;
 import com.example.pocket.class_.cctv.CctvAdapter;
 import com.example.pocket.class_.cctv.CctvVO;
-import com.example.pocket.R;
 import com.example.pocket.class_.database.DbHelper;
-import com.example.pocket.imgtest.ImgActivity;
 
 import java.util.ArrayList;
 
-
-public class Fra_cctv_T extends Fragment {
-
+public class Fra_cctv_box extends Fragment {
 
     ArrayList<CctvVO> data = new ArrayList<>();
     ListView lv;
@@ -37,15 +33,16 @@ public class Fra_cctv_T extends Fragment {
 
     DbHelper dbHelper = new DbHelper();
 
+
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         View view = inflater.inflate(com.example.pocket.R.layout.fragment_cctv, container, false);
         pref = getContext().getSharedPreferences("pref", Activity.MODE_PRIVATE);
         editor = pref.edit();
-
-
 
         result = String.valueOf(pref.getString("contentCctv", "0"));
 
@@ -91,7 +88,7 @@ public class Fra_cctv_T extends Fragment {
         btnBox = view.findViewById(R.id.btnBox);
 
 
-            btnBox.setOnClickListener(new View.OnClickListener() {
+        btnBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
