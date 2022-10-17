@@ -141,6 +141,7 @@ public class CctvAdapter extends BaseAdapter {
 
                     if (type.equals("N")){
                         url = new URL("http://210.183.87.95:5000/static/violence/" + data.get(i).getFile());
+                        Log.v("사진 이미지 경로", data.get(i).getFile());
                     }else if (type.equals("B")){
                         url = new URL("http://210.183.87.95:5000/static/blind/" + data.get(i).getFile());
                     }
@@ -196,15 +197,14 @@ public class CctvAdapter extends BaseAdapter {
         ConstraintLayout.LayoutParams p3 = new ConstraintLayout.LayoutParams(500, 1200);
 
 
-        btnYes.setOnClickListener(new View.OnClickListener() {
+      /*    btnYes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext(), "확인", Toast.LENGTH_SHORT).show();
 
 
          dbHelper.connectServer("http://210.183.87.95:5000/UpdateY", data.get(i).getFile());
-   /*        Intent intent = new Intent(view.getContext(), MainActivity_T.class);
-          view.getContext().startActivity(intent); */
+         Intent intent = new Intent(view.getContext(), MainActivity_T.class);
+          view.getContext().startActivity(intent);
 
 
 
@@ -215,13 +215,12 @@ public class CctvAdapter extends BaseAdapter {
         btnWait.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext(), "보류", Toast.LENGTH_SHORT).show();
 
              dbHelper.connectServer("http://210.183.87.95:5000/UpdateW", data.get(i).getFile());
 
             }
         });
-        /*
+
         btnBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

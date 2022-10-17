@@ -67,14 +67,12 @@ public class MainActivity_S extends AppCompatActivity {
                 // 내가 선택한 아이탬의 id속성을 가져와서 어떤 메뉴를 선택했는지 판단
                 switch (item.getItemId()){
                     case R.id.tab1:
-                        Toast.makeText(MainActivity_S.this,"첫번째 탭",Toast.LENGTH_SHORT).show();
                         // 1) fragment가 들어갈 위치 : fl
                         // 2) 내가 fl에 넣고싶은 fragment의 객체 (new Fragment1)
                         getSupportFragmentManager().beginTransaction().replace(
                                 R.id.fl, new Fra_title_S()).commit();
                         break;
                     case R.id.tab2:
-                        Toast.makeText(MainActivity_S.this,"두번째 탭",Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction().replace(
                                 R.id.fl, new Fra_chat_S()).commit();
                         break;
@@ -89,7 +87,6 @@ public class MainActivity_S extends AppCompatActivity {
                             editor.putString("content", content);
                             editor.apply();
 
-                            Toast.makeText(MainActivity_S.this, "세번째 탭", Toast.LENGTH_SHORT).show();
                             getSupportFragmentManager().beginTransaction().replace(
                                     R.id.fl, new Fra_board()).commit();
                         }while (content==null);
@@ -98,7 +95,6 @@ public class MainActivity_S extends AppCompatActivity {
 
                         break;
                     case R.id.tab4:
-                        Toast.makeText(MainActivity_S.this,"네번째 탭",Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction().replace(
                                 R.id.fl, new Fra_mypage_T()).commit();
                         break;

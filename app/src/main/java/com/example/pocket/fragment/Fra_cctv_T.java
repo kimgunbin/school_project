@@ -60,7 +60,6 @@ public class Fra_cctv_T extends Fragment {
                         list[i+8].replace(" ", "").replace("'","").replace(")","")));
             }
         }
-        Log.v("값1", list[0]);
 
 
 
@@ -90,7 +89,7 @@ public class Fra_cctv_T extends Fragment {
         tvCctv2 = view.findViewById(R.id.tvCctv2);
         btnBox = view.findViewById(R.id.btnBox);
 
-
+/*
             btnBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -113,7 +112,9 @@ public class Fra_cctv_T extends Fragment {
                 }
 
             }
-        });
+        }
+        );
+ */
 
 
 

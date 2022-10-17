@@ -50,8 +50,6 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View view) {
                 total = title_et.getText().toString()+"/"+content_et.getText().toString()+"/"+id+"/"+sc;
                 result = dbHelper.connectServer("http://210.183.87.95:5000/register",total);
-                Log.v("r", result);
-                Toast.makeText(getApplicationContext(), "게시글 생성 성공", Toast.LENGTH_SHORT).show();
                 if(type.equals("0")){
                     Intent intent = new Intent(RegisterActivity.this, MainActivity_T.class);
                     startActivity(intent);

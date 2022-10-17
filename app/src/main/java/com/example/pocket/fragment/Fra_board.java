@@ -140,7 +140,6 @@ public class Fra_board extends Fragment {
         result = String.valueOf(pref.getString("content", "0"));
         list = result.split(",");
 
-        Log.v("result", list[0]);
         lv = view.findViewById(R.id.lv);
 
         for (int i = 0; i < list.length; i += 11) {

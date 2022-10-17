@@ -39,7 +39,7 @@
 
     <Button
         android:id="@+id/button15"
-        android:layout_width="385dp"
+        android:layout_width="0dp"
         android:layout_height="48dp"
         android:backgroundTint="#8A8FA8"
         android:insetTop="0dp"

@@ -101,7 +101,6 @@ public class DetailActivity extends AppCompatActivity {
         comment_et = findViewById(R.id.comment_et);
         reg_button = findViewById(R.id.reg_button);
 
-        Log.v("댓글", boardSeq);
         id = String.valueOf(pref.getString("id", "0"));
 
         NodePostJSON np = new NodePostJSON();
@@ -202,7 +201,6 @@ public class DetailActivity extends AppCompatActivity {
 
 
                 Intent intent = new Intent(DetailActivity.this, DetailActivity.class);
-                Toast.makeText(getApplicationContext(), "댓글 작성 성공", Toast.LENGTH_SHORT).show();
 
                 startActivity(intent);
                 finish();

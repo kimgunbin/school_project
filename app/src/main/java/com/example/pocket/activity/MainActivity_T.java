@@ -78,7 +78,6 @@ public class MainActivity_T extends AppCompatActivity {
                             editor.apply();
 
 
-                            Toast.makeText(MainActivity_T.this, "첫번째 탭", Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction().replace(
                                 R.id.fl, new Fra_cctv_T()).commit();
                         }while (contentCctv==null);
@@ -86,7 +85,6 @@ public class MainActivity_T extends AppCompatActivity {
                         break;
 
                     case R.id.tab2:
-                        Toast.makeText(MainActivity_T.this,"두번째 탭",Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction().replace(
                                 R.id.fl, new Fra_chat_T()).commit();
                         break;
@@ -102,7 +100,6 @@ public class MainActivity_T extends AppCompatActivity {
 
                                 editor.apply();
 
-                                Toast.makeText(MainActivity_T.this, "세번째 탭", Toast.LENGTH_SHORT).show();
                                 getSupportFragmentManager().beginTransaction().replace(
                                         R.id.fl, new Fra_board()).commit();
                             }while (content==null);
@@ -112,7 +109,6 @@ public class MainActivity_T extends AppCompatActivity {
 
                         break;
                     case R.id.tab4:
-                        Toast.makeText(MainActivity_T.this,"네번째 탭",Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction().replace(
                                 R.id.fl, new Fra_mypage_T()).commit();
                         break;
